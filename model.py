@@ -38,8 +38,6 @@ class Encoder(nn.Module):
         # self.tokenized_prompts = self.prompt_learner.tokenized_prompts
         self.dtype = clip_model.dtype
 
-        decoder_layer = nn.TransformerDecoderLayer(d_model=512, nhead=8)
-        self.transformer_decoder = nn.TransformerDecoder(decoder_layer, num_layers=6)
     
     
     def forward(self, input_batch, classname, partname):
@@ -58,10 +56,7 @@ class Encoder(nn.Module):
         print("text_features : ", text_features.shape)
         print("image features : ", image_features.shape)
 
-        
-        
         # print("Concatenated features along the channels : ", features.size())
-        return image_features, text_features
         return image_features, text_features
 
 class TextEncoder(nn.Module):
@@ -92,3 +87,26 @@ class TextEncoder(nn.Module):
         print("x : ", x.shape)
 
         return x
+
+class Decoder(nn.Module):
+    """
+    Input:
+        This component takes input the feature score map from text and image alignment
+
+    Output:
+        reconstructed image of with class as parts of the image
+
+    Problem:
+        - Alignment of textual features with respect to the image
+        - Generation of finer features from score maps
+        - Clear separation of parts in the object
+    """
+    def __init__(self, d_model: int, num_layer: int, n_head: int = 8) -> None:
+        super().__init__()
+        # Defining naive transformer decoder
+        decoder_layer = nn.TransformerDecoderLayer(d_model=512, nhead=8)
+        self.transformer_decoder = nn.TransformerDecoder(decoder_layer, num_layers=6)
+
+
+    def forward(self, features):
+        pass
