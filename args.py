@@ -20,7 +20,7 @@ def get_parser():
     parser.add_argument('--result-dir', default='../Results/', help='path to save resultant images')
     parser.add_argument('--model-dir', default='', help='path to save models')
 
-    parser.add_argument('--dataset-dir', default='/Users/harsh/Referred Image Segmentation/Pascal Part/CombinedDataset', help='path where dataset is uploaded')
+    parser.add_argument('--dataset-dir', default='/Users/harsh/Referred Image Segmentation/Pascal Part/Dataset/cat', help='path where dataset is uploaded')
 
 
     parser.add_argument('--resume', default=False, type = bool, help='resume from checkpoint')

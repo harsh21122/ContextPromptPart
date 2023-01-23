@@ -17,9 +17,10 @@ class CustomDataset(Dataset):
         self.name = class_part_csv_file['name']
         self.root_dir = root_dir
         self.original_dir = os.path.join(self.root_dir, 'original')
-        self.groundtruth_dir = os.path.join(self.root_dir, 'groundtruth')
+        self.groundtruth_dir = os.path.join(self.root_dir, 'merged_groundtruth')
         self.preprocess = preprocess
         self.transform = T.Compose([T.ToTensor()])
+        
         
     def preprocess_name(self, name):
         n = name.split("_")
