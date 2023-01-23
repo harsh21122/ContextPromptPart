@@ -132,6 +132,8 @@ def main(args):
 
 
     class_part_df = pd.read_csv(os.path.join(args.dataset_dir, "class_part_label.csv"))
+    unique_part_names = list(class_part_df.part.unique())
+    print("unique_part_names : ", unique_part_names)
 
 
     train, test = train_test_split(class_part_df, test_size=0.3, random_state = 42)
@@ -153,7 +155,7 @@ def main(args):
     #                             milestones = args.milestones,
     #                             gamma = args.lr_decay)
     
-    scaler = amp.GradScaler()
+    # scaler = amp.GradScaler()
     
     if args.resume:
         if os.path.isfile(args.model_name):
@@ -186,9 +188,11 @@ def main(args):
     print("Length of Train loader : {} and Test loader : {}".format(len(trainLoader), len(testLoader)))
     
     from model import Encoder
-    encoder = Encoder(clip_model)
+    encoder = Encoder(clip_model, unique_part_names)
+    for name, param in encoder.named_parameters():
+        print(name, param.requires_grad)
     # print(encoder)
-    print(clip_model.visual)
+    # print(clip_model.visual)
     for epoch in range(args.starting_epoch - 1, args.epochs):
         print('EPOCH {}:'.format(epoch + 1))
         for idx, batch in enumerate(trainLoader):
