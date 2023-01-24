@@ -132,23 +132,21 @@ def main(args):
 
 
     class_part_df = pd.read_csv(os.path.join(args.dataset_dir, "class_part_label.csv"))
+    names_df = pd.read_csv(os.path.join(args.dataset_dir, "names.csv"))
     unique_part_names = list(class_part_df.part.unique())
     print("unique_part_names : ", unique_part_names)
 
 
-    train, test = train_test_split(class_part_df, test_size=0.3, random_state = 42)
+    train, test = train_test_split(names_df, test_size=0.2, random_state = 42)
     train = train.reset_index(drop = True)
     test = test.reset_index(drop = True)
 
 
     clip_model, preprocess = clip.load(args.clip_model, device=device)
-    # PartCLIPmodel, param_list = build_model(model)
     # best_vloss = 1_000_000.
     
     
-    # optimizer = torch.optim.Adam(param_list,
-    #                              lr = args.base_lr,
-    #                              weight_decay = args.weight_decay)
+
 
     # if args.multi_step_scheduler:
     #     scheduler = MultiStepLR(optimizer,
@@ -157,22 +155,22 @@ def main(args):
     
     # scaler = amp.GradScaler()
     
-    if args.resume:
-        if os.path.isfile(args.model_name):
-                print("loading checkpoint '{}'".format(args.model_name))
-                checkpoint = torch.load(args.model_name)
-                PartCLIPmodel.load_state_dict(checkpoint['state_dict'])
-                optimizer.load_state_dict(checkpoint['optimizer'])
-                if args.multi_step_scheduler:
-                    scheduler.load_state_dict(checkpoint['scheduler'])
-                best_vloss = checkpoint['best_vloss']
-                epoch = checkpoint['epoch']
-                print("Current best loss is {} and it is for epoch {}".format(best_vloss, epoch))
-                print("loaded checkpoint '{}'".format(args.model_name))
-        else:
-            print("NO file to update checkpoint. Starting from fresh")
-    else:
-        print("Resume turned off. Starting from fresh")
+    # if args.resume:
+    #     if os.path.isfile(args.model_name):
+    #             print("loading checkpoint '{}'".format(args.model_name))
+    #             checkpoint = torch.load(args.model_name)
+    #             PartCLIPmodel.load_state_dict(checkpoint['state_dict'])
+    #             optimizer.load_state_dict(checkpoint['optimizer'])
+    #             if args.multi_step_scheduler:
+    #                 scheduler.load_state_dict(checkpoint['scheduler'])
+    #             best_vloss = checkpoint['best_vloss']
+    #             epoch = checkpoint['epoch']
+    #             print("Current best loss is {} and it is for epoch {}".format(best_vloss, epoch))
+    #             print("loaded checkpoint '{}'".format(args.model_name))
+    #     else:
+    #         print("NO file to update checkpoint. Starting from fresh")
+    # else:
+    #     print("Resume turned off. Starting from fresh")
 
     train_dataset = CustomDataset(class_part_csv_file = train, root_dir = args.dataset_dir,
                                      preprocess = preprocess)
@@ -189,20 +187,50 @@ def main(args):
     
     from model import Encoder
     encoder = Encoder(clip_model, unique_part_names)
+    
+
+    
+    named_parameters = []
+    for name, param in encoder.named_parameters():
+        if name.startswith('text_encoder'):
+            param.requires_grad = False
+        else:
+            named_parameters.append(param)
     for name, param in encoder.named_parameters():
         print(name, param.requires_grad)
+    optimizer = torch.optim.Adam(named_parameters,
+                                 lr = args.base_lr,
+                                 weight_decay = args.weight_decay)
+    loss_fn = nn.CrossEntropyLoss()
+
+
     # print(encoder)
     # print(clip_model.visual)
     for epoch in range(args.starting_epoch - 1, args.epochs):
         print('EPOCH {}:'.format(epoch + 1))
         for idx, batch in enumerate(trainLoader):
             image = batch['image'].to(device)
-            gt = batch['gt'].to(device)
+            gt = batch['gt'].squeeze(1).type(torch.LongTensor).to(device)
             name = batch['name']
-            classname = batch['classname']
-            partname = batch['partname']
-            print(name, classname, partname, image.shape, gt.shape, np.unique(gt.numpy()))
-            image_features, text_features = encoder(image, classname, partname)
+            # classname = batch['classname']
+            # partname = batch['partname']
+            
+            print(name, image.shape, gt.shape, np.unique(gt.numpy()))
+            optimizer.zero_grad()
+            output = encoder(image)
+            # .type(torch.DoubleTensor)
+            print("output : ", output.shape, output.dtype, gt.shape, gt.dtype)
+            print(np.unique(gt.numpy()))
+            loss = loss_fn(output, gt)
+            loss.backward()
+            optimizer.step()
+            print("Loss : ", loss.item())
+            x = torch.nn.functional.softmax(output, dim = 1)
+            pred = torch.argmax(x, dim=1)
+            
+            
+
+
             print("**************************************")
             break
 

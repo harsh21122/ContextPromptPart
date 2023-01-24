@@ -88,16 +88,16 @@ class PromptLearner(nn.Module):
         self.name_lens = name_lens
         self.class_token_position = "middle"
 
-    def forward(self, classname, partname):
+    def forward(self):
         ctx = self.ctx
-        size = len(classname)
+        
         if ctx.dim() == 2:
             print("ctx : ", ctx.shape)
             ctx = ctx.unsqueeze(0).expand(self.n_cls, -1, -1)
             print("ctx : ", ctx.shape)
         
         # print(classname, partname)
-        size = len(classname)
+        
         # prompts = []
         # class_name_lens = [len(_tokenizer.encode(name)) for name in classname]
         # part_name_lens = [len(_tokenizer.encode(name)) for name in partname]

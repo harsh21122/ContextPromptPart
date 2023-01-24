@@ -42,8 +42,9 @@ class Encoder(nn.Module):
         # self.image_encoder = clip_model.visual
         # self.features = {}
         # self.image_encoder.layer4.register_forward_hook(self.get_features('layer4'))
-        # self.image_encoder.attnpool.register_forward_hook(self.get_features('attnpool'))
-
+        # self.image_encoder.layer3.register_forward_hook(self.get_features('layer3'))
+        # self.image_encoder.layer2.register_forward_hook(self.get_features('layer2'))
+        # self.image_encoder.layer1.register_forward_hook(self.get_features('layer1'))
         embed_dim = width * 32  # the ResNet feature dimension
         self.attnpool = AttentionPool2d(input_resolution // 32, embed_dim, 32, output_dim)
 
@@ -56,6 +57,9 @@ class Encoder(nn.Module):
         self.dtype = clip_model.dtype
         
         # self.ln_proj_x4 = nn.Linear(visual_dim, new_dim)
+
+        self.decoder = Decoder(in_channels = 6)
+
         
 
 
@@ -67,12 +71,20 @@ class Encoder(nn.Module):
         return hook
     
     
-    def forward(self, input_batch, classname, partname):
+    def forward(self, input_batch):
 
-        image_features = self.image_encoder(input_batch.type(self.dtype)) 
-        print("image_features : ", image_features.shape)
+        x4 = self.image_encoder(input_batch.type(self.dtype)) 
+        print("image_features : ", x4.shape)
+
+        # ImageEncoder = self.image_encoder(input_batch.type(self.dtype))
+        # print(" ImageEncoder : ", ImageEncoder.shape)
+        # x4 = self.features['layer4']
+        # x3 = self.features['layer3']
+        # x2 = self.features['layer2']
+        # x1 = self.features['layer1']
+        # print("x4, x3, x2, x1 : ", x4.shape, x3.shape, x2.shape, x1.shape)
         
-        x_global, x_local = self.attnpool(image_features)
+        x_global, x_local = self.attnpool(x4)
         print("x_global : ", x_global.shape)
         print("x_local : ", x_local.shape)
         B, C, H, W = x_local.shape
@@ -80,8 +92,6 @@ class Encoder(nn.Module):
         visual_context = torch.cat([x_global.reshape(B, C, 1), x_local.reshape(B, C, H*W)], dim=2).permute(0, 2, 1)  # B, N, C
         print("visual_context :", visual_context.shape)
 
-        # ImageEncoder = self.image_encoder(input_batch.type(self.dtype))
-        # print(" ImageEncoder : ", ImageEncoder.shape)
         
         
         # B, C, H, W = self.features['layer4'].size()
@@ -101,7 +111,7 @@ class Encoder(nn.Module):
 
 
 
-        prompts = self.prompt_learner(classname, partname)
+        prompts = self.prompt_learner()
         print("prompts :", prompts.shape)
         print("tokenized_prompts :", self.tokenized_prompts.shape)
         text_features = self.text_encoder(prompts, self.tokenized_prompts)
@@ -126,11 +136,12 @@ class Encoder(nn.Module):
         print("x_concat : ", x_concat.shape) #  torch.Size([2, 1024 + 6, 7, 7])
         
         ## Need to add FPN decoder here to generate final map.
-
+        final_map = self.decoder(score_map)
+        print("final_map : ", final_map.shape)
         
         
         # print("Concatenated features along the channels : ", features.size())
-        return x_global, x_local
+        return final_map
         return _, text_features
 
 class TextEncoder(nn.Module):
@@ -330,3 +341,71 @@ class AttentionPool2d(nn.Module):
         global_feat = x[:, :, 0]
         feature_map = x[:, :, 1:].reshape(B, -1, H, W)
         return global_feat, feature_map
+
+
+class Decoder(nn.Module):
+    def __init__(self, in_channels, channels = [2048, 1024, 512, 256], resolution = 224):
+        super().__init__()
+        self.conv_layers = nn.Sequential(
+            nn.Conv2d(in_channels, in_channels, kernel_size=3, stride = 1, padding = 1),
+            nn.ReLU(inplace=True),
+            nn.BatchNorm2d(in_channels),
+            nn.Conv2d(in_channels, in_channels, kernel_size=3),
+            nn.ReLU(inplace=True),
+            nn.BatchNorm2d(in_channels))
+
+        self.resolution = resolution
+        self.m = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True)
+        
+
+    def forward(self, score):
+        y5 = score
+        y4 = self.conv_layers(y5)
+        print("y4.shape : ", y4.shape)
+        y4 = self.m(y4)
+        print("y4.shape : ", y4.shape)
+
+        # y4_ = self.four(features[0])
+        # print("y4_.shape : ", y4_.shape)
+        # y4 = y4 + y4_
+        # print("y4.shape : ", y4.shape)
+
+        y3 = self.conv_layers(y4)
+        print("y3.shape : ", y3.shape)
+        y3 = self.m(y3)
+        print("y3.shape : ", y3.shape)
+
+        # y3_ = self.three(features[1])
+        # print("y3_.shape : ", y3_.shape)
+        # y3 = y3 + y3_
+        # print("y3.shape : ", y3.shape)
+
+        y2 = self.conv_layers(y3)
+        print("y2.shape : ", y2.shape)
+        y2 = self.m(y2)
+        print("y2.shape : ", y2.shape)
+
+        # y2_ = self.two(features[2])
+        # print("y2_.shape : ", y2_.shape)
+        # y2 = y2 + y2_
+        # print("y2.shape : ", y2.shape)
+
+        y1 = self.conv_layers(y2)
+        print("y1.shape : ", y1.shape)
+        y1 = self.m(y1)
+        print("y1.shape : ", y1.shape)
+
+        # y1_ = self.one(features[3])
+        # print("y1_.shape : ", y1_.shape)
+        # y1 = y1 + y1_
+
+        map = F.interpolate(y1, (self.resolution, self.resolution), mode='bilinear')
+        print("map.shape : ", map.shape)
+
+
+
+        return map
+        
+
+
+
