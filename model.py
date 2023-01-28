@@ -18,6 +18,7 @@ from datetime import datetime
 from torch.optim.lr_scheduler import MultiStepLR
 from skimage.transform import resize
 from PIL import Image
+import clip
 
 import torch
 from torch import nn
@@ -37,27 +38,38 @@ class Encoder(nn.Module):
         new_dim = 1024
         text_dim=1024
         output_dim=1024
+        # self.partnames = unique_part_names
+        # self.partnames.append('background')
+        # print("self.partnames : ", self.partnames)
         print("model device : ", device)
         self.image_encoder = nn.Sequential(*nn.ModuleList(clip_model.visual.children())[:-1]).to(device)
+
+
+        # self.prompts = clip.tokenize(self.partnames).to(device)
+        # print("self.prompts :", self.prompts.shape)
+        # self.prompts = clip_model.encode_text(self.prompts)
+        # print("self.prompts :", self.prompts.shape)
+
+
         # self.image_encoder = clip_model.visual
         # self.features = {}
         # self.image_encoder.layer4.register_forward_hook(self.get_features('layer4'))
         # self.image_encoder.layer3.register_forward_hook(self.get_features('layer3'))
         # self.image_encoder.layer2.register_forward_hook(self.get_features('layer2'))
         # self.image_encoder.layer1.register_forward_hook(self.get_features('layer1'))
+
+
         embed_dim = width * 32  # the ResNet feature dimension
         self.attnpool = AttentionPool2d(input_resolution // 32, embed_dim, 32, output_dim)
 
         self.text_encoder = TextEncoder(clip_model)
-        self.prompt_learner = PromptLearner(clip_model, unique_part_names)
+        self.prompt_learner = PromptLearner(clip_model.to(device), unique_part_names)
 
         self.align_context = ContextDecoder()
         self.tokenized_prompts = self.prompt_learner.tokenized_prompts
         self.gamma = nn.Parameter(torch.ones(text_dim) * 1e-3)
         self.dtype = clip_model.dtype
         
-        # self.ln_proj_x4 = nn.Linear(visual_dim, new_dim)
-
         self.decoder = Decoder(in_channels = 6)
 
         
@@ -65,16 +77,17 @@ class Encoder(nn.Module):
 
 
 
-    def get_features(self, name):
-        def hook(model, input, output):
-            self.features[name] = output.detach()
-        return hook
+    # def get_features(self, name):
+    #     def hook(model, input, output):
+    #         self.features[name] = output.detach()
+    #     return hook
     
     
     def forward(self, input_batch):
 
         x4 = self.image_encoder(input_batch.type(self.dtype)) 
-        print("image_features : ", x4.shape)
+        # print("image_features : ", x4.shape)
+        # print("image_features : ", np.unique(x4.detach().cpu().numpy()))
 
         # ImageEncoder = self.image_encoder(input_batch.type(self.dtype))
         # print(" ImageEncoder : ", ImageEncoder.shape)
@@ -85,12 +98,15 @@ class Encoder(nn.Module):
         # print("x4, x3, x2, x1 : ", x4.shape, x3.shape, x2.shape, x1.shape)
         
         x_global, x_local = self.attnpool(x4)
-        print("x_global : ", x_global.shape)
-        print("x_local : ", x_local.shape)
+        # print("x_global : ", np.unique(x_global.detach().cpu().numpy()))
+        # print("x_local : ", np.unique(x_local.detach().cpu().numpy()))
+        # print("x_global : ", x_global.shape)
+        # print("x_local : ", x_local.shape)
         B, C, H, W = x_local.shape
 
         visual_context = torch.cat([x_global.reshape(B, C, 1), x_local.reshape(B, C, H*W)], dim=2).permute(0, 2, 1)  # B, N, C
-        print("visual_context :", visual_context.shape)
+        
+        # print("visual_context :", visual_context.shape, visual_context.dtype, visual_context.is_cuda)
 
         
         
@@ -112,18 +128,33 @@ class Encoder(nn.Module):
 
 
         prompts = self.prompt_learner()
-        print("prompts :", prompts.shape)
-        print("tokenized_prompts :", self.tokenized_prompts.shape)
+        print("prompts : ", np.unique(prompts.detach().cpu().numpy()))
+        # print("prompts :", prompts.shape, prompts.dtype)
+        # print("tokenized_prompts :", self.tokenized_prompts, self.tokenized_prompts.dtype)
         text_features = self.text_encoder(prompts, self.tokenized_prompts)
-        print("text_features : ", text_features.shape)
+        print("text_features : ", torch.unique(text_features))
+        print("text_features : ", text_features.shape, text_features.dtype)
+        text_features = F.normalize(text_features, p=2.0, dim = 1)
+        print("text_features : ", torch.unique(text_features))
+
+
+        # text_features = self.prompts
+        # print("text_features : ", text_features.shape, text_features.dtype)
+
+
         text_features = text_features.expand(B, -1, -1)
-        print("text_features : ", text_features.shape)
+        # print("text_features : ", text_features.shape, text_features.dtype)
+        text_features = text_features.type(torch.cuda.FloatTensor)
+        print("text_features : ", text_features.shape, text_features.dtype)
+
 
 
         text_diff = self.align_context(text_features, visual_context)
-        print("text_diff :", text_diff.shape)
+        # print("text_diff :", text_diff.shape)
         text_features = text_features + self.gamma * text_diff
-        print("text_features : ", text_features.shape)
+        # print("text_features : ", text_features.shape)
+        # print("text_features : ", np.unique(text_features.detach().cpu().numpy()))
+
 
 
         # compute score map and concat
@@ -131,13 +162,15 @@ class Encoder(nn.Module):
         x_local = F.normalize(x_local, dim=1, p=2)
         text = F.normalize(text_features, dim=2, p=2)
         score_map = torch.einsum('bchw,bkc->bkhw', x_local, text)
+        # print("score_map : ", np.unique(score_map.detach().cpu().numpy()))
         print("score_map : ", score_map.shape)
         x_concat = torch.cat([x_local, score_map], dim=1)
-        print("x_concat : ", x_concat.shape) #  torch.Size([2, 1024 + 6, 7, 7])
+        # print("x_concat : ", x_concat.shape) #  torch.Size([2, 1024 + 6, 7, 7])
         
         ## Need to add FPN decoder here to generate final map.
         final_map = self.decoder(score_map)
-        print("final_map : ", final_map.shape)
+        # print("final_map : ", final_map.shape)
+        # print("final_map : ", np.unique(final_map.detach().cpu().numpy()))
         
         
         # print("Concatenated features along the channels : ", features.size())
@@ -155,22 +188,22 @@ class TextEncoder(nn.Module):
 
     def forward(self, prompts, tokenized_prompts):
         x = prompts + self.positional_embedding.type(self.dtype)
-        print("x1 : ", x.shape)
+        # print("x1 : ", x.shape)
         x = x.permute(1, 0, 2)  # NLD -> LND
         # x = x.permute(0, 2, 1, 3)  # NLD -> LND
-        print("x2 : ", x.shape)
+        # print("x2 : ", x.shape)
         x = self.transformer(x)
-        print("x3 : ", x.shape)
+        # print("x3 : ", x.shape)
         x = x.permute(1, 0, 2)  # LND -> NLD
-        print("x4 : ", x.shape)
+        # print("x4 : ", x.shape)
         x = self.ln_final(x).type(self.dtype)
-        print("x5 : ", x.shape)
+        # print("x5 : ", x.shape)
 
-        print("self.text_projection : ", self.text_projection.shape)
+        # print("self.text_projection : ", self.text_projection.shape)
         # x.shape = [batch_size, n_ctx, transformer.width]
         # take features from the eot embedding (eot_token is the highest number in each sequence)
         x = x[torch.arange(x.shape[0]), tokenized_prompts.argmax(dim=-1)] @ self.text_projection
-        print("x : ", x.shape)
+        # print("x : ", x.shape)
 
         return x
 
@@ -361,9 +394,9 @@ class Decoder(nn.Module):
     def forward(self, score):
         y5 = score
         y4 = self.conv_layers(y5)
-        print("y4.shape : ", y4.shape)
+        # print("y4.shape : ", y4.shape)
         y4 = self.m(y4)
-        print("y4.shape : ", y4.shape)
+        # print("y4.shape : ", y4.shape)
 
         # y4_ = self.four(features[0])
         # print("y4_.shape : ", y4_.shape)
@@ -371,9 +404,9 @@ class Decoder(nn.Module):
         # print("y4.shape : ", y4.shape)
 
         y3 = self.conv_layers(y4)
-        print("y3.shape : ", y3.shape)
+        # print("y3.shape : ", y3.shape)
         y3 = self.m(y3)
-        print("y3.shape : ", y3.shape)
+        # print("y3.shape : ", y3.shape)
 
         # y3_ = self.three(features[1])
         # print("y3_.shape : ", y3_.shape)
@@ -381,9 +414,9 @@ class Decoder(nn.Module):
         # print("y3.shape : ", y3.shape)
 
         y2 = self.conv_layers(y3)
-        print("y2.shape : ", y2.shape)
+        # print("y2.shape : ", y2.shape)
         y2 = self.m(y2)
-        print("y2.shape : ", y2.shape)
+        # print("y2.shape : ", y2.shape)
 
         # y2_ = self.two(features[2])
         # print("y2_.shape : ", y2_.shape)
@@ -391,16 +424,16 @@ class Decoder(nn.Module):
         # print("y2.shape : ", y2.shape)
 
         y1 = self.conv_layers(y2)
-        print("y1.shape : ", y1.shape)
+        # print("y1.shape : ", y1.shape)
         y1 = self.m(y1)
-        print("y1.shape : ", y1.shape)
+        # print("y1.shape : ", y1.shape)
 
         # y1_ = self.one(features[3])
         # print("y1_.shape : ", y1_.shape)
         # y1 = y1 + y1_
 
         map = F.interpolate(y1, (self.resolution, self.resolution), mode='bilinear')
-        print("map.shape : ", map.shape)
+        # print("map.shape : ", map.shape)
 
 
 

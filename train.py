@@ -26,64 +26,48 @@ from dataset import CustomDataset as CustomDataset
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
-def build_model(model):
-    PartCLIPmodel = PartCLIP(model).to(device)
-    parameters = []
-    named_parameters = []
-    for name, param in PartCLIPmodel.named_parameters():
-        if name.startswith('clip'):
-            param.requires_grad = False
-        else:
-            named_parameters.append(param)
-    
-    # for name, param in PartCLIPmodel.named_parameters():
-    #     print(name, param.requires_grad)
-          
-        
-    for param in PartCLIPmodel.parameters():
-        parameters.append(param)
-    print(len(named_parameters), len(parameters))
-    return PartCLIPmodel, named_parameters
 
 
-def train_one_epoch(PartCLIPmodel, training_loader, optimizer, scaler, args):
+def train_one_epoch(encoder, trainLoader, optimizer, loss_fn, args):
     running_loss = 0.
     last_loss = 0.
     iou_list = []
 
-    for idx, batch in enumerate(training_loader):
-        
-        text = batch['text'].squeeze(1).to(device)
+    for idx, batch in enumerate(trainLoader):
         image = batch['image'].to(device)
-        gt = batch['gt'].to(device)
+        gt = batch['gt'].squeeze(1).type(torch.LongTensor).to(device)
+        name = batch['name']
+            # classname = batch['classname']
+            # partname = batch['partname']
 
-
+        # print(np.unique(gt.cpu().numpy()))
+        # print(np.unique(image.cpu().numpy()))
+                    
+        # print(name, image.shape, gt.shape, np.unique(gt.numpy()))
         optimizer.zero_grad()
-        with torch.cuda.amp.autocast():
-            outputs = PartCLIPmodel(image, text)
-            loss = F.binary_cross_entropy_with_logits(outputs, gt)
-        
-        scaler.scale(loss).backward()
-#         loss.backward()
+        output = encoder(image)
+            # .type(torch.DoubleTensor)
+        # print("output : ", output.shape, output.dtype, gt.shape, gt.dtype)
+        print("output : ", np.unique(output.detach().cpu().numpy()))
+        loss = loss_fn(output, gt)
+        loss.backward(retain_graph=True)
+        torch.nn.utils.clip_grad_norm_(encoder.parameters(), 1)
 
-        # Adjust learning weights
-        scaler.step(optimizer)
-        scaler.update()
-#         optimizer.step()
+        optimizer.step()
+        print("Loss : ", loss.item())
+        x = torch.nn.functional.softmax(output, dim = 1)
+        pred = torch.argmax(x, dim=1)
 
-        # Gather data and report
         running_loss += loss.item()
         if (idx + 1) % 20 == 0:
             last_loss = running_loss / 20 # loss per batch
             print('  batch {} loss: {}'.format(idx + 1, last_loss))
             running_loss = 0.
+
+        if idx == 19:
+            break
             
-        if args.calc_accuracy_training:
-            gt = gt.detach().cpu().permute(0,2,3,1).squeeze(3).numpy()
-            outputs = torch.sigmoid(outputs)
-            pred = outputs.detach().cpu().permute(0,2,3,1).squeeze(3).numpy()
-            iou = calc_iou(gt*255.0, pred*255.0)
-            iou_list.append(iou)
+        
     
     
     if iou_list:
@@ -92,29 +76,26 @@ def train_one_epoch(PartCLIPmodel, training_loader, optimizer, scaler, args):
         mean_acc = -1
     return last_loss, mean_acc
 
-def validation(PartCLIPmodel, loader, args):
+def validation(encoder, loader, loss_fn,args):
     running_vloss = 0.0
     iou_list = []
-    for i, batch in enumerate(loader):
-        
-        
-        text = batch['text'].squeeze(1).to(device)
+    for idx, batch in enumerate(loader):
         image = batch['image'].to(device)
-        gt = batch['gt'].to(device)
+        gt = batch['gt'].squeeze(1).type(torch.LongTensor).to(device)
+        name = batch['name']
 
-        outputs = PartCLIPmodel(image, text)
-        
-        vloss = F.binary_cross_entropy_with_logits(outputs, gt)
-        running_vloss += vloss
+        output = encoder(image)
+        # print("output : ", output.shape, output.dtype, gt.shape, gt.dtype)
+        # print(np.unique(gt.cpu().numpy()))
+        loss = loss_fn(output, gt)
+
+        # print("Loss : ", loss.item())
+        x = torch.nn.functional.softmax(output, dim = 1)
+        pred = torch.argmax(x, dim=1)
         if i % 20 == 0:
             print("  val done : ", i)
         
-        if args.calc_accuracy_training:
-            gt = gt.detach().cpu().permute(0,2,3,1).squeeze(3).numpy()
-            outputs = torch.sigmoid(outputs)
-            pred = outputs.detach().cpu().permute(0,2,3,1).squeeze(3).numpy()
-            iou = calc_iou(gt*255.0, pred*255.0)
-            iou_list.append(iou)
+        
         
     if iou_list:
         mean_acc = (sum(iou_list)/len(iou_list))
@@ -134,16 +115,16 @@ def main(args):
     class_part_df = pd.read_csv(os.path.join(args.dataset_dir, "class_part_label.csv"))
     names_df = pd.read_csv(os.path.join(args.dataset_dir, "names.csv"))
     unique_part_names = list(class_part_df.part.unique())
-    print("unique_part_names : ", unique_part_names)
+    # print("unique_part_names : ", unique_part_names)
 
 
-    train, test = train_test_split(names_df, test_size=0.2, random_state = 42)
+    train, test = train_test_split(names_df, test_size=0.05, random_state = 42)
     train = train.reset_index(drop = True)
     test = test.reset_index(drop = True)
 
 
     clip_model, preprocess = clip.load(args.clip_model, device=device)
-    # best_vloss = 1_000_000.
+    best_vloss = 1_000_000.
     
     
 
@@ -187,12 +168,17 @@ def main(args):
     
     from model import Encoder
     encoder = Encoder(clip_model, unique_part_names)
+    encoder = encoder.to(device)
     
 
     
     named_parameters = []
     for name, param in encoder.named_parameters():
         if name.startswith('text_encoder'):
+            param.requires_grad = False
+        elif name.startswith('prompt_learner.token_embedding'):
+            param.requires_grad = False
+        elif name.startswith('image_encoder'):
             param.requires_grad = False
         else:
             named_parameters.append(param)
@@ -208,43 +194,15 @@ def main(args):
     # print(clip_model.visual)
     for epoch in range(args.starting_epoch - 1, args.epochs):
         print('EPOCH {}:'.format(epoch + 1))
-        for idx, batch in enumerate(trainLoader):
-            image = batch['image'].to(device)
-            gt = batch['gt'].squeeze(1).type(torch.LongTensor).to(device)
-            name = batch['name']
-            # classname = batch['classname']
-            # partname = batch['partname']
-            
-            print(name, image.shape, gt.shape, np.unique(gt.numpy()))
-            optimizer.zero_grad()
-            output = encoder(image)
-            # .type(torch.DoubleTensor)
-            print("output : ", output.shape, output.dtype, gt.shape, gt.dtype)
-            print(np.unique(gt.numpy()))
-            loss = loss_fn(output, gt)
-            loss.backward()
-            optimizer.step()
-            print("Loss : ", loss.item())
-            x = torch.nn.functional.softmax(output, dim = 1)
-            pred = torch.argmax(x, dim=1)
-            
-            
 
 
-            print("**************************************")
-            break
-
-
-        # Make sure gradient tracking is on, and do a pass over the data
-
-        continue
-        PartCLIPmodel.train()
-        avg_loss, mean_train_acc = train_one_epoch(PartCLIPmodel, trainLoader, optimizer, scaler, args)
+        encoder.train()
+        avg_loss, _ = train_one_epoch(encoder, trainLoader, optimizer,loss_fn, args)
         # We don't need gradients on to do reporting
         
-        PartCLIPmodel.eval()
+        encoder.eval()
         with torch.no_grad():
-            avg_vloss, mean_vacc = validation(PartCLIPmodel, testLoader, args)
+            avg_vloss, _ = validation(encoder, testLoader, loss_fn, args)
             
             
         print('LOSS train {} valid {}'.format(avg_loss, avg_vloss))

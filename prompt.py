@@ -11,15 +11,15 @@ from clip import clip
 from clip.simple_tokenizer import SimpleTokenizer as _Tokenizer
 _tokenizer = _Tokenizer()
 
-
+device = "cuda" if torch.cuda.is_available() else "cpu"
 
 class PromptLearner(nn.Module):
     def __init__(self, clip_model, partnames):
         super().__init__()
         self.token_embedding = clip_model.token_embedding
-        print(partnames)
+        # print(partnames)
         partnames.append('background')
-        print(partnames)
+        # print(partnames)
         n_cls = len(partnames)
         n_ctx = 15
         ctx_init = ""
@@ -43,35 +43,35 @@ class PromptLearner(nn.Module):
             # random initialization
             
             if False:
-                print("Initializing class-specific contexts")
+                # print("Initializing class-specific contexts")
                 ctx_vectors = torch.empty(n_cls, n_ctx, ctx_dim, dtype=dtype)
             else:
-                print("Initializing a generic context")
+                # print("Initializing a generic context")
                 ctx_vectors = torch.empty(n_ctx, ctx_dim, dtype=self.dtype)
             nn.init.normal_(ctx_vectors, std=0.02)
             self.pr_prefix = " ".join(["X"] * int(n_ctx))
             # self.prompt_prefix2 = " ".join(["X"] * int(n_ctx/3))
             # self.prompt_prefix3 = " ".join(["X"] * int(n_ctx/3))
-            print("ctx_vectors : ", ctx_vectors.shape)
-            print("prompt_prefix : ", self.pr_prefix)
+            # print("ctx_vectors : ", ctx_vectors.shape)
+            # print("prompt_prefix : ", self.pr_prefix)
 
         print(f'Initial context: "{self.pr_prefix}"')
         print(f"Number of context words (tokens): {n_ctx}")
         
 
         self.ctx = nn.Parameter(ctx_vectors)  # to be optimized
-        print("classnames : ", partnames)
+        # print("classnames : ", partnames)
         partnames = [name.replace("_", " ") for name in partnames]
-        print("classnames : ", partnames)
+        # print("classnames : ", partnames)
         name_lens = [len(_tokenizer.encode(name)) for name in partnames]
-        print("name_lens : ", name_lens)
+        # print("name_lens : ", name_lens)
         prompts = [self.pr_prefix + " " + name + "." for name in partnames]
-        print("prompts : ", prompts)
+        # print("prompts : ", prompts)
         tokenized_prompts = torch.cat([clip.tokenize(p) for p in prompts])
-        print("tokenized_prompts : ", tokenized_prompts[1])
+        # print("tokenized_prompts : ", tokenized_prompts[1])
         with torch.no_grad():
-            embedding = clip_model.token_embedding(tokenized_prompts).type(self.dtype)
-        print("embedding : ", embedding.shape)
+            embedding = clip_model.token_embedding(tokenized_prompts.to(device)).type(self.dtype)
+        # print("embedding : ", embedding.shape)
 # #         print(embedding)
 
         # These token vectors will be saved when in save_model(),
@@ -79,22 +79,22 @@ class PromptLearner(nn.Module):
         # those computed using the current class names
         self.register_buffer("token_prefix", embedding[:, :1, :])  # SOS
         self.register_buffer("token_suffix", embedding[:, 1 + n_ctx :, :])  # CLS, EOS
-        print("token_prefix :", embedding[:, :1, :].shape, embedding[:, :1, :])
-        print("token_suffix :", embedding[:, 1 + n_ctx :, :].shape, embedding[:, 1 + n_ctx :, :])
+        # print("token_prefix :", embedding[:, :1, :].shape, embedding[:, :1, :])
+        # print("token_suffix :", embedding[:, 1 + n_ctx :, :].shape, embedding[:, 1 + n_ctx :, :])
 
         self.n_cls = n_cls
         self.n_ctx = n_ctx
         self.tokenized_prompts = tokenized_prompts  # torch.Tensor
         self.name_lens = name_lens
-        self.class_token_position = "middle"
+        self.class_token_position = "end"
 
     def forward(self):
         ctx = self.ctx
         
         if ctx.dim() == 2:
-            print("ctx : ", ctx.shape)
+            # print("ctx : ", ctx.shape)
             ctx = ctx.unsqueeze(0).expand(self.n_cls, -1, -1)
-            print("ctx : ", ctx.shape)
+            # print("ctx : ", ctx.shape)
         
         # print(classname, partname)
         
@@ -190,10 +190,10 @@ class PromptLearner(nn.Module):
                     ],
                     dim=1,
                 )
-                print("prompt : ", prompt.shape)
+                # print("prompt : ", prompt.shape)
                 prompts.append(prompt)
             prompts = torch.cat(prompts, dim=0)
-            print("prompts : ", prompts.shape)
+            # print("prompts : ", prompts.shape)
 
         elif self.class_token_position == "front":
             prompts = []
@@ -220,5 +220,6 @@ class PromptLearner(nn.Module):
         
         # prompts = prompts.unsqueeze(0).expand(size,-1, -1, -1)
         # print("prompts : ", prompts.shape)
+        print(" ctx : ", torch.unique(ctx))
         return prompts
 

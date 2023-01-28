@@ -5,14 +5,14 @@ def get_parser():
     parser = argparse.ArgumentParser(description='Referred Part Segmentation. Model = Image+Text')
 
     
-    parser.add_argument('-b', '--batch-size', default=2, type=int)
+    parser.add_argument('-b', '--batch-size', default=5, type=int)
 
     
     parser.add_argument('--epochs', default=1, type=int, metavar='N', help='number of total epochs to run')
     parser.add_argument('--starting-epoch', default=1, type=int, help='epoch number to start with')
 
 
-    parser.add_argument('--base-lr', default=0.01, type=float, help='the initial learning rate')
+    parser.add_argument('--base-lr', default=0.0000000001, type=float, help='the initial learning rate')
   
 
     parser.add_argument('--clip-model', default='RN50', help='which clip model to use')
@@ -20,7 +20,7 @@ def get_parser():
     parser.add_argument('--result-dir', default='../Results/', help='path to save resultant images')
     parser.add_argument('--model-dir', default='', help='path to save models')
 
-    parser.add_argument('--dataset-dir', default='/Users/harsh/Referred Image Segmentation/Pascal Part/Dataset/cat', help='path where dataset is uploaded')
+    parser.add_argument('--dataset-dir', default= '/home/harsh21122/tmp/cat_dataset', help='path where dataset is uploaded')
 
 
     parser.add_argument('--resume', default=False, type = bool, help='resume from checkpoint')
