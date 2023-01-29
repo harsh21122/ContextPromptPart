@@ -15,7 +15,7 @@ from einops import rearrange
 import torch.cuda.amp as amp
 from datetime import datetime
 from torch.optim.lr_scheduler import MultiStepLR
-# from utils import calc_iou
+from utils import *
 
 
 
@@ -51,7 +51,13 @@ def train_one_epoch(encoder, trainLoader, optimizer, loss_fn, args):
         print("output : ", np.unique(output.detach().cpu().numpy()))
         loss = loss_fn(output, gt)
         loss.backward(retain_graph=True)
+        #################
+        ##### for testing
+        plot_grad_flow(encoder.to('cpu').named_parameters())
+        #################
+
         torch.nn.utils.clip_grad_norm_(encoder.parameters(), 1)
+        encoder.to(device)
 
         optimizer.step()
         print("Loss : ", loss.item())
@@ -66,6 +72,11 @@ def train_one_epoch(encoder, trainLoader, optimizer, loss_fn, args):
 
         if idx == 19:
             break
+
+        ###############
+        ### for testing
+        ###############
+        break
             
         
     

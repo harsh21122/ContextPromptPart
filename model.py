@@ -163,7 +163,7 @@ class Encoder(nn.Module):
         text = F.normalize(text_features, dim=2, p=2)
         score_map = torch.einsum('bchw,bkc->bkhw', x_local, text)
         # print("score_map : ", np.unique(score_map.detach().cpu().numpy()))
-        print("score_map : ", score_map.shape)
+        # print("score_map : ", score_map.shape)
         x_concat = torch.cat([x_local, score_map], dim=1)
         # print("x_concat : ", x_concat.shape) #  torch.Size([2, 1024 + 6, 7, 7])
         
@@ -175,7 +175,6 @@ class Encoder(nn.Module):
         
         # print("Concatenated features along the channels : ", features.size())
         return final_map
-        return _, text_features
 
 class TextEncoder(nn.Module):
     def __init__(self, clip_model):

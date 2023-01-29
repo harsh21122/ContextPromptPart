@@ -12,7 +12,7 @@ def get_parser():
     parser.add_argument('--starting-epoch', default=1, type=int, help='epoch number to start with')
 
 
-    parser.add_argument('--base-lr', default=0.0000000001, type=float, help='the initial learning rate')
+    parser.add_argument('--base-lr', default=1e-6, type=float, help='the initial learning rate')
   
 
     parser.add_argument('--clip-model', default='RN50', help='which clip model to use')
@@ -20,7 +20,7 @@ def get_parser():
     parser.add_argument('--result-dir', default='../Results/', help='path to save resultant images')
     parser.add_argument('--model-dir', default='', help='path to save models')
 
-    parser.add_argument('--dataset-dir', default= '/home/harsh21122/tmp/cat_dataset', help='path where dataset is uploaded')
+    parser.add_argument('--dataset-dir', default= 'Dataset/cat_dataset', help='path where dataset is uploaded')
 
 
     parser.add_argument('--resume', default=False, type = bool, help='resume from checkpoint')
