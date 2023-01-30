@@ -47,6 +47,8 @@ def train_one_epoch(encoder, trainLoader, optimizer, loss_fn, args):
         # print(name, image.shape, gt.shape, np.unique(gt.numpy()))
         optimizer.zero_grad()
         output = encoder(image)
+        # print("torch.unique(gt) : ", torch.unique(gt))
+        # print("pred = ", output.shape)
             # .type(torch.DoubleTensor)
         # print("output : ", output.shape, output.dtype, gt.shape, gt.dtype)
         # print("output : ", torch.unique(output))
@@ -58,6 +60,7 @@ def train_one_epoch(encoder, trainLoader, optimizer, loss_fn, args):
         # print("Loss : ", loss.item())
         x = torch.nn.functional.softmax(output, dim = 1)
         pred = torch.argmax(x, dim=1)
+        
         # print("pred : ", torch.unique(pred))
 
         running_loss += loss.item()
@@ -66,7 +69,7 @@ def train_one_epoch(encoder, trainLoader, optimizer, loss_fn, args):
             last_loss = running_loss / 20 # loss per batch
             print('  batch {} loss: {}'.format(idx + 1, last_loss))
             running_loss = 0.
-            print("pred unique : ", torch.unique(pred))
+            print("  pred unique : ", torch.unique(pred))
 
         
             
@@ -89,7 +92,7 @@ def validation(encoder, loader, loss_fn, args):
 
         output = encoder(image)
         # print("output : ", output.shape, output.dtype, gt.shape, gt.dtype)
-        # print(np.unique(gt.cpu().numpy()))
+        print("torch.unique(gt) : ", torch.unique(gt))
         loss = loss_fn(output, gt)
         running_vloss += loss.item()
 
@@ -98,7 +101,7 @@ def validation(encoder, loader, loss_fn, args):
         pred = torch.argmax(x, dim=1)
         if idx % 20 == 0:
             print("  val done : ", idx)
-            print("pred unique : ", torch.unique(pred))
+            print("  pred unique : ", torch.unique(pred))
         
         
         
@@ -120,6 +123,7 @@ def main(args):
     class_part_df = pd.read_csv(os.path.join(args.dataset_dir, "class_part_label.csv"))
     names_df = pd.read_csv(os.path.join(args.dataset_dir, "names.csv"))
     unique_part_names = list(class_part_df.part.unique())
+    unique_part_names = ['head', 'neck', 'torso', 'tail', 'legs'] # hardcoding for now. Each part name index corresponds to gt index
     # print("unique_part_names : ", unique_part_names)
 
 

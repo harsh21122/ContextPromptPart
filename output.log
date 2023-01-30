@@ -2,17 +2,8 @@ wandb: Currently logged in as: harsh21122. Use `wandb login --relogin` to force 
 wandb: wandb version 0.13.9 is available!  To upgrade, please run:
 wandb:  $ pip install wandb --upgrade
 wandb: Tracking run with wandb version 0.13.3
-wandb: Run data is saved locally in /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_023702-1hv8aj7p
+wandb: Run data is saved locally in /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_031742-x5uqbp46
 wandb: Run `wandb offline` to turn off syncing.
-wandb: Syncing run chromatic-moon-11
+wandb: Syncing run sweet-dragon-18
 wandb: ⭐️ View project at https://wandb.ai/harsh21122/part_segmentation
-wandb: 🚀 View run at https://wandb.ai/harsh21122/part_segmentation/runs/1hv8aj7p
-Exception in thread MsgRouterThr:
-Traceback (most recent call last):
-  File "/home/harsh21122/.conda/envs/part/lib/python3.9/threading.py", line 980, in _bootstrap_inner
-    self.run()
-  File "/home/harsh21122/.conda/envs/part/lib/python3.9/threading.py", line 917, in run
-    self._target(*self._args, **self._kwargs)
-  File "/home/harsh21122/.conda/envs/part/lib/python3.9/site-packages/wandb/sdk/interface/router.py", line 70, in message_loop
-    msg = self._read_message()
-  File "/home/harsh21122/.conda/envs/part/lib/python3.9/site-packages/wandb/sdk/interface/router_queue.py", line 36, in _read_message
+wandb: 🚀 View run at https://wandb.ai/harsh21122/part_segmentation/runs/x5uqbp46

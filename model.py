@@ -39,7 +39,8 @@ class Encoder(nn.Module):
         text_dim=1024
         output_dim=1024
         self.partnames = unique_part_names
-        self.partnames.append('background')
+        self.partnames.insert(0, 'background')
+        # self.partnames.append('background')
         print("self.partnames : ", self.partnames)
         prompt = [" the " + name + " of the cat." for name in self.partnames]
         print("prompts : ", prompt)
