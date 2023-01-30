@@ -220,6 +220,6 @@ class PromptLearner(nn.Module):
         
         # prompts = prompts.unsqueeze(0).expand(size,-1, -1, -1)
         # print("prompts : ", prompts.shape)
-        print(" ctx : ", torch.unique(ctx))
+        # print(" ctx : ", torch.unique(ctx))
         return prompts
 

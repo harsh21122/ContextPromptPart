@@ -1,0 +1,933 @@
+Length of Train dataset : 646 and Test dataset : 35
+Length of Train loader : 65 and Test loader : 4
+self.partnames :  ['head', 'neck', 'torso', 'legs', 'tail', 'background']
+prompts :  [' the head of the cat.', ' the neck of the cat.', ' the torso of the cat.', ' the legs of the cat.', ' the tail of the cat.', ' the background of the cat.']
+model device :  cuda
+self.prompts : torch.Size([6, 77])
+self.prompts : torch.Size([6, 1024])
+self.prompts rquires grad :  <built-in method requires_grad_ of Tensor object at 0x7f8ffe5ce310>
+Printing parameters and their gradient
+gamma True
+image_encoder.0.weight False
+image_encoder.1.weight False
+image_encoder.1.bias False
+image_encoder.3.weight False
+image_encoder.4.weight False
+image_encoder.4.bias False
+image_encoder.6.weight False
+image_encoder.7.weight False
+image_encoder.7.bias False
+image_encoder.10.0.conv1.weight False
+image_encoder.10.0.bn1.weight False
+image_encoder.10.0.bn1.bias False
+image_encoder.10.0.conv2.weight False
+image_encoder.10.0.bn2.weight False
+image_encoder.10.0.bn2.bias False
+image_encoder.10.0.conv3.weight False
+image_encoder.10.0.bn3.weight False
+image_encoder.10.0.bn3.bias False
+image_encoder.10.0.downsample.0.weight False
+image_encoder.10.0.downsample.1.weight False
+image_encoder.10.0.downsample.1.bias False
+image_encoder.10.1.conv1.weight False
+image_encoder.10.1.bn1.weight False
+image_encoder.10.1.bn1.bias False
+image_encoder.10.1.conv2.weight False
+image_encoder.10.1.bn2.weight False
+image_encoder.10.1.bn2.bias False
+image_encoder.10.1.conv3.weight False
+image_encoder.10.1.bn3.weight False
+image_encoder.10.1.bn3.bias False
+image_encoder.10.2.conv1.weight False
+image_encoder.10.2.bn1.weight False
+image_encoder.10.2.bn1.bias False
+image_encoder.10.2.conv2.weight False
+image_encoder.10.2.bn2.weight False
+image_encoder.10.2.bn2.bias False
+image_encoder.10.2.conv3.weight False
+image_encoder.10.2.bn3.weight False
+image_encoder.10.2.bn3.bias False
+image_encoder.11.0.conv1.weight False
+image_encoder.11.0.bn1.weight False
+image_encoder.11.0.bn1.bias False
+image_encoder.11.0.conv2.weight False
+image_encoder.11.0.bn2.weight False
+image_encoder.11.0.bn2.bias False
+image_encoder.11.0.conv3.weight False
+image_encoder.11.0.bn3.weight False
+image_encoder.11.0.bn3.bias False
+image_encoder.11.0.downsample.0.weight False
+image_encoder.11.0.downsample.1.weight False
+image_encoder.11.0.downsample.1.bias False
+image_encoder.11.1.conv1.weight False
+image_encoder.11.1.bn1.weight False
+image_encoder.11.1.bn1.bias False
+image_encoder.11.1.conv2.weight False
+image_encoder.11.1.bn2.weight False
+image_encoder.11.1.bn2.bias False
+image_encoder.11.1.conv3.weight False
+image_encoder.11.1.bn3.weight False
+image_encoder.11.1.bn3.bias False
+image_encoder.11.2.conv1.weight False
+image_encoder.11.2.bn1.weight False
+image_encoder.11.2.bn1.bias False
+image_encoder.11.2.conv2.weight False
+image_encoder.11.2.bn2.weight False
+image_encoder.11.2.bn2.bias False
+image_encoder.11.2.conv3.weight False
+image_encoder.11.2.bn3.weight False
+image_encoder.11.2.bn3.bias False
+image_encoder.11.3.conv1.weight False
+image_encoder.11.3.bn1.weight False
+image_encoder.11.3.bn1.bias False
+image_encoder.11.3.conv2.weight False
+image_encoder.11.3.bn2.weight False
+image_encoder.11.3.bn2.bias False
+image_encoder.11.3.conv3.weight False
+image_encoder.11.3.bn3.weight False
+image_encoder.11.3.bn3.bias False
+image_encoder.12.0.conv1.weight False
+image_encoder.12.0.bn1.weight False
+image_encoder.12.0.bn1.bias False
+image_encoder.12.0.conv2.weight False
+image_encoder.12.0.bn2.weight False
+image_encoder.12.0.bn2.bias False
+image_encoder.12.0.conv3.weight False
+image_encoder.12.0.bn3.weight False
+image_encoder.12.0.bn3.bias False
+image_encoder.12.0.downsample.0.weight False
+image_encoder.12.0.downsample.1.weight False
+image_encoder.12.0.downsample.1.bias False
+image_encoder.12.1.conv1.weight False
+image_encoder.12.1.bn1.weight False
+image_encoder.12.1.bn1.bias False
+image_encoder.12.1.conv2.weight False
+image_encoder.12.1.bn2.weight False
+image_encoder.12.1.bn2.bias False
+image_encoder.12.1.conv3.weight False
+image_encoder.12.1.bn3.weight False
+image_encoder.12.1.bn3.bias False
+image_encoder.12.2.conv1.weight False
+image_encoder.12.2.bn1.weight False
+image_encoder.12.2.bn1.bias False
+image_encoder.12.2.conv2.weight False
+image_encoder.12.2.bn2.weight False
+image_encoder.12.2.bn2.bias False
+image_encoder.12.2.conv3.weight False
+image_encoder.12.2.bn3.weight False
+image_encoder.12.2.bn3.bias False
+image_encoder.12.3.conv1.weight False
+image_encoder.12.3.bn1.weight False
+image_encoder.12.3.bn1.bias False
+image_encoder.12.3.conv2.weight False
+image_encoder.12.3.bn2.weight False
+image_encoder.12.3.bn2.bias False
+image_encoder.12.3.conv3.weight False
+image_encoder.12.3.bn3.weight False
+image_encoder.12.3.bn3.bias False
+image_encoder.12.4.conv1.weight False
+image_encoder.12.4.bn1.weight False
+image_encoder.12.4.bn1.bias False
+image_encoder.12.4.conv2.weight False
+image_encoder.12.4.bn2.weight False
+image_encoder.12.4.bn2.bias False
+image_encoder.12.4.conv3.weight False
+image_encoder.12.4.bn3.weight False
+image_encoder.12.4.bn3.bias False
+image_encoder.12.5.conv1.weight False
+image_encoder.12.5.bn1.weight False
+image_encoder.12.5.bn1.bias False
+image_encoder.12.5.conv2.weight False
+image_encoder.12.5.bn2.weight False
+image_encoder.12.5.bn2.bias False
+image_encoder.12.5.conv3.weight False
+image_encoder.12.5.bn3.weight False
+image_encoder.12.5.bn3.bias False
+image_encoder.13.0.conv1.weight False
+image_encoder.13.0.bn1.weight False
+image_encoder.13.0.bn1.bias False
+image_encoder.13.0.conv2.weight False
+image_encoder.13.0.bn2.weight False
+image_encoder.13.0.bn2.bias False
+image_encoder.13.0.conv3.weight False
+image_encoder.13.0.bn3.weight False
+image_encoder.13.0.bn3.bias False
+image_encoder.13.0.downsample.0.weight False
+image_encoder.13.0.downsample.1.weight False
+image_encoder.13.0.downsample.1.bias False
+image_encoder.13.1.conv1.weight False
+image_encoder.13.1.bn1.weight False
+image_encoder.13.1.bn1.bias False
+image_encoder.13.1.conv2.weight False
+image_encoder.13.1.bn2.weight False
+image_encoder.13.1.bn2.bias False
+image_encoder.13.1.conv3.weight False
+image_encoder.13.1.bn3.weight False
+image_encoder.13.1.bn3.bias False
+image_encoder.13.2.conv1.weight False
+image_encoder.13.2.bn1.weight False
+image_encoder.13.2.bn1.bias False
+image_encoder.13.2.conv2.weight False
+image_encoder.13.2.bn2.weight False
+image_encoder.13.2.bn2.bias False
+image_encoder.13.2.conv3.weight False
+image_encoder.13.2.bn3.weight False
+image_encoder.13.2.bn3.bias False
+attnpool.positional_embedding True
+attnpool.k_proj.weight True
+attnpool.k_proj.bias True
+attnpool.q_proj.weight True
+attnpool.q_proj.bias True
+attnpool.v_proj.weight True
+attnpool.v_proj.bias True
+attnpool.c_proj.weight True
+attnpool.c_proj.bias True
+align_context.memory_proj.0.weight True
+align_context.memory_proj.0.bias True
+align_context.memory_proj.1.weight True
+align_context.memory_proj.1.bias True
+align_context.memory_proj.2.weight True
+align_context.memory_proj.2.bias True
+align_context.text_proj.0.weight True
+align_context.text_proj.0.bias True
+align_context.text_proj.1.weight True
+align_context.text_proj.1.bias True
+align_context.decoder.0.self_attn.q_proj.weight True
+align_context.decoder.0.self_attn.k_proj.weight True
+align_context.decoder.0.self_attn.v_proj.weight True
+align_context.decoder.0.self_attn.proj.weight True
+align_context.decoder.0.self_attn.proj.bias True
+align_context.decoder.0.cross_attn.q_proj.weight True
+align_context.decoder.0.cross_attn.k_proj.weight True
+align_context.decoder.0.cross_attn.v_proj.weight True
+align_context.decoder.0.cross_attn.proj.weight True
+align_context.decoder.0.cross_attn.proj.bias True
+align_context.decoder.0.norm1.weight True
+align_context.decoder.0.norm1.bias True
+align_context.decoder.0.norm2.weight True
+align_context.decoder.0.norm2.bias True
+align_context.decoder.0.norm3.weight True
+align_context.decoder.0.norm3.bias True
+align_context.decoder.0.mlp.0.weight True
+align_context.decoder.0.mlp.0.bias True
+align_context.decoder.0.mlp.3.weight True
+align_context.decoder.0.mlp.3.bias True
+align_context.decoder.1.self_attn.q_proj.weight True
+align_context.decoder.1.self_attn.k_proj.weight True
+align_context.decoder.1.self_attn.v_proj.weight True
+align_context.decoder.1.self_attn.proj.weight True
+align_context.decoder.1.self_attn.proj.bias True
+align_context.decoder.1.cross_attn.q_proj.weight True
+align_context.decoder.1.cross_attn.k_proj.weight True
+align_context.decoder.1.cross_attn.v_proj.weight True
+align_context.decoder.1.cross_attn.proj.weight True
+align_context.decoder.1.cross_attn.proj.bias True
+align_context.decoder.1.norm1.weight True
+align_context.decoder.1.norm1.bias True
+align_context.decoder.1.norm2.weight True
+align_context.decoder.1.norm2.bias True
+align_context.decoder.1.norm3.weight True
+align_context.decoder.1.norm3.bias True
+align_context.decoder.1.mlp.0.weight True
+align_context.decoder.1.mlp.0.bias True
+align_context.decoder.1.mlp.3.weight True
+align_context.decoder.1.mlp.3.bias True
+align_context.decoder.2.self_attn.q_proj.weight True
+align_context.decoder.2.self_attn.k_proj.weight True
+align_context.decoder.2.self_attn.v_proj.weight True
+align_context.decoder.2.self_attn.proj.weight True
+align_context.decoder.2.self_attn.proj.bias True
+align_context.decoder.2.cross_attn.q_proj.weight True
+align_context.decoder.2.cross_attn.k_proj.weight True
+align_context.decoder.2.cross_attn.v_proj.weight True
+align_context.decoder.2.cross_attn.proj.weight True
+align_context.decoder.2.cross_attn.proj.bias True
+align_context.decoder.2.norm1.weight True
+align_context.decoder.2.norm1.bias True
+align_context.decoder.2.norm2.weight True
+align_context.decoder.2.norm2.bias True
+align_context.decoder.2.norm3.weight True
+align_context.decoder.2.norm3.bias True
+align_context.decoder.2.mlp.0.weight True
+align_context.decoder.2.mlp.0.bias True
+align_context.decoder.2.mlp.3.weight True
+align_context.decoder.2.mlp.3.bias True
+align_context.decoder.3.self_attn.q_proj.weight True
+align_context.decoder.3.self_attn.k_proj.weight True
+align_context.decoder.3.self_attn.v_proj.weight True
+align_context.decoder.3.self_attn.proj.weight True
+align_context.decoder.3.self_attn.proj.bias True
+align_context.decoder.3.cross_attn.q_proj.weight True
+align_context.decoder.3.cross_attn.k_proj.weight True
+align_context.decoder.3.cross_attn.v_proj.weight True
+align_context.decoder.3.cross_attn.proj.weight True
+align_context.decoder.3.cross_attn.proj.bias True
+align_context.decoder.3.norm1.weight True
+align_context.decoder.3.norm1.bias True
+align_context.decoder.3.norm2.weight True
+align_context.decoder.3.norm2.bias True
+align_context.decoder.3.norm3.weight True
+align_context.decoder.3.norm3.bias True
+align_context.decoder.3.mlp.0.weight True
+align_context.decoder.3.mlp.0.bias True
+align_context.decoder.3.mlp.3.weight True
+align_context.decoder.3.mlp.3.bias True
+align_context.decoder.4.self_attn.q_proj.weight True
+align_context.decoder.4.self_attn.k_proj.weight True
+align_context.decoder.4.self_attn.v_proj.weight True
+align_context.decoder.4.self_attn.proj.weight True
+align_context.decoder.4.self_attn.proj.bias True
+align_context.decoder.4.cross_attn.q_proj.weight True
+align_context.decoder.4.cross_attn.k_proj.weight True
+align_context.decoder.4.cross_attn.v_proj.weight True
+align_context.decoder.4.cross_attn.proj.weight True
+align_context.decoder.4.cross_attn.proj.bias True
+align_context.decoder.4.norm1.weight True
+align_context.decoder.4.norm1.bias True
+align_context.decoder.4.norm2.weight True
+align_context.decoder.4.norm2.bias True
+align_context.decoder.4.norm3.weight True
+align_context.decoder.4.norm3.bias True
+align_context.decoder.4.mlp.0.weight True
+align_context.decoder.4.mlp.0.bias True
+align_context.decoder.4.mlp.3.weight True
+align_context.decoder.4.mlp.3.bias True
+align_context.decoder.5.self_attn.q_proj.weight True
+align_context.decoder.5.self_attn.k_proj.weight True
+align_context.decoder.5.self_attn.v_proj.weight True
+align_context.decoder.5.self_attn.proj.weight True
+align_context.decoder.5.self_attn.proj.bias True
+align_context.decoder.5.cross_attn.q_proj.weight True
+align_context.decoder.5.cross_attn.k_proj.weight True
+align_context.decoder.5.cross_attn.v_proj.weight True
+align_context.decoder.5.cross_attn.proj.weight True
+align_context.decoder.5.cross_attn.proj.bias True
+align_context.decoder.5.norm1.weight True
+align_context.decoder.5.norm1.bias True
+align_context.decoder.5.norm2.weight True
+align_context.decoder.5.norm2.bias True
+align_context.decoder.5.norm3.weight True
+align_context.decoder.5.norm3.bias True
+align_context.decoder.5.mlp.0.weight True
+align_context.decoder.5.mlp.0.bias True
+align_context.decoder.5.mlp.3.weight True
+align_context.decoder.5.mlp.3.bias True
+align_context.out_proj.0.weight True
+align_context.out_proj.0.bias True
+align_context.out_proj.1.weight True
+align_context.out_proj.1.bias True
+decoder.conv_layers.0.weight True
+decoder.conv_layers.0.bias True
+decoder.conv_layers.2.weight True
+decoder.conv_layers.2.bias True
+decoder.conv_layers.3.weight True
+decoder.conv_layers.3.bias True
+decoder.conv_layers.5.weight True
+decoder.conv_layers.5.bias True
+EPOCH 1:
+  batch 20 loss: 2.0934879064559935
+  batch 40 loss: 1.9504404425621034
+  batch 60 loss: 1.8965915083885192
+  val done :  0
+LOSS train 1.8965915083885192 valid 4.505990982055664
+Saved best model. Old loss 1000000.0 and new best loss 4.505990982055664
+EPOCH 2:
+  batch 20 loss: 1.7794489741325379
+  batch 40 loss: 1.6825449526309968
+  batch 60 loss: 1.6434253990650176
+  val done :  0
+LOSS train 1.6434253990650176 valid 14.435456275939941
+EPOCH 3:
+  batch 20 loss: 1.573651337623596
+  batch 40 loss: 1.546268790960312
+  batch 60 loss: 1.5424523532390595
+  val done :  0
+LOSS train 1.5424523532390595 valid 4.962287068367004
+EPOCH 4:
+  batch 20 loss: 1.4849681675434112
+  batch 40 loss: 1.4597439527511598
+  batch 60 loss: 1.4517177402973176
+  val done :  0
+LOSS train 1.4517177402973176 valid 9.915634393692017
+EPOCH 5:
+  batch 20 loss: 1.4358555257320404
+  batch 40 loss: 1.4125311851501465
+  batch 60 loss: 1.3945962905883789
+  val done :  0
+LOSS train 1.3945962905883789 valid 8.638664484024048
+EPOCH 6:
+  batch 20 loss: 1.3848604321479798
+  batch 40 loss: 1.3772067248821258
+  batch 60 loss: 1.3796389758586884
+  val done :  0
+LOSS train 1.3796389758586884 valid 4.455929756164551
+Saved best model. Old loss 4.505990982055664 and new best loss 4.455929756164551
+EPOCH 7:
+  batch 20 loss: 1.3625056147575378
+  batch 40 loss: 1.3568169057369233
+  batch 60 loss: 1.343363308906555
+  val done :  0
+LOSS train 1.343363308906555 valid 4.019369602203369
+Saved best model. Old loss 4.455929756164551 and new best loss 4.019369602203369
+EPOCH 8:
+  batch 20 loss: 1.3449345350265502
+  batch 40 loss: 1.3380453944206239
+  batch 60 loss: 1.3195066809654237
+  val done :  0
+LOSS train 1.3195066809654237 valid 1.2974227368831635
+Saved best model. Old loss 4.019369602203369 and new best loss 1.2974227368831635
+EPOCH 9:
+  batch 20 loss: 1.3349944591522216
+  batch 40 loss: 1.3115362882614137
+  batch 60 loss: 1.301253342628479
+  val done :  0
+LOSS train 1.301253342628479 valid 1.5244278311729431
+EPOCH 10:
+  batch 20 loss: 1.30150665640831
+  batch 40 loss: 1.2896102666854858
+  batch 60 loss: 1.2831585228443145
+  val done :  0
+LOSS train 1.2831585228443145 valid 1.2512447237968445
+Saved best model. Old loss 1.2974227368831635 and new best loss 1.2512447237968445
+EPOCH 11:
+  batch 20 loss: 1.2948730289936066
+  batch 40 loss: 1.2796283602714538
+  batch 60 loss: 1.267471432685852
+  val done :  0
+LOSS train 1.267471432685852 valid 1.2517432272434235
+EPOCH 12:
+  batch 20 loss: 1.2645998299121857
+  batch 40 loss: 1.2674958467483521
+  batch 60 loss: 1.25261589884758
+  val done :  0
+LOSS train 1.25261589884758 valid 1.2334787845611572
+Saved best model. Old loss 1.2512447237968445 and new best loss 1.2334787845611572
+EPOCH 13:
+  batch 20 loss: 1.2567686557769775
+  batch 40 loss: 1.2519417822360992
+  batch 60 loss: 1.2401573181152343
+  val done :  0
+LOSS train 1.2401573181152343 valid 1.2695342898368835
+EPOCH 14:
+  batch 20 loss: 1.247569066286087
+  batch 40 loss: 1.231442356109619
+  batch 60 loss: 1.2325203537940979
+  val done :  0
+LOSS train 1.2325203537940979 valid 1.262455940246582
+EPOCH 15:
+  batch 20 loss: 1.2295244634151459
+  batch 40 loss: 1.2215698957443237
+  batch 60 loss: 1.2198702812194824
+  val done :  0
+LOSS train 1.2198702812194824 valid 1.2556466460227966
+EPOCH 16:
+  batch 20 loss: 1.2161755383014679
+  batch 40 loss: 1.2100299656391145
+  batch 60 loss: 1.2063499212265014
+  val done :  0
+LOSS train 1.2063499212265014 valid 1.2433280646800995
+EPOCH 17:
+  batch 20 loss: 1.204463243484497
+  batch 40 loss: 1.1944723188877107
+  batch 60 loss: 1.1927428603172303
+  val done :  0
+LOSS train 1.1927428603172303 valid 1.2435262501239777
+EPOCH 18:
+  batch 20 loss: 1.1961283445358277
+  batch 40 loss: 1.1887688338756561
+  batch 60 loss: 1.1835911393165588
+  val done :  0
+LOSS train 1.1835911393165588 valid 1.2480473220348358
+EPOCH 19:
+  batch 20 loss: 1.1822689414024352
+  batch 40 loss: 1.177860152721405
+  batch 60 loss: 1.1715558111667632
+  val done :  0
+LOSS train 1.1715558111667632 valid 1.2544150352478027
+EPOCH 20:
+  batch 20 loss: 1.1717456996440887
+  batch 40 loss: 1.1649992406368255
+  batch 60 loss: 1.1644349277019501
+  val done :  0
+LOSS train 1.1644349277019501 valid 1.2490322887897491
+EPOCH 21:
+  batch 20 loss: 1.1594604194164275
+  batch 40 loss: 1.1703771471977233
+  batch 60 loss: 1.1595674633979798
+  val done :  0
+LOSS train 1.1595674633979798 valid 1.25449538230896
+EPOCH 22:
+  batch 20 loss: 1.1608526110649109
+  batch 40 loss: 1.1492248117923736
+  batch 60 loss: 1.14845871925354
+  val done :  0
+LOSS train 1.14845871925354 valid 1.259701132774353
+EPOCH 23:
+  batch 20 loss: 1.1490690588951111
+  batch 40 loss: 1.1444320559501648
+  batch 60 loss: 1.1397129416465759
+  val done :  0
+LOSS train 1.1397129416465759 valid 1.2521089017391205
+EPOCH 24:
+  batch 20 loss: 1.1375408887863159
+  batch 40 loss: 1.1314271420240403
+  batch 60 loss: 1.133255797624588
+  val done :  0
+LOSS train 1.133255797624588 valid 1.2556062936782837
+EPOCH 25:
+  batch 20 loss: 1.1342304289340972
+  batch 40 loss: 1.122292098402977
+  batch 60 loss: 1.1195867776870727
+  val done :  0
+LOSS train 1.1195867776870727 valid 1.251787394285202
+EPOCH 26:
+  batch 20 loss: 1.11831237077713
+  batch 40 loss: 1.1116502076387405
+  batch 60 loss: 1.1131301909685134
+  val done :  0
+LOSS train 1.1131301909685134 valid 1.2607835233211517
+EPOCH 27:
+  batch 20 loss: 1.1175009071826936
+  batch 40 loss: 1.1103727668523788
+  batch 60 loss: 1.1081976145505905
+  val done :  0
+LOSS train 1.1081976145505905 valid 1.2597686350345612
+EPOCH 28:
+  batch 20 loss: 1.1121663570404052
+  batch 40 loss: 1.1009743094444275
+  batch 60 loss: 1.099461990594864
+  val done :  0
+LOSS train 1.099461990594864 valid 1.2597279250621796
+EPOCH 29:
+  batch 20 loss: 1.1021389007568358
+  batch 40 loss: 1.0916203618049622
+  batch 60 loss: 1.0972144693136214
+  val done :  0
+LOSS train 1.0972144693136214 valid 1.2692377269268036
+EPOCH 30:
+  batch 20 loss: 1.0967315435409546
+  batch 40 loss: 1.0833853662014008
+  batch 60 loss: 1.0856869757175445
+  val done :  0
+LOSS train 1.0856869757175445 valid 1.2625475525856018
+EPOCH 31:
+  batch 20 loss: 1.0841069310903548
+  batch 40 loss: 1.0775789111852645
+  batch 60 loss: 1.0822493076324462
+  val done :  0
+LOSS train 1.0822493076324462 valid 1.2657902240753174
+EPOCH 32:
+  batch 20 loss: 1.07901571393013
+  batch 40 loss: 1.068772655725479
+  batch 60 loss: 1.0753662496805192
+  val done :  0
+LOSS train 1.0753662496805192 valid 1.2681572437286377
+EPOCH 33:
+  batch 20 loss: 1.073626282811165
+  batch 40 loss: 1.070929589867592
+  batch 60 loss: 1.0717169344425201
+  val done :  0
+LOSS train 1.0717169344425201 valid 1.2579484283924103
+EPOCH 34:
+  batch 20 loss: 1.067523267865181
+  batch 40 loss: 1.0612147510051728
+  batch 60 loss: 1.0606185436248778
+  val done :  0
+LOSS train 1.0606185436248778 valid 1.2545514106750488
+EPOCH 35:
+  batch 20 loss: 1.0629007279872895
+  batch 40 loss: 1.0538413286209107
+  batch 60 loss: 1.062146407365799
+  val done :  0
+LOSS train 1.062146407365799 valid 1.247671902179718
+EPOCH 36:
+  batch 20 loss: 1.0674231022596359
+  batch 40 loss: 1.0571253418922424
+  batch 60 loss: 1.0538101017475128
+  val done :  0
+LOSS train 1.0538101017475128 valid 1.2608244121074677
+EPOCH 37:
+  batch 20 loss: 1.0574684768915177
+  batch 40 loss: 1.0435928672552108
+  batch 60 loss: 1.0498915016651154
+  val done :  0
+LOSS train 1.0498915016651154 valid 1.2613157629966736
+EPOCH 38:
+  batch 20 loss: 1.0470758557319642
+  batch 40 loss: 1.0369382619857788
+  batch 60 loss: 1.0436036944389344
+  val done :  0
+LOSS train 1.0436036944389344 valid 1.263137012720108
+EPOCH 39:
+  batch 20 loss: 1.0424471706151963
+  batch 40 loss: 1.0338857173919678
+  batch 60 loss: 1.041410967707634
+  val done :  0
+LOSS train 1.041410967707634 valid 1.258938044309616
+EPOCH 40:
+  batch 20 loss: 1.043392837047577
+  batch 40 loss: 1.0347143232822418
+  batch 60 loss: 1.0387904912233352
+  val done :  0
+LOSS train 1.0387904912233352 valid 1.2539615333080292
+EPOCH 41:
+  batch 20 loss: 1.0357609182596206
+  batch 40 loss: 1.0257010489702225
+  batch 60 loss: 1.0352208197116852
+  val done :  0
+LOSS train 1.0352208197116852 valid 1.2580457031726837
+EPOCH 42:
+  batch 20 loss: 1.0298824161291122
+  batch 40 loss: 1.0163350045680999
+  batch 60 loss: 1.0278585880994797
+  val done :  0
+LOSS train 1.0278585880994797 valid 1.2597345113754272
+EPOCH 43:
+  batch 20 loss: 1.024908185005188
+  batch 40 loss: 1.0144283294677734
+  batch 60 loss: 1.0252254724502563
+  val done :  0
+LOSS train 1.0252254724502563 valid 1.2570620477199554
+EPOCH 44:
+  batch 20 loss: 1.0250437766313554
+  batch 40 loss: 1.0209491223096847
+  batch 60 loss: 1.0246466636657714
+  val done :  0
+LOSS train 1.0246466636657714 valid 1.252877414226532
+EPOCH 45:
+  batch 20 loss: 1.0210041731595993
+  batch 40 loss: 1.0097349405288696
+  batch 60 loss: 1.0218048423528672
+  val done :  0
+LOSS train 1.0218048423528672 valid 1.2609242796897888
+EPOCH 46:
+  batch 20 loss: 1.013861319422722
+  batch 40 loss: 1.001882216334343
+  batch 60 loss: 1.0117047369480132
+  val done :  0
+LOSS train 1.0117047369480132 valid 1.2529161870479584
+EPOCH 47:
+  batch 20 loss: 1.0115627974271775
+  batch 40 loss: 0.9970301926136017
+  batch 60 loss: 1.0176307529211044
+  val done :  0
+LOSS train 1.0176307529211044 valid 1.2546637654304504
+EPOCH 48:
+  batch 20 loss: 1.0070689469575882
+  batch 40 loss: 0.992106306552887
+  batch 60 loss: 1.0066737890243531
+  val done :  0
+LOSS train 1.0066737890243531 valid 1.2587195932865143
+EPOCH 49:
+  batch 20 loss: 1.0051933884620667
+  batch 40 loss: 0.9965939819812775
+  batch 60 loss: 1.014062824845314
+  val done :  0
+LOSS train 1.014062824845314 valid 1.2377372682094574
+EPOCH 50:
+  batch 20 loss: 0.9934891998767853
+  batch 40 loss: 0.9796245455741882
+  batch 60 loss: 0.9906681448221206
+  val done :  0
+LOSS train 0.9906681448221206 valid 1.2678580284118652
+EPOCH 51:
+  batch 20 loss: 0.9892586380243301
+  batch 40 loss: 0.9613119184970855
+  batch 60 loss: 0.9857907235622406
+  val done :  0
+LOSS train 0.9857907235622406 valid 1.2628867626190186
+EPOCH 52:
+  batch 20 loss: 0.9694813847541809
+  batch 40 loss: 0.9534620523452759
+  batch 60 loss: 0.976979774236679
+  val done :  0
+LOSS train 0.976979774236679 valid 1.2625113427639008
+EPOCH 53:
+  batch 20 loss: 0.9521262079477311
+  batch 40 loss: 0.9347396820783616
+  batch 60 loss: 0.9608835101127624
+  val done :  0
+LOSS train 0.9608835101127624 valid 1.281086266040802
+EPOCH 54:
+  batch 20 loss: 0.9411068975925445
+  batch 40 loss: 0.9256115227937698
+  batch 60 loss: 0.9509434968233108
+  val done :  0
+LOSS train 0.9509434968233108 valid 1.2871607542037964
+EPOCH 55:
+  batch 20 loss: 0.9375235617160798
+  batch 40 loss: 0.9103815943002701
+  batch 60 loss: 0.9366719514131546
+  val done :  0
+LOSS train 0.9366719514131546 valid 1.302529662847519
+EPOCH 56:
+  batch 20 loss: 0.9370170325040817
+  batch 40 loss: 0.9049120336771012
+  batch 60 loss: 0.933964267373085
+  val done :  0
+LOSS train 0.933964267373085 valid 1.3114567995071411
+EPOCH 57:
+  batch 20 loss: 0.9196607172489166
+  batch 40 loss: 0.8986087322235108
+  batch 60 loss: 0.9265321135520935
+  val done :  0
+LOSS train 0.9265321135520935 valid 1.307741105556488
+EPOCH 58:
+  batch 20 loss: 0.9160786956548691
+  batch 40 loss: 0.9158686339855194
+  batch 60 loss: 0.9204307675361634
+  val done :  0
+LOSS train 0.9204307675361634 valid 1.31311497092247
+EPOCH 59:
+  batch 20 loss: 0.9038723856210709
+  batch 40 loss: 0.8944456815719605
+  batch 60 loss: 0.9130544275045395
+  val done :  0
+LOSS train 0.9130544275045395 valid 1.3213862180709839
+EPOCH 60:
+  batch 20 loss: 0.8954199999570847
+  batch 40 loss: 0.8823550045490265
+  batch 60 loss: 0.9120761841535568
+  val done :  0
+LOSS train 0.9120761841535568 valid 1.3121291399002075
+EPOCH 61:
+  batch 20 loss: 0.8968542993068696
+  batch 40 loss: 0.8830831587314606
+  batch 60 loss: 0.9024866163730622
+  val done :  0
+LOSS train 0.9024866163730622 valid 1.3217446208000183
+EPOCH 62:
+  batch 20 loss: 0.8918868422508239
+  batch 40 loss: 0.8774827629327774
+  batch 60 loss: 0.901977950334549
+  val done :  0
+LOSS train 0.901977950334549 valid 1.3229092359542847
+EPOCH 63:
+  batch 20 loss: 0.8832234740257263
+  batch 40 loss: 0.8695484846830368
+  batch 60 loss: 0.9025274693965912
+  val done :  0
+LOSS train 0.9025274693965912 valid 1.3167832791805267
+EPOCH 64:
+  batch 20 loss: 0.8840250045061111
+  batch 40 loss: 0.8711348831653595
+  batch 60 loss: 0.8982518911361694
+  val done :  0
+LOSS train 0.8982518911361694 valid 1.321645826101303
+EPOCH 65:
+  batch 20 loss: 0.8780649304389954
+  batch 40 loss: 0.8617123186588287
+  batch 60 loss: 0.8887585312128067
+  val done :  0
+LOSS train 0.8887585312128067 valid 1.3106410205364227
+EPOCH 66:
+  batch 20 loss: 0.8765059471130371
+  batch 40 loss: 0.8684225738048553
+  batch 60 loss: 0.8945161193609238
+  val done :  0
+LOSS train 0.8945161193609238 valid 1.303331196308136
+EPOCH 67:
+  batch 20 loss: 0.8632880449295044
+  batch 40 loss: 0.8557310372591018
+  batch 60 loss: 0.8862608015537262
+  val done :  0
+LOSS train 0.8862608015537262 valid 1.3138405084609985
+EPOCH 68:
+  batch 20 loss: 0.8576185017824173
+  batch 40 loss: 0.8564889520406723
+  batch 60 loss: 0.8894050687551498
+  val done :  0
+LOSS train 0.8894050687551498 valid 1.3018833100795746
+EPOCH 69:
+  batch 20 loss: 0.8643069177865982
+  batch 40 loss: 0.853185847401619
+  batch 60 loss: 0.8894943356513977
+  val done :  0
+LOSS train 0.8894943356513977 valid 1.30382040143013
+EPOCH 70:
+  batch 20 loss: 0.8696195870637894
+  batch 40 loss: 0.8571825504302979
+  batch 60 loss: 0.8907352566719056
+  val done :  0
+LOSS train 0.8907352566719056 valid 1.3026800453662872
+EPOCH 71:
+  batch 20 loss: 0.8915838450193405
+  batch 40 loss: 0.8611283451318741
+  batch 60 loss: 0.8812544077634812
+  val done :  0
+LOSS train 0.8812544077634812 valid 1.3034611940383911
+EPOCH 72:
+  batch 20 loss: 0.8568353295326233
+  batch 40 loss: 0.8586139976978302
+  batch 60 loss: 0.8775719106197357
+  val done :  0
+LOSS train 0.8775719106197357 valid 1.297512173652649
+EPOCH 73:
+  batch 20 loss: 0.8502121448516846
+  batch 40 loss: 0.8504169315099717
+  batch 60 loss: 0.8752160280942917
+  val done :  0
+LOSS train 0.8752160280942917 valid 1.2972242832183838
+EPOCH 74:
+  batch 20 loss: 0.8457482486963273
+  batch 40 loss: 0.8434254467487335
+  batch 60 loss: 0.9068900346755981
+  val done :  0
+LOSS train 0.9068900346755981 valid 1.306902825832367
+EPOCH 75:
+  batch 20 loss: 0.8851487785577774
+  batch 40 loss: 0.8436237007379532
+  batch 60 loss: 0.87315514087677
+  val done :  0
+LOSS train 0.87315514087677 valid 1.296999841928482
+EPOCH 76:
+  batch 20 loss: 0.8452489018440247
+  batch 40 loss: 0.8404231339693069
+  batch 60 loss: 0.8692367136478424
+  val done :  0
+LOSS train 0.8692367136478424 valid 1.298817366361618
+EPOCH 77:
+  batch 20 loss: 0.8459208339452744
+  batch 40 loss: 0.8402986913919449
+  batch 60 loss: 0.865942332148552
+  val done :  0
+LOSS train 0.865942332148552 valid 1.2846727967262268
+EPOCH 78:
+  batch 20 loss: 0.845415112376213
+  batch 40 loss: 0.8417882472276688
+  batch 60 loss: 0.8603389173746109
+  val done :  0
+LOSS train 0.8603389173746109 valid 1.2798203527927399
+EPOCH 79:
+  batch 20 loss: 0.8391809642314911
+  batch 40 loss: 0.8472703784704209
+  batch 60 loss: 0.868866914510727
+  val done :  0
+LOSS train 0.868866914510727 valid 1.2720322012901306
+EPOCH 80:
+  batch 20 loss: 0.8485632419586182
+  batch 40 loss: 0.8337231487035751
+  batch 60 loss: 0.8581464648246765
+  val done :  0
+LOSS train 0.8581464648246765 valid 1.266712337732315
+EPOCH 81:
+  batch 20 loss: 0.8410464257001877
+  batch 40 loss: 0.8390070974826813
+  batch 60 loss: 0.8626393139362335
+  val done :  0
+LOSS train 0.8626393139362335 valid 1.2655439674854279
+EPOCH 82:
+  batch 20 loss: 0.8368153512477875
+  batch 40 loss: 0.8294071197509766
+  batch 60 loss: 0.8656231880187988
+  val done :  0
+LOSS train 0.8656231880187988 valid 1.2655421495437622
+EPOCH 83:
+  batch 20 loss: 0.835300412774086
+  batch 40 loss: 0.8340891122817993
+  batch 60 loss: 0.8600522100925445
+  val done :  0
+LOSS train 0.8600522100925445 valid 1.2679373919963837
+EPOCH 84:
+  batch 20 loss: 0.8371997624635696
+  batch 40 loss: 0.8351551115512847
+  batch 60 loss: 0.8563964068889618
+  val done :  0
+LOSS train 0.8563964068889618 valid 1.2537533640861511
+EPOCH 85:
+  batch 20 loss: 0.838382112979889
+  batch 40 loss: 0.8264512211084366
+  batch 60 loss: 0.8642763406038284
+  val done :  0
+LOSS train 0.8642763406038284 valid 1.2654849886894226
+EPOCH 86:
+  batch 20 loss: 0.8291552603244782
+  batch 40 loss: 0.8335266739130021
+  batch 60 loss: 0.8664732545614242
+  val done :  0
+LOSS train 0.8664732545614242 valid 1.2634689509868622
+EPOCH 87:
+  batch 20 loss: 0.837819516658783
+  batch 40 loss: 0.8270428866147995
+  batch 60 loss: 0.8523394018411636
+  val done :  0
+LOSS train 0.8523394018411636 valid 1.2509520947933197
+EPOCH 88:
+  batch 20 loss: 0.8293076604604721
+  batch 40 loss: 0.8442508548498153
+  batch 60 loss: 0.8842262029647827
+  val done :  0
+LOSS train 0.8842262029647827 valid 1.2385601997375488
+EPOCH 89:
+  batch 20 loss: 0.8272602260112762
+  batch 40 loss: 0.8276719093322754
+  batch 60 loss: 0.8534874528646469
+  val done :  0
+LOSS train 0.8534874528646469 valid 1.2587124705314636
+EPOCH 90:
+  batch 20 loss: 0.8304149746894837
+  batch 40 loss: 0.8237251698970794
+  batch 60 loss: 0.8537369757890702
+  val done :  0
+LOSS train 0.8537369757890702 valid 1.2510516047477722
+EPOCH 91:
+  batch 20 loss: 0.8329735964536666
+  batch 40 loss: 0.8319365948438644
+  batch 60 loss: 0.8725090473890305
+  val done :  0
+LOSS train 0.8725090473890305 valid 1.2486709952354431
+EPOCH 92:
+  batch 20 loss: 0.8475886195898056
+  batch 40 loss: 0.8433892518281937
+  batch 60 loss: 0.8585125416517257
+  val done :  0
+LOSS train 0.8585125416517257 valid 1.2441903352737427
+EPOCH 93:
+  batch 20 loss: 0.822435462474823
+  batch 40 loss: 0.8192702054977417
+  batch 60 loss: 0.8493670433759689
+  val done :  0
+LOSS train 0.8493670433759689 valid 1.244686633348465
+EPOCH 94:
+  batch 20 loss: 0.8183720469474792
+  batch 40 loss: 0.8243293195962906
+  batch 60 loss: 0.8566912531852722
+  val done :  0
+LOSS train 0.8566912531852722 valid 1.2492527663707733
+EPOCH 95:
+  batch 20 loss: 0.8252541333436966
+  batch 40 loss: 0.8256600230932236
+  batch 60 loss: 0.8566442012786866
+  val done :  0
+LOSS train 0.8566442012786866 valid 1.2278494834899902
+Saved best model. Old loss 1.2334787845611572 and new best loss 1.2278494834899902
+EPOCH 96:
+  batch 20 loss: 0.8221239179372788
+  batch 40 loss: 0.8200540691614151
+  batch 60 loss: 0.8550127118825912
+  val done :  0
+LOSS train 0.8550127118825912 valid 1.2342046797275543
+EPOCH 97:
+  batch 20 loss: 0.8237169235944748
+  batch 40 loss: 0.8367981433868408
+  batch 60 loss: 0.8569506347179413
+  val done :  0
+LOSS train 0.8569506347179413 valid 1.237518310546875
+EPOCH 98:
+  batch 20 loss: 0.8222468942403793
+  batch 40 loss: 0.826355266571045
+  batch 60 loss: 0.8505620986223221
+  val done :  0
+LOSS train 0.8505620986223221 valid 1.2410044074058533
+EPOCH 99:
+  batch 20 loss: 0.8176831305027008
+  batch 40 loss: 0.8243197470903396
+  batch 60 loss: 0.8482118844985962
+  val done :  0
+LOSS train 0.8482118844985962 valid 1.2305993437767029
+EPOCH 100:
+  batch 20 loss: 0.8344015538692474
+  batch 40 loss: 0.8282309144735336
+  batch 60 loss: 0.8452445566654205
+  val done :  0
+LOSS train 0.8452445566654205 valid 1.2539035379886627

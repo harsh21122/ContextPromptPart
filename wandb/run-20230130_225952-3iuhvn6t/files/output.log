@@ -1,0 +1,382 @@
+Length of Train dataset : 646 and Test dataset : 35
+Length of Train loader : 65 and Test loader : 4
+self.partnames :  ['head', 'neck', 'torso', 'legs', 'tail', 'background']
+prompts :  [' the head of the cat.', ' the neck of the cat.', ' the torso of the cat.', ' the legs of the cat.', ' the tail of the cat.', ' the background of the cat.']
+model device :  cuda
+self.prompts : torch.Size([6, 77])
+self.prompts : torch.Size([6, 1024])
+self.prompts rquires grad :  <built-in method requires_grad_ of Tensor object at 0x7f03de7db540>
+Printing parameters and their gradient
+gamma True
+image_encoder.0.weight False
+image_encoder.1.weight False
+image_encoder.1.bias False
+image_encoder.3.weight False
+image_encoder.4.weight False
+image_encoder.4.bias False
+image_encoder.6.weight False
+image_encoder.7.weight False
+image_encoder.7.bias False
+image_encoder.10.0.conv1.weight False
+image_encoder.10.0.bn1.weight False
+image_encoder.10.0.bn1.bias False
+image_encoder.10.0.conv2.weight False
+image_encoder.10.0.bn2.weight False
+image_encoder.10.0.bn2.bias False
+image_encoder.10.0.conv3.weight False
+image_encoder.10.0.bn3.weight False
+image_encoder.10.0.bn3.bias False
+image_encoder.10.0.downsample.0.weight False
+image_encoder.10.0.downsample.1.weight False
+image_encoder.10.0.downsample.1.bias False
+image_encoder.10.1.conv1.weight False
+image_encoder.10.1.bn1.weight False
+image_encoder.10.1.bn1.bias False
+image_encoder.10.1.conv2.weight False
+image_encoder.10.1.bn2.weight False
+image_encoder.10.1.bn2.bias False
+image_encoder.10.1.conv3.weight False
+image_encoder.10.1.bn3.weight False
+image_encoder.10.1.bn3.bias False
+image_encoder.10.2.conv1.weight False
+image_encoder.10.2.bn1.weight False
+image_encoder.10.2.bn1.bias False
+image_encoder.10.2.conv2.weight False
+image_encoder.10.2.bn2.weight False
+image_encoder.10.2.bn2.bias False
+image_encoder.10.2.conv3.weight False
+image_encoder.10.2.bn3.weight False
+image_encoder.10.2.bn3.bias False
+image_encoder.11.0.conv1.weight False
+image_encoder.11.0.bn1.weight False
+image_encoder.11.0.bn1.bias False
+image_encoder.11.0.conv2.weight False
+image_encoder.11.0.bn2.weight False
+image_encoder.11.0.bn2.bias False
+image_encoder.11.0.conv3.weight False
+image_encoder.11.0.bn3.weight False
+image_encoder.11.0.bn3.bias False
+image_encoder.11.0.downsample.0.weight False
+image_encoder.11.0.downsample.1.weight False
+image_encoder.11.0.downsample.1.bias False
+image_encoder.11.1.conv1.weight False
+image_encoder.11.1.bn1.weight False
+image_encoder.11.1.bn1.bias False
+image_encoder.11.1.conv2.weight False
+image_encoder.11.1.bn2.weight False
+image_encoder.11.1.bn2.bias False
+image_encoder.11.1.conv3.weight False
+image_encoder.11.1.bn3.weight False
+image_encoder.11.1.bn3.bias False
+image_encoder.11.2.conv1.weight False
+image_encoder.11.2.bn1.weight False
+image_encoder.11.2.bn1.bias False
+image_encoder.11.2.conv2.weight False
+image_encoder.11.2.bn2.weight False
+image_encoder.11.2.bn2.bias False
+image_encoder.11.2.conv3.weight False
+image_encoder.11.2.bn3.weight False
+image_encoder.11.2.bn3.bias False
+image_encoder.11.3.conv1.weight False
+image_encoder.11.3.bn1.weight False
+image_encoder.11.3.bn1.bias False
+image_encoder.11.3.conv2.weight False
+image_encoder.11.3.bn2.weight False
+image_encoder.11.3.bn2.bias False
+image_encoder.11.3.conv3.weight False
+image_encoder.11.3.bn3.weight False
+image_encoder.11.3.bn3.bias False
+image_encoder.12.0.conv1.weight False
+image_encoder.12.0.bn1.weight False
+image_encoder.12.0.bn1.bias False
+image_encoder.12.0.conv2.weight False
+image_encoder.12.0.bn2.weight False
+image_encoder.12.0.bn2.bias False
+image_encoder.12.0.conv3.weight False
+image_encoder.12.0.bn3.weight False
+image_encoder.12.0.bn3.bias False
+image_encoder.12.0.downsample.0.weight False
+image_encoder.12.0.downsample.1.weight False
+image_encoder.12.0.downsample.1.bias False
+image_encoder.12.1.conv1.weight False
+image_encoder.12.1.bn1.weight False
+image_encoder.12.1.bn1.bias False
+image_encoder.12.1.conv2.weight False
+image_encoder.12.1.bn2.weight False
+image_encoder.12.1.bn2.bias False
+image_encoder.12.1.conv3.weight False
+image_encoder.12.1.bn3.weight False
+image_encoder.12.1.bn3.bias False
+image_encoder.12.2.conv1.weight False
+image_encoder.12.2.bn1.weight False
+image_encoder.12.2.bn1.bias False
+image_encoder.12.2.conv2.weight False
+image_encoder.12.2.bn2.weight False
+image_encoder.12.2.bn2.bias False
+image_encoder.12.2.conv3.weight False
+image_encoder.12.2.bn3.weight False
+image_encoder.12.2.bn3.bias False
+image_encoder.12.3.conv1.weight False
+image_encoder.12.3.bn1.weight False
+image_encoder.12.3.bn1.bias False
+image_encoder.12.3.conv2.weight False
+image_encoder.12.3.bn2.weight False
+image_encoder.12.3.bn2.bias False
+image_encoder.12.3.conv3.weight False
+image_encoder.12.3.bn3.weight False
+image_encoder.12.3.bn3.bias False
+image_encoder.12.4.conv1.weight False
+image_encoder.12.4.bn1.weight False
+image_encoder.12.4.bn1.bias False
+image_encoder.12.4.conv2.weight False
+image_encoder.12.4.bn2.weight False
+image_encoder.12.4.bn2.bias False
+image_encoder.12.4.conv3.weight False
+image_encoder.12.4.bn3.weight False
+image_encoder.12.4.bn3.bias False
+image_encoder.12.5.conv1.weight False
+image_encoder.12.5.bn1.weight False
+image_encoder.12.5.bn1.bias False
+image_encoder.12.5.conv2.weight False
+image_encoder.12.5.bn2.weight False
+image_encoder.12.5.bn2.bias False
+image_encoder.12.5.conv3.weight False
+image_encoder.12.5.bn3.weight False
+image_encoder.12.5.bn3.bias False
+image_encoder.13.0.conv1.weight False
+image_encoder.13.0.bn1.weight False
+image_encoder.13.0.bn1.bias False
+image_encoder.13.0.conv2.weight False
+image_encoder.13.0.bn2.weight False
+image_encoder.13.0.bn2.bias False
+image_encoder.13.0.conv3.weight False
+image_encoder.13.0.bn3.weight False
+image_encoder.13.0.bn3.bias False
+image_encoder.13.0.downsample.0.weight False
+image_encoder.13.0.downsample.1.weight False
+image_encoder.13.0.downsample.1.bias False
+image_encoder.13.1.conv1.weight False
+image_encoder.13.1.bn1.weight False
+image_encoder.13.1.bn1.bias False
+image_encoder.13.1.conv2.weight False
+image_encoder.13.1.bn2.weight False
+image_encoder.13.1.bn2.bias False
+image_encoder.13.1.conv3.weight False
+image_encoder.13.1.bn3.weight False
+image_encoder.13.1.bn3.bias False
+image_encoder.13.2.conv1.weight False
+image_encoder.13.2.bn1.weight False
+image_encoder.13.2.bn1.bias False
+image_encoder.13.2.conv2.weight False
+image_encoder.13.2.bn2.weight False
+image_encoder.13.2.bn2.bias False
+image_encoder.13.2.conv3.weight False
+image_encoder.13.2.bn3.weight False
+image_encoder.13.2.bn3.bias False
+attnpool.positional_embedding True
+attnpool.k_proj.weight True
+attnpool.k_proj.bias True
+attnpool.q_proj.weight True
+attnpool.q_proj.bias True
+attnpool.v_proj.weight True
+attnpool.v_proj.bias True
+attnpool.c_proj.weight True
+attnpool.c_proj.bias True
+align_context.memory_proj.0.weight True
+align_context.memory_proj.0.bias True
+align_context.memory_proj.1.weight True
+align_context.memory_proj.1.bias True
+align_context.memory_proj.2.weight True
+align_context.memory_proj.2.bias True
+align_context.text_proj.0.weight True
+align_context.text_proj.0.bias True
+align_context.text_proj.1.weight True
+align_context.text_proj.1.bias True
+align_context.decoder.0.self_attn.q_proj.weight True
+align_context.decoder.0.self_attn.k_proj.weight True
+align_context.decoder.0.self_attn.v_proj.weight True
+align_context.decoder.0.self_attn.proj.weight True
+align_context.decoder.0.self_attn.proj.bias True
+align_context.decoder.0.cross_attn.q_proj.weight True
+align_context.decoder.0.cross_attn.k_proj.weight True
+align_context.decoder.0.cross_attn.v_proj.weight True
+align_context.decoder.0.cross_attn.proj.weight True
+align_context.decoder.0.cross_attn.proj.bias True
+align_context.decoder.0.norm1.weight True
+align_context.decoder.0.norm1.bias True
+align_context.decoder.0.norm2.weight True
+align_context.decoder.0.norm2.bias True
+align_context.decoder.0.norm3.weight True
+align_context.decoder.0.norm3.bias True
+align_context.decoder.0.mlp.0.weight True
+align_context.decoder.0.mlp.0.bias True
+align_context.decoder.0.mlp.3.weight True
+align_context.decoder.0.mlp.3.bias True
+align_context.decoder.1.self_attn.q_proj.weight True
+align_context.decoder.1.self_attn.k_proj.weight True
+align_context.decoder.1.self_attn.v_proj.weight True
+align_context.decoder.1.self_attn.proj.weight True
+align_context.decoder.1.self_attn.proj.bias True
+align_context.decoder.1.cross_attn.q_proj.weight True
+align_context.decoder.1.cross_attn.k_proj.weight True
+align_context.decoder.1.cross_attn.v_proj.weight True
+align_context.decoder.1.cross_attn.proj.weight True
+align_context.decoder.1.cross_attn.proj.bias True
+align_context.decoder.1.norm1.weight True
+align_context.decoder.1.norm1.bias True
+align_context.decoder.1.norm2.weight True
+align_context.decoder.1.norm2.bias True
+align_context.decoder.1.norm3.weight True
+align_context.decoder.1.norm3.bias True
+align_context.decoder.1.mlp.0.weight True
+align_context.decoder.1.mlp.0.bias True
+align_context.decoder.1.mlp.3.weight True
+align_context.decoder.1.mlp.3.bias True
+align_context.decoder.2.self_attn.q_proj.weight True
+align_context.decoder.2.self_attn.k_proj.weight True
+align_context.decoder.2.self_attn.v_proj.weight True
+align_context.decoder.2.self_attn.proj.weight True
+align_context.decoder.2.self_attn.proj.bias True
+align_context.decoder.2.cross_attn.q_proj.weight True
+align_context.decoder.2.cross_attn.k_proj.weight True
+align_context.decoder.2.cross_attn.v_proj.weight True
+align_context.decoder.2.cross_attn.proj.weight True
+align_context.decoder.2.cross_attn.proj.bias True
+align_context.decoder.2.norm1.weight True
+align_context.decoder.2.norm1.bias True
+align_context.decoder.2.norm2.weight True
+align_context.decoder.2.norm2.bias True
+align_context.decoder.2.norm3.weight True
+align_context.decoder.2.norm3.bias True
+align_context.decoder.2.mlp.0.weight True
+align_context.decoder.2.mlp.0.bias True
+align_context.decoder.2.mlp.3.weight True
+align_context.decoder.2.mlp.3.bias True
+align_context.decoder.3.self_attn.q_proj.weight True
+align_context.decoder.3.self_attn.k_proj.weight True
+align_context.decoder.3.self_attn.v_proj.weight True
+align_context.decoder.3.self_attn.proj.weight True
+align_context.decoder.3.self_attn.proj.bias True
+align_context.decoder.3.cross_attn.q_proj.weight True
+align_context.decoder.3.cross_attn.k_proj.weight True
+align_context.decoder.3.cross_attn.v_proj.weight True
+align_context.decoder.3.cross_attn.proj.weight True
+align_context.decoder.3.cross_attn.proj.bias True
+align_context.decoder.3.norm1.weight True
+align_context.decoder.3.norm1.bias True
+align_context.decoder.3.norm2.weight True
+align_context.decoder.3.norm2.bias True
+align_context.decoder.3.norm3.weight True
+align_context.decoder.3.norm3.bias True
+align_context.decoder.3.mlp.0.weight True
+align_context.decoder.3.mlp.0.bias True
+align_context.decoder.3.mlp.3.weight True
+align_context.decoder.3.mlp.3.bias True
+align_context.decoder.4.self_attn.q_proj.weight True
+align_context.decoder.4.self_attn.k_proj.weight True
+align_context.decoder.4.self_attn.v_proj.weight True
+align_context.decoder.4.self_attn.proj.weight True
+align_context.decoder.4.self_attn.proj.bias True
+align_context.decoder.4.cross_attn.q_proj.weight True
+align_context.decoder.4.cross_attn.k_proj.weight True
+align_context.decoder.4.cross_attn.v_proj.weight True
+align_context.decoder.4.cross_attn.proj.weight True
+align_context.decoder.4.cross_attn.proj.bias True
+align_context.decoder.4.norm1.weight True
+align_context.decoder.4.norm1.bias True
+align_context.decoder.4.norm2.weight True
+align_context.decoder.4.norm2.bias True
+align_context.decoder.4.norm3.weight True
+align_context.decoder.4.norm3.bias True
+align_context.decoder.4.mlp.0.weight True
+align_context.decoder.4.mlp.0.bias True
+align_context.decoder.4.mlp.3.weight True
+align_context.decoder.4.mlp.3.bias True
+align_context.decoder.5.self_attn.q_proj.weight True
+align_context.decoder.5.self_attn.k_proj.weight True
+align_context.decoder.5.self_attn.v_proj.weight True
+align_context.decoder.5.self_attn.proj.weight True
+align_context.decoder.5.self_attn.proj.bias True
+align_context.decoder.5.cross_attn.q_proj.weight True
+align_context.decoder.5.cross_attn.k_proj.weight True
+align_context.decoder.5.cross_attn.v_proj.weight True
+align_context.decoder.5.cross_attn.proj.weight True
+align_context.decoder.5.cross_attn.proj.bias True
+align_context.decoder.5.norm1.weight True
+align_context.decoder.5.norm1.bias True
+align_context.decoder.5.norm2.weight True
+align_context.decoder.5.norm2.bias True
+align_context.decoder.5.norm3.weight True
+align_context.decoder.5.norm3.bias True
+align_context.decoder.5.mlp.0.weight True
+align_context.decoder.5.mlp.0.bias True
+align_context.decoder.5.mlp.3.weight True
+align_context.decoder.5.mlp.3.bias True
+align_context.out_proj.0.weight True
+align_context.out_proj.0.bias True
+align_context.out_proj.1.weight True
+align_context.out_proj.1.bias True
+decoder.conv_layers.0.weight True
+decoder.conv_layers.0.bias True
+decoder.conv_layers.2.weight True
+decoder.conv_layers.2.bias True
+decoder.conv_layers.3.weight True
+decoder.conv_layers.3.bias True
+decoder.conv_layers.5.weight True
+decoder.conv_layers.5.bias True
+EPOCH 1:
+  batch 20 loss: 2.1566882729530334
+  batch 40 loss: 2.1152390480041503
+  batch 60 loss: 2.0141040802001955
+  val done :  0
+LOSS train 2.0141040802001955 valid 0.0
+Saved best model. Old loss 1000000.0 and new best loss 0.0
+EPOCH 2:
+  batch 20 loss: 1.9346171736717224
+  batch 40 loss: 1.8346362650394439
+  batch 60 loss: 1.7366358876228332
+  val done :  0
+LOSS train 1.7366358876228332 valid 0.0
+EPOCH 3:
+  batch 20 loss: 1.6820956826210023
+  batch 40 loss: 1.646019583940506
+  batch 60 loss: 1.600223922729492
+  val done :  0
+LOSS train 1.600223922729492 valid 0.0
+EPOCH 4:
+  batch 20 loss: 1.5322206914424896
+  batch 40 loss: 1.5182211995124817
+  batch 60 loss: 1.4945658445358276
+  val done :  0
+LOSS train 1.4945658445358276 valid 0.0
+EPOCH 5:
+  batch 20 loss: 1.4638198912143707
+  batch 40 loss: 1.4726258277893067
+  batch 60 loss: 1.4588908433914185
+  val done :  0
+LOSS train 1.4588908433914185 valid 0.0
+EPOCH 6:
+  batch 20 loss: 1.4324785768985748
+  batch 40 loss: 1.422081983089447
+  batch 60 loss: 1.414866292476654
+  val done :  0
+LOSS train 1.414866292476654 valid 0.0
+EPOCH 7:
+  batch 20 loss: 1.397694742679596
+  batch 40 loss: 1.3896042287349701
+  batch 60 loss: 1.3737765669822692
+  val done :  0
+LOSS train 1.3737765669822692 valid 0.0
+EPOCH 8:
+  batch 20 loss: 1.3643393456935882
+  batch 40 loss: 1.3611376285552979
+  batch 60 loss: 1.3477952659130097
+  val done :  0
+LOSS train 1.3477952659130097 valid 0.0
+EPOCH 9:
+  batch 20 loss: 1.3476999878883362
+  batch 40 loss: 1.3393591225147248
+  batch 60 loss: 1.3351023197174072
+  val done :  0
+LOSS train 1.3351023197174072 valid 0.0
+EPOCH 10:

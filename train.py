@@ -29,6 +29,7 @@ device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
 def train_one_epoch(encoder, trainLoader, optimizer, loss_fn, args):
+    total_running_loss = 0.
     running_loss = 0.
     last_loss = 0.
     iou_list = []
@@ -48,35 +49,37 @@ def train_one_epoch(encoder, trainLoader, optimizer, loss_fn, args):
         output = encoder(image)
             # .type(torch.DoubleTensor)
         # print("output : ", output.shape, output.dtype, gt.shape, gt.dtype)
-        print("output : ", np.unique(output.detach().cpu().numpy()))
+        # print("output : ", torch.unique(output))
         loss = loss_fn(output, gt)
         loss.backward(retain_graph=True)
         torch.nn.utils.clip_grad_norm_(encoder.parameters(), 1)
 
         optimizer.step()
-        print("Loss : ", loss.item())
+        # print("Loss : ", loss.item())
         x = torch.nn.functional.softmax(output, dim = 1)
         pred = torch.argmax(x, dim=1)
+        # print("pred : ", torch.unique(pred))
 
         running_loss += loss.item()
+        total_running_loss += loss.item()
         if (idx + 1) % 20 == 0:
             last_loss = running_loss / 20 # loss per batch
             print('  batch {} loss: {}'.format(idx + 1, last_loss))
             running_loss = 0.
+            print("pred unique : ", torch.unique(pred))
 
-        if idx == 19:
-            break
+        
             
         
     
-    
+    avg_total_running_loss = total_running_loss/idx
     if iou_list:
         mean_acc = (sum(iou_list)/len(iou_list))
     else:
         mean_acc = -1
-    return last_loss, mean_acc
+    return avg_total_running_loss, mean_acc
 
-def validation(encoder, loader, loss_fn,args):
+def validation(encoder, loader, loss_fn, args):
     running_vloss = 0.0
     iou_list = []
     for idx, batch in enumerate(loader):
@@ -88,12 +91,14 @@ def validation(encoder, loader, loss_fn,args):
         # print("output : ", output.shape, output.dtype, gt.shape, gt.dtype)
         # print(np.unique(gt.cpu().numpy()))
         loss = loss_fn(output, gt)
+        running_vloss += loss.item()
 
         # print("Loss : ", loss.item())
         x = torch.nn.functional.softmax(output, dim = 1)
         pred = torch.argmax(x, dim=1)
-        if i % 20 == 0:
-            print("  val done : ", i)
+        if idx % 20 == 0:
+            print("  val done : ", idx)
+            print("pred unique : ", torch.unique(pred))
         
         
         
@@ -101,15 +106,15 @@ def validation(encoder, loader, loss_fn,args):
         mean_acc = (sum(iou_list)/len(iou_list))
     else:
         mean_acc = -1
-    avg_vloss = running_vloss / (i + 1)
+    avg_vloss = running_vloss / (idx + 1)
     return avg_vloss, mean_acc
 
 def main(args):
     print("Using device : ", device)
-    # if args.wandb:
-    #     import wandb
-    #     wandb.login()
-    #     wandb.init(project="referred_model_0.1_image_text")
+    if args.wandb:
+        import wandb
+        wandb.login()
+        wandb.init(project="part_segmentation")
 
 
     class_part_df = pd.read_csv(os.path.join(args.dataset_dir, "class_part_label.csv"))
@@ -140,7 +145,7 @@ def main(args):
     #     if os.path.isfile(args.model_name):
     #             print("loading checkpoint '{}'".format(args.model_name))
     #             checkpoint = torch.load(args.model_name)
-    #             PartCLIPmodel.load_state_dict(checkpoint['state_dict'])
+    #             encoder.load_state_dict(checkpoint['state_dict'])
     #             optimizer.load_state_dict(checkpoint['optimizer'])
     #             if args.multi_step_scheduler:
     #                 scheduler.load_state_dict(checkpoint['scheduler'])
@@ -182,6 +187,8 @@ def main(args):
             param.requires_grad = False
         else:
             named_parameters.append(param)
+
+    print("Printing parameters and their gradient")
     for name, param in encoder.named_parameters():
         print(name, param.requires_grad)
     optimizer = torch.optim.Adam(named_parameters,
@@ -198,6 +205,7 @@ def main(args):
 
         encoder.train()
         avg_loss, _ = train_one_epoch(encoder, trainLoader, optimizer,loss_fn, args)
+        
         # We don't need gradients on to do reporting
         
         encoder.eval()
@@ -219,31 +227,30 @@ def main(args):
                 wandb.run.summary["best_val_loss"] = best_vloss
             model_path = os.path.join(args.model_dir, 'best_model')
             if args.multi_step_scheduler:
-                torch.save({'state_dict': PartCLIPmodel.state_dict(),
+                torch.save({'state_dict': encoder.state_dict(),
                         'optimizer': optimizer.state_dict(),
                         'scheduler': scheduler.state_dict(),
                         'best_vloss': best_vloss,
                         'epoch': epoch + 1}, model_path)
             else:
-                torch.save({'state_dict': PartCLIPmodel.state_dict(),
+                torch.save({'state_dict': encoder.state_dict(),
                        'optimizer': optimizer.state_dict(),
                        'best_vloss': best_vloss,
                        'epoch': epoch + 1}, model_path)
 
         if args.wandb:   
             wandb.log({"epoch": epoch + 1, "train loss": avg_loss,
-                  "val loss": avg_vloss, "train accuracy": mean_train_acc,
-                  "test accuracy": mean_vacc})
+                  "val loss": avg_vloss, "lr": optimizer.param_groups[0]['lr']})
         
         model_path = os.path.join(args.model_dir, 'last_model')
         if args.multi_step_scheduler:
-            torch.save({'state_dict': PartCLIPmodel.state_dict(),
+            torch.save({'state_dict': encoder.state_dict(),
                        'optimizer': optimizer.state_dict(),
                        'scheduler': scheduler.state_dict(),
                        'best_vloss': best_vloss,
                        'epoch': epoch + 1}, model_path)
         else:
-            torch.save({'state_dict': PartCLIPmodel.state_dict(),
+            torch.save({'state_dict': encoder.state_dict(),
                        'optimizer': optimizer.state_dict(),
                        'best_vloss': best_vloss,
                        'epoch': epoch + 1}, model_path)

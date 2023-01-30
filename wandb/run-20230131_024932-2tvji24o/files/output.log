@@ -1,0 +1,26 @@
+
+Path to store results already exists
+self.partnames :  ['head', 'neck', 'torso', 'legs', 'tail', 'background']
+prompts :  [' the head of the cat.', ' the neck of the cat.', ' the torso of the cat.', ' the legs of the cat.', ' the tail of the cat.', ' the background of the cat.']
+model device :  cuda
+self.prompts : torch.Size([6, 77])
+self.prompts : torch.Size([6, 1024])
+self.prompts rquires grad :  <built-in method requires_grad_ of Tensor object at 0x7f7a76cef450>
+Loading checkpoint './last_model'
+Loaded model is for epoch 16
+Loaded checkpoint './last_model'
+Length of Train dataset : 646 and Test dataset : 35
+Length of Train loader : 65 and Test loader : 4
+(array([1, 3]), array([  3159, 498601]))
+(array([1, 3]), array([  2800, 498960]))
+(array([1, 3]), array([  3003, 498757]))
+(array([1, 3]), array([  1313, 249567]))
+Done testing
+average loss :  1.744183987379074
+(array([1, 3]), array([  3159, 498601]))
+(array([1, 3]), array([  2800, 498960]))
+(array([1, 3]), array([  3003, 498757]))
+(array([1, 3]), array([  1313, 249567]))
+Done testing
+average loss :  1.744183987379074
+[34m[1mwandb[39m[22m: [33mWARNING[39m Symlinked 35 files into the W&B run directory, call wandb.save again to sync new files.

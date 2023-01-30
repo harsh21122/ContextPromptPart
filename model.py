@@ -38,17 +38,20 @@ class Encoder(nn.Module):
         new_dim = 1024
         text_dim=1024
         output_dim=1024
-        # self.partnames = unique_part_names
-        # self.partnames.append('background')
-        # print("self.partnames : ", self.partnames)
+        self.partnames = unique_part_names
+        self.partnames.append('background')
+        print("self.partnames : ", self.partnames)
+        prompt = [" the " + name + " of the cat." for name in self.partnames]
+        print("prompts : ", prompt)
         print("model device : ", device)
         self.image_encoder = nn.Sequential(*nn.ModuleList(clip_model.visual.children())[:-1]).to(device)
 
 
-        # self.prompts = clip.tokenize(self.partnames).to(device)
-        # print("self.prompts :", self.prompts.shape)
-        # self.prompts = clip_model.encode_text(self.prompts)
-        # print("self.prompts :", self.prompts.shape)
+        self.prompts = clip.tokenize(prompt).to(device)
+        print("self.prompts :", self.prompts.shape)
+        self.prompts = clip_model.encode_text(self.prompts)
+        print("self.prompts :", self.prompts.shape)
+        print("self.prompts rquires grad : ", self.prompts.requires_grad_)
 
 
         # self.image_encoder = clip_model.visual
@@ -62,11 +65,12 @@ class Encoder(nn.Module):
         embed_dim = width * 32  # the ResNet feature dimension
         self.attnpool = AttentionPool2d(input_resolution // 32, embed_dim, 32, output_dim)
 
-        self.text_encoder = TextEncoder(clip_model)
-        self.prompt_learner = PromptLearner(clip_model.to(device), unique_part_names)
+        # self.text_encoder = TextEncoder(clip_model)
+        # self.prompt_learner = PromptLearner(clip_model.to(device), unique_part_names)
 
         self.align_context = ContextDecoder()
-        self.tokenized_prompts = self.prompt_learner.tokenized_prompts
+
+        # self.tokenized_prompts = self.prompt_learner.tokenized_prompts
         self.gamma = nn.Parameter(torch.ones(text_dim) * 1e-3)
         self.dtype = clip_model.dtype
         
@@ -127,25 +131,23 @@ class Encoder(nn.Module):
 
 
 
-        prompts = self.prompt_learner()
-        print("prompts : ", np.unique(prompts.detach().cpu().numpy()))
-        # print("prompts :", prompts.shape, prompts.dtype)
-        # print("tokenized_prompts :", self.tokenized_prompts, self.tokenized_prompts.dtype)
-        text_features = self.text_encoder(prompts, self.tokenized_prompts)
-        print("text_features : ", torch.unique(text_features))
-        print("text_features : ", text_features.shape, text_features.dtype)
-        text_features = F.normalize(text_features, p=2.0, dim = 1)
-        print("text_features : ", torch.unique(text_features))
+        # prompts = self.prompt_learner()
+        # print("prompts : ", np.unique(prompts.detach().cpu().numpy()))
+        # # print("prompts :", prompts.shape, prompts.dtype)
+        # # print("tokenized_prompts :", self.tokenized_prompts, self.tokenized_prompts.dtype)
+        # text_features = self.text_encoder(prompts, self.tokenized_prompts)
+        # print("text_features : ", torch.unique(text_features))
+        # print("text_features : ", text_features.shape, text_features.dtype)
+        # text_features = F.normalize(text_features, p=2.0, dim = 1)
+        # print("text_features : ", torch.unique(text_features))
 
-
-        # text_features = self.prompts
         # print("text_features : ", text_features.shape, text_features.dtype)
 
 
-        text_features = text_features.expand(B, -1, -1)
+        text_features = self.prompts.expand(B, -1, -1)
         # print("text_features : ", text_features.shape, text_features.dtype)
         text_features = text_features.type(torch.cuda.FloatTensor)
-        print("text_features : ", text_features.shape, text_features.dtype)
+        # print("text_features : ", text_features.shape, text_features.dtype)
 
 
 
@@ -163,7 +165,7 @@ class Encoder(nn.Module):
         text = F.normalize(text_features, dim=2, p=2)
         score_map = torch.einsum('bchw,bkc->bkhw', x_local, text)
         # print("score_map : ", np.unique(score_map.detach().cpu().numpy()))
-        print("score_map : ", score_map.shape)
+        # print("score_map : ", score_map.shape)
         x_concat = torch.cat([x_local, score_map], dim=1)
         # print("x_concat : ", x_concat.shape) #  torch.Size([2, 1024 + 6, 7, 7])
         
