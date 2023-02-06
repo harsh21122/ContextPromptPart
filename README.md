@@ -22,5 +22,5 @@ We have option to make 2 decoders for the same:
 
 ### Updates
 
-- [x]**Implemented FPN decoder**
-- [x]**Implemented RN50 like CLIP and initialize weights for each layer**
+- [x] **Implemented FPN decoder**
+- [x] **Implemented RN50 like CLIP and initialize weights for each layer**
