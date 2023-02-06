@@ -25,12 +25,13 @@ from torch import nn
 from torch.nn import init
 from prompt import PromptLearner
 from timm.models.layers import drop, drop_path, trunc_normal_
+from FPN_decoder import FPN
 
 
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 class Encoder(nn.Module):
-    def __init__(self, clip_model, unique_part_names):
+    def __init__(self, clip_model, clip_visual, unique_part_names):
         super().__init__()
         input_resolution=224
         width=64
@@ -45,7 +46,8 @@ class Encoder(nn.Module):
         prompt = [" the " + name + " of the cat." for name in self.partnames]
         print("prompts : ", prompt)
         print("model device : ", device)
-        self.image_encoder = nn.Sequential(*nn.ModuleList(clip_model.visual.children())[:-1]).to(device)
+        # self.image_encoder = nn.Sequential(*nn.ModuleList(clip_model.visual.children())[:-1]).to(device)
+        self.image_encoder = nn.Sequential(*nn.ModuleList(clip_visual)).to(device)
 
 
         self.prompts = clip.tokenize(prompt).to(device)
@@ -76,6 +78,7 @@ class Encoder(nn.Module):
         self.dtype = clip_model.dtype
         
         self.decoder = Decoder(in_channels = 6)
+        # self.decoder = FPN(num_classes= 6)
 
         
 

@@ -15,7 +15,12 @@ from einops import rearrange
 import torch.cuda.amp as amp
 from datetime import datetime
 from torch.optim.lr_scheduler import MultiStepLR
+<<<<<<< Updated upstream
 # from utils import calc_iou
+=======
+from utils import *
+from backbone import CLIPResNet
+>>>>>>> Stashed changes
 
 
 
@@ -132,7 +137,8 @@ def main(args):
     test = test.reset_index(drop = True)
 
 
-    clip_model, preprocess = clip.load(args.clip_model, device=device)
+    clip_model , preprocess = clip.load(args.clip_model, device=device)
+    clip_visual = CLIPResNet([3, 4, 6, 3], pretrained= "pretrained/RN50.pt") # for ResNet50
     best_vloss = 1_000_000.
     
     
@@ -176,7 +182,7 @@ def main(args):
     print("Length of Train loader : {} and Test loader : {}".format(len(trainLoader), len(testLoader)))
     
     from model import Encoder
-    encoder = Encoder(clip_model, unique_part_names)
+    encoder = Encoder(clip_model, clip_visual, unique_part_names)
     encoder = encoder.to(device)
     
 
