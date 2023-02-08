@@ -47,8 +47,9 @@ class Encoder(nn.Module):
         print("prompts : ", prompt)
         print("model device : ", device)
         # self.image_encoder = nn.Sequential(*nn.ModuleList(clip_model.visual.children())[:-1]).to(device)
-        self.image_encoder = nn.Sequential(*nn.ModuleList(clip_visual)).to(device)
-
+        # print(clip_visual)
+        # self.image_encoder = nn.Sequential(*nn.ModuleList((clip_visual))).to(device)
+        self.image_encoder = clip_visual.to(device)
 
         self.prompts = clip.tokenize(prompt).to(device)
         print("self.prompts :", self.prompts.shape)
@@ -77,8 +78,7 @@ class Encoder(nn.Module):
         self.gamma = nn.Parameter(torch.ones(text_dim) * 1e-3)
         self.dtype = clip_model.dtype
         
-        self.decoder = Decoder(in_channels = 6)
-        # self.decoder = FPN(num_classes= 6)
+        self.decoder = FPN(num_classes= 6)
 
         
 
@@ -93,8 +93,8 @@ class Encoder(nn.Module):
     
     def forward(self, input_batch):
 
-        x4 = self.image_encoder(input_batch.type(self.dtype)) 
-        # print("image_features : ", x4.shape)
+        out = self.image_encoder(input_batch.type(self.dtype)) 
+        # print("image_features : ", out[0].shape,  out[1].shape, out[2].shape, out[3].shape, out[4].shape)
         # print("image_features : ", np.unique(x4.detach().cpu().numpy()))
 
         # ImageEncoder = self.image_encoder(input_batch.type(self.dtype))
@@ -105,7 +105,7 @@ class Encoder(nn.Module):
         # x1 = self.features['layer1']
         # print("x4, x3, x2, x1 : ", x4.shape, x3.shape, x2.shape, x1.shape)
         
-        x_global, x_local = self.attnpool(x4)
+        x_global, x_local = self.attnpool(out[4])
         # print("x_global : ", np.unique(x_global.detach().cpu().numpy()))
         # print("x_local : ", np.unique(x_local.detach().cpu().numpy()))
         # print("x_global : ", x_global.shape)
@@ -169,13 +169,14 @@ class Encoder(nn.Module):
         text = F.normalize(text_features, dim=2, p=2)
         score_map = torch.einsum('bchw,bkc->bkhw', x_local, text)
         # print("score_map : ", np.unique(score_map.detach().cpu().numpy()))
-        # print("score_map : ", score_map.shape)
-        x_concat = torch.cat([x_local, score_map], dim=1)
+        score_map = F.interpolate(score_map, (256, 256), mode='bilinear')
+        print("score_map : ", score_map.shape)
+        # x_concat = torch.cat([x_local, score_map], dim=1)
         # print("x_concat : ", x_concat.shape) #  torch.Size([2, 1024 + 6, 7, 7])
         
         ## Need to add FPN decoder here to generate final map.
         final_map = self.decoder(score_map)
-        # print("final_map : ", final_map.shape)
+        print("final_map : ", final_map.shape)
         # print("final_map : ", np.unique(final_map.detach().cpu().numpy()))
         
         

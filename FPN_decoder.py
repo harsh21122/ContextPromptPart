@@ -50,6 +50,7 @@ class FPN(nn.Module):
 
         BatchNorm = nn.BatchNorm2d
         self.back_bone = CLIPResNet([3, 4, 6, 3], pretrained= "pretrained/RN50.pt")
+        print(self.back_bone)
 
         # Bottom-up layers
         self.layer1 = self._make_layer(Bottleneck,  64, num_blocks[0], stride=1)

@@ -21,6 +21,10 @@ class CustomDataset(Dataset):
         self.groundtruth_dir = os.path.join(self.root_dir, 'gt_mask')
         self.preprocess = preprocess
         self.transform = T.Compose([T.ToTensor()])
+        self.vgg_transform = T.Compose([
+            T.ToTensor(),
+            T.Normalize(mean=[0.485, 0.456, 0.406], std=[0.229, 0.224, 0.225]),
+        ])
         
         
     def preprocess_name(self, name):
@@ -42,6 +46,7 @@ class CustomDataset(Dataset):
         original_name, groundtruth_name = self.preprocess_name(self.name[idx])
         original_path = os.path.join(self.original_dir, original_name + ".jpg")
         image = Image.open(original_path)
+        # print("image : ", image.size)
         gt_path = os.path.join(self.groundtruth_dir, groundtruth_name + ".npy")
         gt = np.load(gt_path)
         
@@ -50,7 +55,7 @@ class CustomDataset(Dataset):
         # gt = np.asarray(gt)
         
         if self.preprocess:
-            image = self.preprocess(image)
+            img = self.preprocess(image)
             
         if self.transform:
             # print(np.unique(gt))
@@ -60,8 +65,12 @@ class CustomDataset(Dataset):
             gt = torch.from_numpy(gt)
             # print("np.unique(gt.numpy()) : ", np.unique(gt.numpy()))
 
+        if self.vgg_transform:
+            image_ = image.resize((224, 224))
+            image_vgg = self.vgg_transform(image_)
+
             
-        sample = {'name' : groundtruth_name, 'image': image, 'gt': gt}        
+        sample = {'name' : groundtruth_name, 'image': img, 'gt': gt, 'image_vgg': image_vgg }        
 
 #         print(image.size(), gt.size(), text.shape)
         # sample = {'name' : groundtruth_name, 'image': image, 'gt': gt, 'classname' : self.classname[idx], 'partname' : self.partname[idx]}        

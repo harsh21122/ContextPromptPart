@@ -1,4 +1,5 @@
 import os
+import einops
 import clip
 import torch
 import math
@@ -15,15 +16,12 @@ from einops import rearrange
 import torch.cuda.amp as amp
 from datetime import datetime
 from torch.optim.lr_scheduler import MultiStepLR
-<<<<<<< Updated upstream
+from vgg_extraction import FeatureExtraction, contrastive_loss
+
 # from utils import calc_iou
-=======
-from utils import *
+
+
 from backbone import CLIPResNet
->>>>>>> Stashed changes
-
-
-
 from dataset import CustomDataset as CustomDataset
 # from transformer import TransformerDecoder
 # from PartCLIP import PartCLIP
@@ -31,16 +29,24 @@ from dataset import CustomDataset as CustomDataset
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 
+def get_zoo_feat(images_zoo, zoo_feat_net):
+    interp = nn.Upsample(size=(224, 224), mode='bilinear', align_corners=True)
+    with torch.no_grad():
+        zoo_feats = zoo_feat_net(images_zoo)
+        zoo_feat = torch.cat([interp(zoo_feat) for zoo_feat in zoo_feats], dim=1)
+    return zoo_feat
 
-
-def train_one_epoch(encoder, trainLoader, optimizer, loss_fn, args):
+def train_one_epoch(encoder, zoo_feat_net, trainLoader, optimizer, loss_fn, args):
     total_running_loss = 0.
+    total_running_loss_ce = 0.
+    total_running_loss_contrastive = 0.
     running_loss = 0.
     last_loss = 0.
     iou_list = []
 
     for idx, batch in enumerate(trainLoader):
         image = batch['image'].to(device)
+        images_vgg = batch['image_vgg'].to(device)
         gt = batch['gt'].squeeze(1).type(torch.LongTensor).to(device)
         name = batch['name']
             # classname = batch['classname']
@@ -52,70 +58,103 @@ def train_one_epoch(encoder, trainLoader, optimizer, loss_fn, args):
         # print(name, image.shape, gt.shape, np.unique(gt.numpy()))
         optimizer.zero_grad()
         output = encoder(image)
+
+        # this is contrastive code
+        zoo_feat = get_zoo_feat(images_vgg, zoo_feat_net)
+        # print("zoo_feat : ", zoo_feat.shape)
+        basis = torch.einsum('brhw, bchw -> brc', output, zoo_feat)
+        basis /= einops.reduce(output, 'b r h w -> b r 1', 'sum') + 1e-7
+   
+        loss_contrastive = contrastive_loss(basis[:, :, -args.layer_len:] if args.layer_len > 0 else basis, args.temperature)
+
+
         # print("torch.unique(gt) : ", torch.unique(gt))
         # print("pred = ", output.shape)
             # .type(torch.DoubleTensor)
         # print("output : ", output.shape, output.dtype, gt.shape, gt.dtype)
         # print("output : ", torch.unique(output))
-        loss = loss_fn(output, gt)
-        loss.backward(retain_graph=True)
+        loss_ce = loss_fn(output, gt)
+        total_loss = args.lamda_cross * loss_ce + args.lamda_contrastive * loss_contrastive
+
+        total_loss.backward(retain_graph=True)
         torch.nn.utils.clip_grad_norm_(encoder.parameters(), 1)
 
         optimizer.step()
-        # print("Loss : ", loss.item())
+        print("Loss : ", loss_ce.item(), loss_contrastive.item(),  total_loss.item())
         x = torch.nn.functional.softmax(output, dim = 1)
         pred = torch.argmax(x, dim=1)
         
         # print("pred : ", torch.unique(pred))
 
-        running_loss += loss.item()
-        total_running_loss += loss.item()
+        running_loss += total_loss.item()
+        total_running_loss += total_loss.item()
+        total_running_loss_ce += loss_ce.item()
+        total_running_loss_contrastive += loss_contrastive.item()
         if (idx + 1) % 20 == 0:
             last_loss = running_loss / 20 # loss per batch
-            print('  batch {} loss: {}'.format(idx + 1, last_loss))
+            print('  batch {} loss: {}, {}, {}'.format(idx + 1, loss_ce.item(), loss_contrastive.item(), total_loss.item(), last_loss))
             running_loss = 0.
+            print("  torch.unique(gt) : ", torch.unique(gt))
             print("  pred unique : ", torch.unique(pred))
+        
 
         
             
         
     
-    avg_total_running_loss = total_running_loss/idx
-    if iou_list:
-        mean_acc = (sum(iou_list)/len(iou_list))
-    else:
-        mean_acc = -1
-    return avg_total_running_loss, mean_acc
+    avg_total_running_loss = total_running_loss/(idx + 1)
+    avg_total_running_loss_ce = total_running_loss_ce/(idx + 1)
+    avg_total_running_loss_contrastive = total_running_loss_contrastive/(idx + 1)
+    
+    return avg_total_running_loss, avg_total_running_loss_ce, avg_total_running_loss_contrastive
 
-def validation(encoder, loader, loss_fn, args):
+def validation(encoder, zoo_feat_net, loader, loss_fn, args):
     running_vloss = 0.0
+    running_vloss_ce = 0.0
+    running_vloss_contrast = 0.0
+
     iou_list = []
     for idx, batch in enumerate(loader):
         image = batch['image'].to(device)
+        images_vgg = batch['image_vgg'].to(device)
+
         gt = batch['gt'].squeeze(1).type(torch.LongTensor).to(device)
         name = batch['name']
 
         output = encoder(image)
+        
+        # this is contrastive code
+        zoo_feat = get_zoo_feat(images_vgg, zoo_feat_net)
+        basis = torch.einsum('brhw, bchw -> brc', output, zoo_feat)
+        basis /= einops.reduce(output, 'b r h w -> b r 1', 'sum') + 1e-7
+        loss_contrastive = contrastive_loss(basis[:, :, -args.layer_len:] if args.layer_len > 0 else basis, args.temperature)
+
+
         # print("output : ", output.shape, output.dtype, gt.shape, gt.dtype)
-        print("torch.unique(gt) : ", torch.unique(gt))
-        loss = loss_fn(output, gt)
-        running_vloss += loss.item()
+        
+        loss_ce = loss_fn(output, gt)
+        total_loss = args.lamda_cross * loss_ce + args.lamda_contrastive * loss_contrastive
+        running_vloss += total_loss.item()
+        running_vloss_ce = loss_ce.item()
+        running_vloss_contrast = loss_contrastive.item()
+
+        print("Loss : ", loss_ce.item(), loss_contrastive.item(), total_loss.item())
 
         # print("Loss : ", loss.item())
         x = torch.nn.functional.softmax(output, dim = 1)
         pred = torch.argmax(x, dim=1)
         if idx % 20 == 0:
             print("  val done : ", idx)
+            print("torch.unique(gt) : ", torch.unique(gt))
             print("  pred unique : ", torch.unique(pred))
         
         
         
-    if iou_list:
-        mean_acc = (sum(iou_list)/len(iou_list))
-    else:
-        mean_acc = -1
+    
     avg_vloss = running_vloss / (idx + 1)
-    return avg_vloss, mean_acc
+    avg_vloss_ce = running_vloss_ce / (idx + 1)
+    avg_vloss_cont = running_vloss_contrast / (idx + 1)
+    return avg_vloss, avg_vloss_ce , avg_vloss_cont
 
 def main(args):
     print("Using device : ", device)
@@ -137,17 +176,14 @@ def main(args):
     test = test.reset_index(drop = True)
 
 
-    clip_model , preprocess = clip.load(args.clip_model, device=device)
+    clip_model, preprocess = clip.load(args.clip_model, device=device)
     clip_visual = CLIPResNet([3, 4, 6, 3], pretrained= "pretrained/RN50.pt") # for ResNet50
     best_vloss = 1_000_000.
     
     
 
 
-    # if args.multi_step_scheduler:
-    #     scheduler = MultiStepLR(optimizer,
-    #                             milestones = args.milestones,
-    #                             gamma = args.lr_decay)
+    
     
     # scaler = amp.GradScaler()
     
@@ -184,7 +220,21 @@ def main(args):
     from model import Encoder
     encoder = Encoder(clip_model, clip_visual, unique_part_names)
     encoder = encoder.to(device)
+
+    # This is taken from unsupervised contrastive paper for vgg feature extraction
     
+    
+    if int(args.ref_layer1[-3] + args.ref_layer1[-1]) <= int(args.ref_layer2[-3] + args.ref_layer2[-1]):
+        last_layer = args.ref_layer1 + ',' + args.ref_layer2
+        weights = [args.ref_weight1, args.ref_weight2]
+    else:
+        last_layer = args.ref_layer2 + ',' + args.ref_layer1
+        weights = [args.ref_weight2, args.ref_weight1]
+    zoo_feat_net = FeatureExtraction(
+            feature_extraction_cnn='vgg19', normalization=False, last_layer=last_layer, weights=weights, gpu=0)
+    zoo_feat_net.eval()
+
+
 
     
     named_parameters = []
@@ -206,26 +256,33 @@ def main(args):
                                  weight_decay = args.weight_decay)
     loss_fn = nn.CrossEntropyLoss()
 
+    if args.multi_step_scheduler:
+        scheduler = MultiStepLR(optimizer,
+                                milestones = args.milestones,
+                                gamma = args.lr_decay)
+
 
     # print(encoder)
     # print(clip_model.visual)
+    print("Total epochs to be executed : ", args.epochs)
     for epoch in range(args.starting_epoch - 1, args.epochs):
         print('EPOCH {}:'.format(epoch + 1))
 
 
         encoder.train()
-        avg_loss, _ = train_one_epoch(encoder, trainLoader, optimizer,loss_fn, args)
+        avg_loss, avg_loss_ce, avg_loss_cont = train_one_epoch(encoder, zoo_feat_net, trainLoader, optimizer,loss_fn, args)
         
         # We don't need gradients on to do reporting
         
         encoder.eval()
         with torch.no_grad():
-            avg_vloss, _ = validation(encoder, testLoader, loss_fn, args)
+            avg_vloss, avg_vloss_ce, avg_vloss_cont  = validation(encoder, zoo_feat_net, testLoader, loss_fn, args)
             
             
-        print('LOSS train {} valid {}'.format(avg_loss, avg_vloss))
-        if args.calc_accuracy_training:
-            print('Accuracy train {} valid {}'.format(mean_train_acc, mean_vacc))
+        print('Total LOSS train {} valid {}'.format(avg_loss, avg_vloss))
+        print('CE LOSS train {} valid {}'.format(avg_loss_ce, avg_vloss_ce))
+        print('Contrastive LOSS train {} valid {}'.format(avg_loss_cont, avg_vloss_cont))
+        
 
         # Log the running loss averaged per batch
 
@@ -235,7 +292,7 @@ def main(args):
             best_vloss = avg_vloss
             if args.wandb:
                 wandb.run.summary["best_val_loss"] = best_vloss
-            model_path = os.path.join(args.model_dir, 'best_model')
+            model_path = os.path.join(args.model_dir, 'best_model_3e-4_contrast_fpn')
             if args.multi_step_scheduler:
                 torch.save({'state_dict': encoder.state_dict(),
                         'optimizer': optimizer.state_dict(),
@@ -250,9 +307,11 @@ def main(args):
 
         if args.wandb:   
             wandb.log({"epoch": epoch + 1, "train loss": avg_loss,
-                  "val loss": avg_vloss, "lr": optimizer.param_groups[0]['lr']})
+                  "val loss": avg_vloss, "lr": optimizer.param_groups[0]['lr'],
+                  "train cross-entropy loss":avg_loss_ce, "val cross-entropy loss":avg_vloss_ce,
+                  "train contrastive loss": avg_loss_cont, "val contrastive loss": avg_vloss_cont })
         
-        model_path = os.path.join(args.model_dir, 'last_model')
+        model_path = os.path.join(args.model_dir, 'last_model_3e-4_contrast_fpn')
         if args.multi_step_scheduler:
             torch.save({'state_dict': encoder.state_dict(),
                        'optimizer': optimizer.state_dict(),
