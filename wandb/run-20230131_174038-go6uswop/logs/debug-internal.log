@@ -1,0 +1,302 @@
+2023-01-31 17:40:38,516 INFO    StreamThr :37725 [internal.py:wandb_internal():88] W&B internal server running at pid: 37725, started at: 2023-01-31 17:40:38.515579
+2023-01-31 17:40:38,518 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: status
+2023-01-31 17:40:38,521 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: status
+2023-01-31 17:40:38,523 DEBUG   SenderThread:37725 [sender.py:send():301] send: header
+2023-01-31 17:40:38,523 INFO    WriterThread:37725 [datastore.py:open_for_write():75] open: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/run-go6uswop.wandb
+2023-01-31 17:40:38,543 DEBUG   SenderThread:37725 [sender.py:send():301] send: run
+2023-01-31 17:40:39,433 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: check_version
+2023-01-31 17:40:39,439 INFO    SenderThread:37725 [dir_watcher.py:__init__():216] watching files in: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files
+2023-01-31 17:40:39,440 INFO    SenderThread:37725 [sender.py:_start_run_threads():912] run started: go6uswop with start time 1675167038.509854
+2023-01-31 17:40:39,440 DEBUG   SenderThread:37725 [sender.py:send():301] send: summary
+2023-01-31 17:40:39,441 INFO    SenderThread:37725 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2023-01-31 17:40:39,441 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: check_version
+2023-01-31 17:40:39,795 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: run_start
+2023-01-31 17:40:39,800 DEBUG   HandlerThread:37725 [meta.py:__init__():34] meta init
+2023-01-31 17:40:39,800 DEBUG   HandlerThread:37725 [meta.py:__init__():49] meta init done
+2023-01-31 17:40:39,800 DEBUG   HandlerThread:37725 [meta.py:probe():215] probe
+2023-01-31 17:40:39,807 DEBUG   HandlerThread:37725 [meta.py:_setup_git():205] setup git
+2023-01-31 17:40:39,830 DEBUG   HandlerThread:37725 [meta.py:_setup_git():212] setup git done
+2023-01-31 17:40:39,830 DEBUG   HandlerThread:37725 [meta.py:_save_pip():53] save pip
+2023-01-31 17:40:39,831 DEBUG   HandlerThread:37725 [meta.py:_save_pip():67] save pip done
+2023-01-31 17:40:39,831 DEBUG   HandlerThread:37725 [meta.py:_save_conda():74] save conda
+2023-01-31 17:40:40,443 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/conda-environment.yaml
+2023-01-31 17:40:40,443 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/requirements.txt
+2023-01-31 17:40:40,443 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/wandb-summary.json
+2023-01-31 17:40:44,265 DEBUG   HandlerThread:37725 [meta.py:_save_conda():84] save conda done
+2023-01-31 17:40:44,266 DEBUG   HandlerThread:37725 [meta.py:probe():253] probe done
+2023-01-31 17:40:44,272 DEBUG   SenderThread:37725 [sender.py:send():301] send: files
+2023-01-31 17:40:44,272 INFO    SenderThread:37725 [sender.py:_save_file():1155] saving file wandb-metadata.json with policy now
+2023-01-31 17:40:44,280 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: stop_status
+2023-01-31 17:40:44,281 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: stop_status
+2023-01-31 17:40:44,447 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/conda-environment.yaml
+2023-01-31 17:40:44,447 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/wandb-metadata.json
+2023-01-31 17:40:44,683 DEBUG   SenderThread:37725 [sender.py:send():301] send: telemetry
+2023-01-31 17:40:45,299 INFO    Thread-17 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/25l6p9k1-wandb-metadata.json
+2023-01-31 17:40:45,448 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log
+2023-01-31 17:40:47,450 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log
+2023-01-31 17:40:55,458 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log
+2023-01-31 17:40:57,460 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log
+2023-01-31 17:40:59,686 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: stop_status
+2023-01-31 17:40:59,687 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: stop_status
+2023-01-31 17:41:01,465 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log
+2023-01-31 17:41:05,469 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log
+2023-01-31 17:41:08,260 DEBUG   SenderThread:37725 [sender.py:send():301] send: stats
+2023-01-31 17:41:09,472 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/config.yaml
+2023-01-31 17:41:11,474 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log
+2023-01-31 17:41:15,132 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: stop_status
+2023-01-31 17:41:15,132 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: stop_status
+2023-01-31 17:41:15,478 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log
+2023-01-31 17:41:17,480 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log
+2023-01-31 17:41:23,486 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log
+2023-01-31 17:41:27,490 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log
+2023-01-31 17:41:30,539 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: stop_status
+2023-01-31 17:41:30,539 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: stop_status
+2023-01-31 17:41:31,494 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log
+2023-01-31 17:41:32,627 DEBUG   SenderThread:37725 [sender.py:send():301] send: telemetry
+2023-01-31 17:41:32,648 DEBUG   SenderThread:37725 [sender.py:send():301] send: files
+2023-01-31 17:41:32,648 INFO    SenderThread:37725 [sender.py:_save_file():1155] saving file Results/*.png with policy now
+2023-01-31 17:41:32,648 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:32,780 DEBUG   SenderThread:37725 [sender.py:send():301] send: exit
+2023-01-31 17:41:32,780 INFO    SenderThread:37725 [sender.py:send_exit():437] handling exit code: 0
+2023-01-31 17:41:32,781 INFO    SenderThread:37725 [sender.py:send_exit():439] handling runtime: 52
+2023-01-31 17:41:32,786 INFO    SenderThread:37725 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2023-01-31 17:41:32,787 INFO    SenderThread:37725 [sender.py:send_exit():445] send defer
+2023-01-31 17:41:32,788 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:32,789 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: defer
+2023-01-31 17:41:32,790 INFO    HandlerThread:37725 [handler.py:handle_request_defer():161] handle defer: 0
+2023-01-31 17:41:32,790 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: defer
+2023-01-31 17:41:32,790 INFO    SenderThread:37725 [sender.py:send_request_defer():454] handle sender defer: 0
+2023-01-31 17:41:32,791 INFO    SenderThread:37725 [sender.py:transition_state():458] send defer: 1
+2023-01-31 17:41:32,791 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: defer
+2023-01-31 17:41:32,796 INFO    HandlerThread:37725 [handler.py:handle_request_defer():161] handle defer: 1
+2023-01-31 17:41:32,917 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: defer
+2023-01-31 17:41:32,918 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:32,918 INFO    SenderThread:37725 [sender.py:send_request_defer():454] handle sender defer: 1
+2023-01-31 17:41:32,918 INFO    SenderThread:37725 [sender.py:transition_state():458] send defer: 2
+2023-01-31 17:41:32,918 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:32,919 DEBUG   SenderThread:37725 [sender.py:send():301] send: stats
+2023-01-31 17:41:32,919 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: defer
+2023-01-31 17:41:32,920 INFO    HandlerThread:37725 [handler.py:handle_request_defer():161] handle defer: 2
+2023-01-31 17:41:32,920 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: defer
+2023-01-31 17:41:32,920 INFO    SenderThread:37725 [sender.py:send_request_defer():454] handle sender defer: 2
+2023-01-31 17:41:32,921 INFO    SenderThread:37725 [sender.py:transition_state():458] send defer: 3
+2023-01-31 17:41:32,921 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: defer
+2023-01-31 17:41:32,921 INFO    HandlerThread:37725 [handler.py:handle_request_defer():161] handle defer: 3
+2023-01-31 17:41:32,921 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: defer
+2023-01-31 17:41:32,921 INFO    SenderThread:37725 [sender.py:send_request_defer():454] handle sender defer: 3
+2023-01-31 17:41:32,922 INFO    SenderThread:37725 [sender.py:transition_state():458] send defer: 4
+2023-01-31 17:41:32,922 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: defer
+2023-01-31 17:41:32,922 INFO    HandlerThread:37725 [handler.py:handle_request_defer():161] handle defer: 4
+2023-01-31 17:41:32,923 DEBUG   SenderThread:37725 [sender.py:send():301] send: summary
+2023-01-31 17:41:32,924 INFO    SenderThread:37725 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2023-01-31 17:41:32,924 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: defer
+2023-01-31 17:41:32,924 INFO    SenderThread:37725 [sender.py:send_request_defer():454] handle sender defer: 4
+2023-01-31 17:41:32,924 INFO    SenderThread:37725 [sender.py:transition_state():458] send defer: 5
+2023-01-31 17:41:32,925 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: defer
+2023-01-31 17:41:32,925 INFO    HandlerThread:37725 [handler.py:handle_request_defer():161] handle defer: 5
+2023-01-31 17:41:32,925 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: defer
+2023-01-31 17:41:32,926 INFO    SenderThread:37725 [sender.py:send_request_defer():454] handle sender defer: 5
+2023-01-31 17:41:33,021 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:33,386 INFO    SenderThread:37725 [sender.py:transition_state():458] send defer: 6
+2023-01-31 17:41:33,386 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:33,387 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: defer
+2023-01-31 17:41:33,387 INFO    HandlerThread:37725 [handler.py:handle_request_defer():161] handle defer: 6
+2023-01-31 17:41:33,388 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: defer
+2023-01-31 17:41:33,388 INFO    SenderThread:37725 [sender.py:send_request_defer():454] handle sender defer: 6
+2023-01-31 17:41:33,491 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:33,497 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/config.yaml
+2023-01-31 17:41:33,497 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/wandb-summary.json
+2023-01-31 17:41:33,498 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log
+2023-01-31 17:41:33,498 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_002293.png
+2023-01-31 17:41:33,498 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2009_002527.png
+2023-01-31 17:41:33,498 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2009_002615.png
+2023-01-31 17:41:33,498 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_002766.png
+2023-01-31 17:41:33,498 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_005833.png
+2023-01-31 17:41:33,499 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_003050.png
+2023-01-31 17:41:33,499 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_000799.png
+2023-01-31 17:41:33,499 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_002098.png
+2023-01-31 17:41:33,499 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_000067.png
+2023-01-31 17:41:33,499 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_002891.png
+2023-01-31 17:41:33,499 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_001700.png
+2023-01-31 17:41:33,500 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_001885.png
+2023-01-31 17:41:33,500 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_006999.png
+2023-01-31 17:41:33,500 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_000576.png
+2023-01-31 17:41:33,500 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_007726.png
+2023-01-31 17:41:33,500 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2009_003647.png
+2023-01-31 17:41:33,501 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_004918.png
+2023-01-31 17:41:33,501 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_003499.png
+2023-01-31 17:41:33,501 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_002845.png
+2023-01-31 17:41:33,501 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_001938.png
+2023-01-31 17:41:33,501 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_005523.png
+2023-01-31 17:41:33,501 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2009_004887.png
+2023-01-31 17:41:33,502 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_000404.png
+2023-01-31 17:41:33,502 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_002909.png
+2023-01-31 17:41:33,502 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_001374.png
+2023-01-31 17:41:33,502 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_005230.png
+2023-01-31 17:41:33,502 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2009_000303.png
+2023-01-31 17:41:33,502 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_007640.png
+2023-01-31 17:41:33,503 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2009_002228.png
+2023-01-31 17:41:33,503 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_003509.png
+2023-01-31 17:41:33,503 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_000261.png
+2023-01-31 17:41:33,503 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_002749.png
+2023-01-31 17:41:33,503 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_004209.png
+2023-01-31 17:41:33,503 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_005072.png
+2023-01-31 17:41:33,504 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_003052.png
+2023-01-31 17:41:33,504 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results
+2023-01-31 17:41:33,725 INFO    Thread-18 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/li1zc1cl-Results/2008_002845.png
+2023-01-31 17:41:33,768 INFO    Thread-19 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/nwy13nze-Results/2009_004887.png
+2023-01-31 17:41:33,790 INFO    Thread-20 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/20awh40l-Results/2008_001374.png
+2023-01-31 17:41:33,823 INFO    Thread-21 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/15mqhbpn-Results/2009_000303.png
+2023-01-31 17:41:33,842 INFO    Thread-23 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/copmkydj-Results/2010_005833.png
+2023-01-31 17:41:33,851 INFO    Thread-22 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/3t3se0so-Results/2008_003052.png
+2023-01-31 17:41:33,865 INFO    Thread-32 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/2g1mh6bo-Results/2010_000799.png
+2023-01-31 17:41:33,866 INFO    Thread-27 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/23l98rqd-Results/2010_000067.png
+2023-01-31 17:41:33,878 INFO    Thread-49 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/64wdpik0-Results/2008_007640.png
+2023-01-31 17:41:33,892 INFO    Thread-48 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/1q8vuktr-Results/2010_003050.png
+2023-01-31 17:41:33,895 INFO    Thread-47 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/tz0xo34c-Results/2010_000576.png
+2023-01-31 17:41:33,899 INFO    Thread-24 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/3ad95c61-Results/2008_002749.png
+2023-01-31 17:41:33,922 INFO    Thread-50 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/2mztbeuy-Results/2010_004209.png
+2023-01-31 17:41:33,928 INFO    Thread-52 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/2y8e7wsf-Results/2008_005523.png
+2023-01-31 17:41:33,930 INFO    Thread-34 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/wywhmomz-Results/2008_006999.png
+2023-01-31 17:41:33,940 INFO    Thread-44 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/3nyn9jh8-Results/2010_000404.png
+2023-01-31 17:41:33,940 INFO    Thread-29 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/uupphs53-Results/2009_003647.png
+2023-01-31 17:41:33,976 INFO    Thread-46 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/2tgjo4wd-Results/2010_001700.png
+2023-01-31 17:41:34,036 INFO    Thread-31 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/3fkftr74-Results/2009_002228.png
+2023-01-31 17:41:34,038 INFO    Thread-33 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/28fmcbw7-Results/2010_001938.png
+2023-01-31 17:41:34,039 INFO    Thread-30 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/2ydooj0y-Results/2008_002766.png
+2023-01-31 17:41:34,066 INFO    Thread-26 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/1ef49lje-Results/2010_002909.png
+2023-01-31 17:41:34,085 INFO    Thread-25 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/3ju44wnl-Results/2009_002615.png
+2023-01-31 17:41:34,090 INFO    Thread-28 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/m6qcq4gv-Results/2008_007726.png
+2023-01-31 17:41:34,876 INFO    Thread-36 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/1w8d72zm-Results/2008_001885.png
+2023-01-31 17:41:34,899 INFO    Thread-39 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/24d97hti-Results/2010_004918.png
+2023-01-31 17:41:34,915 INFO    Thread-37 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/28v49fg4-Results/2010_005072.png
+2023-01-31 17:41:35,000 INFO    Thread-38 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/2jp2v55s-Results/2010_002098.png
+2023-01-31 17:41:35,501 INFO    Thread-13 :37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log
+2023-01-31 17:41:36,654 INFO    SenderThread:37725 [sender.py:transition_state():458] send defer: 7
+2023-01-31 17:41:36,655 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:36,655 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: defer
+2023-01-31 17:41:36,656 INFO    HandlerThread:37725 [handler.py:handle_request_defer():161] handle defer: 7
+2023-01-31 17:41:36,656 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: defer
+2023-01-31 17:41:36,656 INFO    SenderThread:37725 [sender.py:send_request_defer():454] handle sender defer: 7
+2023-01-31 17:41:36,657 INFO    SenderThread:37725 [dir_watcher.py:finish():362] shutting down directory watcher
+2023-01-31 17:41:36,758 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:36,889 INFO    Thread-43 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/kx7uc0ph-Results/2010_002891.png
+2023-01-31 17:41:36,895 INFO    Thread-40 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/2h2halzd-Results/2008_003499.png
+2023-01-31 17:41:36,896 INFO    Thread-41 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/2dxs6bge-Results/2009_002527.png
+2023-01-31 17:41:36,906 INFO    Thread-51 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/396ksuwc-Results/2010_000261.png
+2023-01-31 17:41:36,908 INFO    Thread-42 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/306w0hi8-Results/2010_003509.png
+2023-01-31 17:41:36,912 INFO    Thread-45 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/10bvt3y7-Results/2010_005230.png
+2023-01-31 17:41:36,972 INFO    Thread-35 :37725 [upload_job.py:push():139] Uploaded file /tmp/tmpo1658iv1wandb/30mfzn48-Results/2008_002293.png
+2023-01-31 17:41:37,503 INFO    SenderThread:37725 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log
+2023-01-31 17:41:37,503 INFO    SenderThread:37725 [dir_watcher.py:finish():392] scan: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files
+2023-01-31 17:41:37,504 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/requirements.txt requirements.txt
+2023-01-31 17:41:37,504 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/conda-environment.yaml conda-environment.yaml
+2023-01-31 17:41:37,504 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log output.log
+2023-01-31 17:41:37,513 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/wandb-summary.json wandb-summary.json
+2023-01-31 17:41:37,518 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/wandb-metadata.json wandb-metadata.json
+2023-01-31 17:41:37,518 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/config.yaml config.yaml
+2023-01-31 17:41:37,527 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_002845.png Results/2008_002845.png
+2023-01-31 17:41:37,527 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2009_004887.png Results/2009_004887.png
+2023-01-31 17:41:37,527 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_001374.png Results/2008_001374.png
+2023-01-31 17:41:37,527 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2009_000303.png Results/2009_000303.png
+2023-01-31 17:41:37,527 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_003052.png Results/2008_003052.png
+2023-01-31 17:41:37,528 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_005833.png Results/2010_005833.png
+2023-01-31 17:41:37,528 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_002749.png Results/2008_002749.png
+2023-01-31 17:41:37,528 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2009_002615.png Results/2009_002615.png
+2023-01-31 17:41:37,528 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_002909.png Results/2010_002909.png
+2023-01-31 17:41:37,528 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_000067.png Results/2010_000067.png
+2023-01-31 17:41:37,528 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_007726.png Results/2008_007726.png
+2023-01-31 17:41:37,528 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2009_003647.png Results/2009_003647.png
+2023-01-31 17:41:37,528 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_002766.png Results/2008_002766.png
+2023-01-31 17:41:37,528 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2009_002228.png Results/2009_002228.png
+2023-01-31 17:41:37,528 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_000799.png Results/2010_000799.png
+2023-01-31 17:41:37,528 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_001938.png Results/2010_001938.png
+2023-01-31 17:41:37,529 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_006999.png Results/2008_006999.png
+2023-01-31 17:41:37,529 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_002293.png Results/2008_002293.png
+2023-01-31 17:41:37,529 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_001885.png Results/2008_001885.png
+2023-01-31 17:41:37,529 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_005072.png Results/2010_005072.png
+2023-01-31 17:41:37,529 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_002098.png Results/2010_002098.png
+2023-01-31 17:41:37,529 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_004918.png Results/2010_004918.png
+2023-01-31 17:41:37,529 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_003499.png Results/2008_003499.png
+2023-01-31 17:41:37,529 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2009_002527.png Results/2009_002527.png
+2023-01-31 17:41:37,529 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_003509.png Results/2010_003509.png
+2023-01-31 17:41:37,529 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_002891.png Results/2010_002891.png
+2023-01-31 17:41:37,529 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_000404.png Results/2010_000404.png
+2023-01-31 17:41:37,530 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_005230.png Results/2010_005230.png
+2023-01-31 17:41:37,530 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_001700.png Results/2010_001700.png
+2023-01-31 17:41:37,530 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_000576.png Results/2010_000576.png
+2023-01-31 17:41:37,530 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_003050.png Results/2010_003050.png
+2023-01-31 17:41:37,530 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_007640.png Results/2008_007640.png
+2023-01-31 17:41:37,530 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_004209.png Results/2010_004209.png
+2023-01-31 17:41:37,530 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2010_000261.png Results/2010_000261.png
+2023-01-31 17:41:37,530 INFO    SenderThread:37725 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/Results/2008_005523.png Results/2008_005523.png
+2023-01-31 17:41:37,530 INFO    SenderThread:37725 [sender.py:transition_state():458] send defer: 8
+2023-01-31 17:41:37,531 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:37,531 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: defer
+2023-01-31 17:41:37,532 INFO    HandlerThread:37725 [handler.py:handle_request_defer():161] handle defer: 8
+2023-01-31 17:41:37,532 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: defer
+2023-01-31 17:41:37,532 INFO    SenderThread:37725 [sender.py:send_request_defer():454] handle sender defer: 8
+2023-01-31 17:41:37,533 INFO    SenderThread:37725 [file_pusher.py:finish():168] shutting down file pusher
+2023-01-31 17:41:37,634 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:37,634 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:37,736 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:37,736 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:37,838 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:37,839 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:37,943 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:37,944 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:38,048 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:38,049 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:38,151 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:38,151 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:38,253 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:38,254 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:38,356 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:38,356 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:38,458 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:38,459 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:38,511 INFO    Thread-53 :37725 [upload_job.py:push():139] Uploaded file /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/requirements.txt
+2023-01-31 17:41:38,534 INFO    Thread-57 :37725 [upload_job.py:push():139] Uploaded file /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/config.yaml
+2023-01-31 17:41:38,541 INFO    Thread-54 :37725 [upload_job.py:push():139] Uploaded file /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/conda-environment.yaml
+2023-01-31 17:41:38,561 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:38,561 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:38,568 INFO    Thread-55 :37725 [upload_job.py:push():139] Uploaded file /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/output.log
+2023-01-31 17:41:38,582 INFO    Thread-56 :37725 [upload_job.py:push():139] Uploaded file /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/files/wandb-summary.json
+2023-01-31 17:41:38,663 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:38,663 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:38,766 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:38,766 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:38,782 INFO    Thread-12 :37725 [sender.py:transition_state():458] send defer: 9
+2023-01-31 17:41:38,783 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: defer
+2023-01-31 17:41:38,783 INFO    HandlerThread:37725 [handler.py:handle_request_defer():161] handle defer: 9
+2023-01-31 17:41:38,784 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: defer
+2023-01-31 17:41:38,784 INFO    SenderThread:37725 [sender.py:send_request_defer():454] handle sender defer: 9
+2023-01-31 17:41:38,868 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:39,154 INFO    SenderThread:37725 [sender.py:transition_state():458] send defer: 10
+2023-01-31 17:41:39,155 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:39,156 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: defer
+2023-01-31 17:41:39,156 INFO    HandlerThread:37725 [handler.py:handle_request_defer():161] handle defer: 10
+2023-01-31 17:41:39,156 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: defer
+2023-01-31 17:41:39,157 INFO    SenderThread:37725 [sender.py:send_request_defer():454] handle sender defer: 10
+2023-01-31 17:41:39,157 INFO    SenderThread:37725 [sender.py:transition_state():458] send defer: 11
+2023-01-31 17:41:39,158 DEBUG   SenderThread:37725 [sender.py:send():301] send: final
+2023-01-31 17:41:39,158 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: defer
+2023-01-31 17:41:39,158 DEBUG   SenderThread:37725 [sender.py:send():301] send: footer
+2023-01-31 17:41:39,158 INFO    HandlerThread:37725 [handler.py:handle_request_defer():161] handle defer: 11
+2023-01-31 17:41:39,158 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: defer
+2023-01-31 17:41:39,158 INFO    SenderThread:37725 [sender.py:send_request_defer():454] handle sender defer: 11
+2023-01-31 17:41:39,258 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: poll_exit
+2023-01-31 17:41:39,258 DEBUG   SenderThread:37725 [sender.py:send_request():315] send_request: poll_exit
+2023-01-31 17:41:39,259 INFO    SenderThread:37725 [file_pusher.py:join():173] waiting for file pusher
+2023-01-31 17:41:40,149 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: sampled_history
+2023-01-31 17:41:40,151 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: get_summary
+2023-01-31 17:41:40,151 INFO    MainThread:37725 [wandb_run.py:_footer_history_summary_info():3321] rendering history
+2023-01-31 17:41:40,151 INFO    MainThread:37725 [wandb_run.py:_footer_history_summary_info():3353] rendering summary
+2023-01-31 17:41:40,151 INFO    MainThread:37725 [wandb_run.py:_footer_sync_info():3277] logging synced files
+2023-01-31 17:41:40,152 DEBUG   HandlerThread:37725 [handler.py:handle_request():138] handle_request: shutdown
+2023-01-31 17:41:40,152 INFO    HandlerThread:37725 [handler.py:finish():807] shutting down handler
+2023-01-31 17:41:40,158 INFO    WriterThread:37725 [datastore.py:close():279] close: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230131_174038-go6uswop/run-go6uswop.wandb
+2023-01-31 17:41:41,048 INFO    SenderThread:37725 [sender.py:finish():1315] shutting down sender
+2023-01-31 17:41:41,048 INFO    SenderThread:37725 [file_pusher.py:finish():168] shutting down file pusher
+2023-01-31 17:41:41,048 INFO    SenderThread:37725 [file_pusher.py:join():173] waiting for file pusher
+2023-01-31 17:41:41,155 INFO    MainThread:37725 [internal.py:handle_exit():78] Internal process exited

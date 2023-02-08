@@ -64,12 +64,12 @@ class Encoder(nn.Module):
 
 
         embed_dim = width * 32  # the ResNet feature dimension
-        self.attnpool = AttentionPool2d(input_resolution // 32, embed_dim, 32, output_dim)
+        self.attnpool = AttentionPool2d(input_resolution // 32, embed_dim, 32, output_dim) # dense clip code
 
         # self.text_encoder = TextEncoder(clip_model)
         # self.prompt_learner = PromptLearner(clip_model.to(device), unique_part_names)
 
-        self.align_context = ContextDecoder()
+        self.align_context = ContextDecoder() #denseclip code
 
         # self.tokenized_prompts = self.prompt_learner.tokenized_prompts
         self.gamma = nn.Parameter(torch.ones(text_dim) * 1e-3)
@@ -91,7 +91,6 @@ class Encoder(nn.Module):
     def forward(self, input_batch):
 
         x4 = self.image_encoder(input_batch.type(self.dtype)) 
-        # print("image_features : ", x4.shape)
         # print("image_features : ", np.unique(x4.detach().cpu().numpy()))
 
         # ImageEncoder = self.image_encoder(input_batch.type(self.dtype))
@@ -102,7 +101,7 @@ class Encoder(nn.Module):
         # x1 = self.features['layer1']
         # print("x4, x3, x2, x1 : ", x4.shape, x3.shape, x2.shape, x1.shape)
         
-        x_global, x_local = self.attnpool(x4)
+        x_global, x_local = self.attnpool(x4) # dense clip code
         # print("x_global : ", np.unique(x_global.detach().cpu().numpy()))
         # print("x_local : ", np.unique(x_local.detach().cpu().numpy()))
         # print("x_global : ", x_global.shape)

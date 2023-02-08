@@ -1,0 +1,424 @@
+Length of Train dataset : 646 and Test dataset : 35
+Length of Train loader : 65 and Test loader : 4
+self.partnames :  ['background', 'head', 'neck', 'torso', 'tail', 'legs']
+prompts :  [' the background of the cat.', ' the head of the cat.', ' the neck of the cat.', ' the torso of the cat.', ' the tail of the cat.', ' the legs of the cat.']
+model device :  cuda
+self.prompts : torch.Size([6, 77])
+self.prompts : torch.Size([6, 1024])
+self.prompts rquires grad :  <built-in method requires_grad_ of Tensor object at 0x7f2d7247f360>
+layer: relu3_2,relu5_4
+weighs: [0.33, 1.0]
+/home/harsh21122/.conda/envs/part/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/home/harsh21122/.conda/envs/part/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG19_Weights.IMAGENET1K_V1`. You can also use `weights=VGG19_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Printing parameters and their gradient
+gamma True
+image_encoder.0.weight False
+image_encoder.1.weight False
+image_encoder.1.bias False
+image_encoder.3.weight False
+image_encoder.4.weight False
+image_encoder.4.bias False
+image_encoder.6.weight False
+image_encoder.7.weight False
+image_encoder.7.bias False
+image_encoder.10.0.conv1.weight False
+image_encoder.10.0.bn1.weight False
+image_encoder.10.0.bn1.bias False
+image_encoder.10.0.conv2.weight False
+image_encoder.10.0.bn2.weight False
+image_encoder.10.0.bn2.bias False
+image_encoder.10.0.conv3.weight False
+image_encoder.10.0.bn3.weight False
+image_encoder.10.0.bn3.bias False
+image_encoder.10.0.downsample.0.weight False
+image_encoder.10.0.downsample.1.weight False
+image_encoder.10.0.downsample.1.bias False
+image_encoder.10.1.conv1.weight False
+image_encoder.10.1.bn1.weight False
+image_encoder.10.1.bn1.bias False
+image_encoder.10.1.conv2.weight False
+image_encoder.10.1.bn2.weight False
+image_encoder.10.1.bn2.bias False
+image_encoder.10.1.conv3.weight False
+image_encoder.10.1.bn3.weight False
+image_encoder.10.1.bn3.bias False
+image_encoder.10.2.conv1.weight False
+image_encoder.10.2.bn1.weight False
+image_encoder.10.2.bn1.bias False
+image_encoder.10.2.conv2.weight False
+image_encoder.10.2.bn2.weight False
+image_encoder.10.2.bn2.bias False
+image_encoder.10.2.conv3.weight False
+image_encoder.10.2.bn3.weight False
+image_encoder.10.2.bn3.bias False
+image_encoder.11.0.conv1.weight False
+image_encoder.11.0.bn1.weight False
+image_encoder.11.0.bn1.bias False
+image_encoder.11.0.conv2.weight False
+image_encoder.11.0.bn2.weight False
+image_encoder.11.0.bn2.bias False
+image_encoder.11.0.conv3.weight False
+image_encoder.11.0.bn3.weight False
+image_encoder.11.0.bn3.bias False
+image_encoder.11.0.downsample.0.weight False
+image_encoder.11.0.downsample.1.weight False
+image_encoder.11.0.downsample.1.bias False
+image_encoder.11.1.conv1.weight False
+image_encoder.11.1.bn1.weight False
+image_encoder.11.1.bn1.bias False
+image_encoder.11.1.conv2.weight False
+image_encoder.11.1.bn2.weight False
+image_encoder.11.1.bn2.bias False
+image_encoder.11.1.conv3.weight False
+image_encoder.11.1.bn3.weight False
+image_encoder.11.1.bn3.bias False
+image_encoder.11.2.conv1.weight False
+image_encoder.11.2.bn1.weight False
+image_encoder.11.2.bn1.bias False
+image_encoder.11.2.conv2.weight False
+image_encoder.11.2.bn2.weight False
+image_encoder.11.2.bn2.bias False
+image_encoder.11.2.conv3.weight False
+image_encoder.11.2.bn3.weight False
+image_encoder.11.2.bn3.bias False
+image_encoder.11.3.conv1.weight False
+image_encoder.11.3.bn1.weight False
+image_encoder.11.3.bn1.bias False
+image_encoder.11.3.conv2.weight False
+image_encoder.11.3.bn2.weight False
+image_encoder.11.3.bn2.bias False
+image_encoder.11.3.conv3.weight False
+image_encoder.11.3.bn3.weight False
+image_encoder.11.3.bn3.bias False
+image_encoder.12.0.conv1.weight False
+image_encoder.12.0.bn1.weight False
+image_encoder.12.0.bn1.bias False
+image_encoder.12.0.conv2.weight False
+image_encoder.12.0.bn2.weight False
+image_encoder.12.0.bn2.bias False
+image_encoder.12.0.conv3.weight False
+image_encoder.12.0.bn3.weight False
+image_encoder.12.0.bn3.bias False
+image_encoder.12.0.downsample.0.weight False
+image_encoder.12.0.downsample.1.weight False
+image_encoder.12.0.downsample.1.bias False
+image_encoder.12.1.conv1.weight False
+image_encoder.12.1.bn1.weight False
+image_encoder.12.1.bn1.bias False
+image_encoder.12.1.conv2.weight False
+image_encoder.12.1.bn2.weight False
+image_encoder.12.1.bn2.bias False
+image_encoder.12.1.conv3.weight False
+image_encoder.12.1.bn3.weight False
+image_encoder.12.1.bn3.bias False
+image_encoder.12.2.conv1.weight False
+image_encoder.12.2.bn1.weight False
+image_encoder.12.2.bn1.bias False
+image_encoder.12.2.conv2.weight False
+image_encoder.12.2.bn2.weight False
+image_encoder.12.2.bn2.bias False
+image_encoder.12.2.conv3.weight False
+image_encoder.12.2.bn3.weight False
+image_encoder.12.2.bn3.bias False
+image_encoder.12.3.conv1.weight False
+image_encoder.12.3.bn1.weight False
+image_encoder.12.3.bn1.bias False
+image_encoder.12.3.conv2.weight False
+image_encoder.12.3.bn2.weight False
+image_encoder.12.3.bn2.bias False
+image_encoder.12.3.conv3.weight False
+image_encoder.12.3.bn3.weight False
+image_encoder.12.3.bn3.bias False
+image_encoder.12.4.conv1.weight False
+image_encoder.12.4.bn1.weight False
+image_encoder.12.4.bn1.bias False
+image_encoder.12.4.conv2.weight False
+image_encoder.12.4.bn2.weight False
+image_encoder.12.4.bn2.bias False
+image_encoder.12.4.conv3.weight False
+image_encoder.12.4.bn3.weight False
+image_encoder.12.4.bn3.bias False
+image_encoder.12.5.conv1.weight False
+image_encoder.12.5.bn1.weight False
+image_encoder.12.5.bn1.bias False
+image_encoder.12.5.conv2.weight False
+image_encoder.12.5.bn2.weight False
+image_encoder.12.5.bn2.bias False
+image_encoder.12.5.conv3.weight False
+image_encoder.12.5.bn3.weight False
+image_encoder.12.5.bn3.bias False
+image_encoder.13.0.conv1.weight False
+image_encoder.13.0.bn1.weight False
+image_encoder.13.0.bn1.bias False
+image_encoder.13.0.conv2.weight False
+image_encoder.13.0.bn2.weight False
+image_encoder.13.0.bn2.bias False
+image_encoder.13.0.conv3.weight False
+image_encoder.13.0.bn3.weight False
+image_encoder.13.0.bn3.bias False
+image_encoder.13.0.downsample.0.weight False
+image_encoder.13.0.downsample.1.weight False
+image_encoder.13.0.downsample.1.bias False
+image_encoder.13.1.conv1.weight False
+image_encoder.13.1.bn1.weight False
+image_encoder.13.1.bn1.bias False
+image_encoder.13.1.conv2.weight False
+image_encoder.13.1.bn2.weight False
+image_encoder.13.1.bn2.bias False
+image_encoder.13.1.conv3.weight False
+image_encoder.13.1.bn3.weight False
+image_encoder.13.1.bn3.bias False
+image_encoder.13.2.conv1.weight False
+image_encoder.13.2.bn1.weight False
+image_encoder.13.2.bn1.bias False
+image_encoder.13.2.conv2.weight False
+image_encoder.13.2.bn2.weight False
+image_encoder.13.2.bn2.bias False
+image_encoder.13.2.conv3.weight False
+image_encoder.13.2.bn3.weight False
+image_encoder.13.2.bn3.bias False
+attnpool.positional_embedding True
+attnpool.k_proj.weight True
+attnpool.k_proj.bias True
+attnpool.q_proj.weight True
+attnpool.q_proj.bias True
+attnpool.v_proj.weight True
+attnpool.v_proj.bias True
+attnpool.c_proj.weight True
+attnpool.c_proj.bias True
+align_context.memory_proj.0.weight True
+align_context.memory_proj.0.bias True
+align_context.memory_proj.1.weight True
+align_context.memory_proj.1.bias True
+align_context.memory_proj.2.weight True
+align_context.memory_proj.2.bias True
+align_context.text_proj.0.weight True
+align_context.text_proj.0.bias True
+align_context.text_proj.1.weight True
+align_context.text_proj.1.bias True
+align_context.decoder.0.self_attn.q_proj.weight True
+align_context.decoder.0.self_attn.k_proj.weight True
+align_context.decoder.0.self_attn.v_proj.weight True
+align_context.decoder.0.self_attn.proj.weight True
+align_context.decoder.0.self_attn.proj.bias True
+align_context.decoder.0.cross_attn.q_proj.weight True
+align_context.decoder.0.cross_attn.k_proj.weight True
+align_context.decoder.0.cross_attn.v_proj.weight True
+align_context.decoder.0.cross_attn.proj.weight True
+align_context.decoder.0.cross_attn.proj.bias True
+align_context.decoder.0.norm1.weight True
+align_context.decoder.0.norm1.bias True
+align_context.decoder.0.norm2.weight True
+align_context.decoder.0.norm2.bias True
+align_context.decoder.0.norm3.weight True
+align_context.decoder.0.norm3.bias True
+align_context.decoder.0.mlp.0.weight True
+align_context.decoder.0.mlp.0.bias True
+align_context.decoder.0.mlp.3.weight True
+align_context.decoder.0.mlp.3.bias True
+align_context.decoder.1.self_attn.q_proj.weight True
+align_context.decoder.1.self_attn.k_proj.weight True
+align_context.decoder.1.self_attn.v_proj.weight True
+align_context.decoder.1.self_attn.proj.weight True
+align_context.decoder.1.self_attn.proj.bias True
+align_context.decoder.1.cross_attn.q_proj.weight True
+align_context.decoder.1.cross_attn.k_proj.weight True
+align_context.decoder.1.cross_attn.v_proj.weight True
+align_context.decoder.1.cross_attn.proj.weight True
+align_context.decoder.1.cross_attn.proj.bias True
+align_context.decoder.1.norm1.weight True
+align_context.decoder.1.norm1.bias True
+align_context.decoder.1.norm2.weight True
+align_context.decoder.1.norm2.bias True
+align_context.decoder.1.norm3.weight True
+align_context.decoder.1.norm3.bias True
+align_context.decoder.1.mlp.0.weight True
+align_context.decoder.1.mlp.0.bias True
+align_context.decoder.1.mlp.3.weight True
+align_context.decoder.1.mlp.3.bias True
+align_context.decoder.2.self_attn.q_proj.weight True
+align_context.decoder.2.self_attn.k_proj.weight True
+align_context.decoder.2.self_attn.v_proj.weight True
+align_context.decoder.2.self_attn.proj.weight True
+align_context.decoder.2.self_attn.proj.bias True
+align_context.decoder.2.cross_attn.q_proj.weight True
+align_context.decoder.2.cross_attn.k_proj.weight True
+align_context.decoder.2.cross_attn.v_proj.weight True
+align_context.decoder.2.cross_attn.proj.weight True
+align_context.decoder.2.cross_attn.proj.bias True
+align_context.decoder.2.norm1.weight True
+align_context.decoder.2.norm1.bias True
+align_context.decoder.2.norm2.weight True
+align_context.decoder.2.norm2.bias True
+align_context.decoder.2.norm3.weight True
+align_context.decoder.2.norm3.bias True
+align_context.decoder.2.mlp.0.weight True
+align_context.decoder.2.mlp.0.bias True
+align_context.decoder.2.mlp.3.weight True
+align_context.decoder.2.mlp.3.bias True
+align_context.decoder.3.self_attn.q_proj.weight True
+align_context.decoder.3.self_attn.k_proj.weight True
+align_context.decoder.3.self_attn.v_proj.weight True
+align_context.decoder.3.self_attn.proj.weight True
+align_context.decoder.3.self_attn.proj.bias True
+align_context.decoder.3.cross_attn.q_proj.weight True
+align_context.decoder.3.cross_attn.k_proj.weight True
+align_context.decoder.3.cross_attn.v_proj.weight True
+align_context.decoder.3.cross_attn.proj.weight True
+align_context.decoder.3.cross_attn.proj.bias True
+align_context.decoder.3.norm1.weight True
+align_context.decoder.3.norm1.bias True
+align_context.decoder.3.norm2.weight True
+align_context.decoder.3.norm2.bias True
+align_context.decoder.3.norm3.weight True
+align_context.decoder.3.norm3.bias True
+align_context.decoder.3.mlp.0.weight True
+align_context.decoder.3.mlp.0.bias True
+align_context.decoder.3.mlp.3.weight True
+align_context.decoder.3.mlp.3.bias True
+align_context.decoder.4.self_attn.q_proj.weight True
+align_context.decoder.4.self_attn.k_proj.weight True
+align_context.decoder.4.self_attn.v_proj.weight True
+align_context.decoder.4.self_attn.proj.weight True
+align_context.decoder.4.self_attn.proj.bias True
+align_context.decoder.4.cross_attn.q_proj.weight True
+align_context.decoder.4.cross_attn.k_proj.weight True
+align_context.decoder.4.cross_attn.v_proj.weight True
+align_context.decoder.4.cross_attn.proj.weight True
+align_context.decoder.4.cross_attn.proj.bias True
+align_context.decoder.4.norm1.weight True
+align_context.decoder.4.norm1.bias True
+align_context.decoder.4.norm2.weight True
+align_context.decoder.4.norm2.bias True
+align_context.decoder.4.norm3.weight True
+align_context.decoder.4.norm3.bias True
+align_context.decoder.4.mlp.0.weight True
+align_context.decoder.4.mlp.0.bias True
+align_context.decoder.4.mlp.3.weight True
+align_context.decoder.4.mlp.3.bias True
+align_context.decoder.5.self_attn.q_proj.weight True
+align_context.decoder.5.self_attn.k_proj.weight True
+align_context.decoder.5.self_attn.v_proj.weight True
+align_context.decoder.5.self_attn.proj.weight True
+align_context.decoder.5.self_attn.proj.bias True
+align_context.decoder.5.cross_attn.q_proj.weight True
+align_context.decoder.5.cross_attn.k_proj.weight True
+align_context.decoder.5.cross_attn.v_proj.weight True
+align_context.decoder.5.cross_attn.proj.weight True
+align_context.decoder.5.cross_attn.proj.bias True
+align_context.decoder.5.norm1.weight True
+align_context.decoder.5.norm1.bias True
+align_context.decoder.5.norm2.weight True
+align_context.decoder.5.norm2.bias True
+align_context.decoder.5.norm3.weight True
+align_context.decoder.5.norm3.bias True
+align_context.decoder.5.mlp.0.weight True
+align_context.decoder.5.mlp.0.bias True
+align_context.decoder.5.mlp.3.weight True
+align_context.decoder.5.mlp.3.bias True
+align_context.out_proj.0.weight True
+align_context.out_proj.0.bias True
+align_context.out_proj.1.weight True
+align_context.out_proj.1.bias True
+decoder.conv_layers.0.weight True
+decoder.conv_layers.0.bias True
+decoder.conv_layers.2.weight True
+decoder.conv_layers.2.bias True
+decoder.conv_layers.3.weight True
+decoder.conv_layers.3.bias True
+decoder.conv_layers.5.weight True
+decoder.conv_layers.5.bias True
+EPOCH 1:
+Loss :  2.1967098712921143 4.780430316925049 6.977140426635742
+Loss :  2.009113073348999 4.927764892578125 6.936878204345703
+Loss :  2.139549732208252 4.978410720825195 7.117960453033447
+Loss :  2.035421371459961 4.528224468231201 6.563645839691162
+Loss :  2.1291911602020264 4.568225383758545 6.697416305541992
+Loss :  2.1193859577178955 4.542160511016846 6.66154670715332
+Loss :  2.1440889835357666 4.621340274810791 6.765429496765137
+Loss :  2.0286149978637695 4.447536945343018 6.476151943206787
+Loss :  2.045994281768799 4.60099458694458 6.646988868713379
+Loss :  2.029829263687134 4.497270107269287 6.527099609375
+Loss :  2.0832555294036865 4.812769412994385 6.896024703979492
+Loss :  2.0631542205810547 4.666440963745117 6.729595184326172
+Loss :  2.1109559535980225 4.718008041381836 6.8289642333984375
+Loss :  2.0891287326812744 4.606618881225586 6.695747375488281
+Loss :  2.0632286071777344 5.246317386627197 7.309545993804932
+Loss :  2.0377111434936523 4.800962448120117 6.8386735916137695
+Loss :  1.982038974761963 4.596124649047852 6.5781636238098145
+Loss :  1.9528502225875854 4.738070964813232 6.690921306610107
+Loss :  2.1224253177642822 4.755349636077881 6.877775192260742
+Loss :  2.070305824279785 4.686304569244385 6.75661039352417
+  batch 20 loss: 2.070305824279785, 4.686304569244385, 6.75661039352417
+  torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  2.0809645652770996 4.856972694396973 6.937937259674072
+Loss :  2.0053179264068604 4.977780342102051 6.983098030090332
+Loss :  2.1612586975097656 4.66495943069458 6.826218128204346
+Loss :  2.0688178539276123 4.444681644439697 6.5134992599487305
+Loss :  1.9992609024047852 4.606964588165283 6.606225490570068
+Loss :  2.042802095413208 4.494660377502441 6.53746223449707
+Loss :  2.0870254039764404 4.667402267456055 6.754427909851074
+Loss :  2.03909969329834 4.573262691497803 6.612362384796143
+Loss :  2.0545992851257324 4.430373191833496 6.4849724769592285
+Loss :  2.1345150470733643 4.355198383331299 6.489713668823242
+Loss :  2.0867486000061035 4.5307464599609375 6.617495059967041
+Loss :  2.0963244438171387 4.763887882232666 6.860212326049805
+Loss :  2.0542142391204834 4.656459331512451 6.7106733322143555
+Loss :  2.0522329807281494 4.574099063873291 6.6263322830200195
+Loss :  2.1826608180999756 4.720376014709473 6.903037071228027
+Loss :  2.1471426486968994 4.711705684661865 6.858848571777344
+Loss :  2.0620310306549072 4.6664137840271 6.728445053100586
+Loss :  2.0579710006713867 4.425858974456787 6.483829975128174
+Loss :  2.003373622894287 4.4527587890625 6.456132411956787
+Loss :  2.0229523181915283 4.3643574714660645 6.387310028076172
+  batch 40 loss: 2.0229523181915283, 4.3643574714660645, 6.387310028076172
+  torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  2.0181679725646973 4.402163505554199 6.4203314781188965
+Loss :  2.217146396636963 4.376765727996826 6.593912124633789
+Loss :  2.103137254714966 4.46903133392334 6.572168350219727
+Loss :  2.057788133621216 4.4071478843688965 6.464936256408691
+Loss :  2.0508949756622314 4.424772262573242 6.4756669998168945
+Loss :  2.015442132949829 4.468395709991455 6.483838081359863
+Loss :  1.9574916362762451 4.486269950866699 6.443761825561523
+Loss :  2.0892856121063232 4.568705081939697 6.657990455627441
+Loss :  1.957993507385254 4.404623985290527 6.362617492675781
+Loss :  2.050705671310425 4.58978796005249 6.640493392944336
+Loss :  2.077326536178589 4.748082160949707 6.825408935546875
+Loss :  1.900930643081665 4.39693021774292 6.297861099243164
+Loss :  2.007317543029785 4.5255656242370605 6.532883167266846
+Loss :  1.9426074028015137 4.344732284545898 6.287339687347412
+Loss :  2.018263578414917 4.791493892669678 6.809757232666016
+Loss :  1.9631726741790771 4.644316673278809 6.607489585876465
+Loss :  2.000214099884033 4.545312881469727 6.54552698135376
+Loss :  1.9962198734283447 4.29750919342041 6.293728828430176
+Loss :  1.849761962890625 4.683781623840332 6.533543586730957
+Loss :  1.9915966987609863 4.251619815826416 6.243216514587402
+  batch 60 loss: 1.9915966987609863, 4.251619815826416, 6.243216514587402
+  torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  1.9427207708358765 4.475011825561523 6.4177327156066895
+Loss :  2.0736849308013916 4.483557224273682 6.557242393493652
+Loss :  1.9661628007888794 4.5782036781311035 6.544366359710693
+Loss :  2.0283613204956055 4.496605396270752 6.524966716766357
+Loss :  2.136732339859009 4.390601634979248 6.527334213256836
+Loss :  3.3520209789276123 4.517631530761719 7.86965274810791
+  val done :  0
+torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 4, 5], device='cuda:0')
+Loss :  3.6334497928619385 4.443038463592529 8.076488494873047
+Loss :  3.8304553031921387 4.322629928588867 8.153085708618164
+Loss :  2.7886016368865967 4.1706132888793945 6.95921516418457
+Total LOSS train 6.640225028991699 valid 7.764610528945923
+CE LOSS train 2.050852197867173 valid 0.6971504092216492
+Contrastive LOSS train 4.589372796278734 valid 1.0426533222198486
+Saved best model. Old loss 1000000.0 and new best loss 7.764610528945923
+Traceback (most recent call last):
+  File "/ssd-scratch/harsh21122/ContextPromptPart/train.py", line 334, in <module>
+    main(args)
+  File "/ssd-scratch/harsh21122/ContextPromptPart/train.py", line 295, in main
+    'scheduler': scheduler.state_dict(),
+NameError: name 'scheduler' is not defined

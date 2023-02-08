@@ -1,0 +1,89 @@
+
+Created path to store results.
+self.partnames :  ['background', 'head', 'neck', 'torso', 'legs', 'tail']
+prompts :  [' the background of the cat.', ' the head of the cat.', ' the neck of the cat.', ' the torso of the cat.', ' the legs of the cat.', ' the tail of the cat.']
+model device :  cuda
+self.prompts : torch.Size([6, 77])
+self.prompts : torch.Size([6, 1024])
+self.prompts rquires grad :  <built-in method requires_grad_ of Tensor object at 0x7f3c87b84b30>
+Loading checkpoint '../ContextPromptPart_model/last_model_3e-2_sched_contrast_50'
+Loaded model is for epoch 300
+Loaded checkpoint '../ContextPromptPart_model/last_model_3e-2_sched_contrast_50'
+Length of Train dataset : 646 and Test dataset : 35
+Length of Train loader : 65 and Test loader : 4
+0 (array([0]), array([501760]))
+1 (array([0]), array([501760]))
+2 (array([0]), array([501760]))
+3 (array([0]), array([501760]))
+4 (array([0]), array([501760]))
+5 (array([0]), array([501760]))
+
+6 (array([0]), array([501760]))
+7 (array([0]), array([501760]))
+8 (array([0]), array([501760]))
+9 (array([0]), array([501760]))
+10 (array([0]), array([501760]))
+11 (array([0]), array([501760]))
+12 (array([0]), array([501760]))
+13 (array([0]), array([501760]))
+14 (array([0]), array([501760]))
+15 (array([0]), array([501760]))
+16 (array([0]), array([501760]))
+17 (array([0]), array([501760]))
+18 (array([0]), array([501760]))
+19 (array([0]), array([501760]))
+20 (array([0]), array([501760]))
+21 (array([0]), array([501760]))
+22 (array([0]), array([501760]))
+23 (array([0]), array([501760]))
+24 (array([0]), array([501760]))
+25 (array([0]), array([501760]))
+26 (array([0]), array([501760]))
+27 (array([0]), array([501760]))
+28 (array([0]), array([501760]))
+
+29 (array([0]), array([501760]))
+30 (array([0]), array([501760]))
+31 (array([0]), array([501760]))
+32 (array([0]), array([501760]))
+33 (array([0]), array([501760]))
+34 (array([0]), array([501760]))
+35 (array([0]), array([501760]))
+36 (array([0]), array([501760]))
+37 (array([0]), array([501760]))
+38 (array([0]), array([501760]))
+39 (array([0]), array([501760]))
+40 (array([0]), array([501760]))
+41 (array([0]), array([501760]))
+42 (array([0]), array([501760]))
+43 (array([0]), array([501760]))
+44 (array([0]), array([501760]))
+45 (array([0]), array([501760]))
+46 (array([0]), array([501760]))
+47 (array([0]), array([501760]))
+48 (array([0]), array([501760]))
+49 (array([0]), array([501760]))
+50 (array([0]), array([501760]))
+51 (array([0]), array([501760]))
+52 (array([0]), array([501760]))
+53 (array([0]), array([501760]))
+54 (array([0]), array([501760]))
+55 (array([0]), array([501760]))
+56 (array([0]), array([501760]))
+57 (array([0]), array([501760]))
+58 (array([0]), array([501760]))
+59 (array([0]), array([501760]))
+60 (array([0]), array([501760]))
+61 (array([0]), array([501760]))
+62 (array([0]), array([501760]))
+63 (array([0]), array([501760]))
+64 (array([0]), array([301056]))
+Done testing
+average loss :  1.7231765270233155
+0 (array([0]), array([501760]))
+1 (array([0]), array([501760]))
+2 (array([0]), array([501760]))
+3 (array([0]), array([250880]))
+Done testing
+average loss :  1.7220766246318817
+[34m[1mwandb[39m[22m: [33mWARNING[39m Symlinked 681 files into the W&B run directory, call wandb.save again to sync new files.

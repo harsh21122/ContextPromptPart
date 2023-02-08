@@ -1,0 +1,674 @@
+Length of Train dataset : 646 and Test dataset : 35
+Length of Train loader : 65 and Test loader : 4
+self.partnames :  ['background', 'head', 'neck', 'torso', 'tail', 'legs']
+prompts :  [' the background of the cat.', ' the head of the cat.', ' the neck of the cat.', ' the torso of the cat.', ' the tail of the cat.', ' the legs of the cat.']
+model device :  cuda
+self.prompts : torch.Size([6, 77])
+self.prompts : torch.Size([6, 1024])
+self.prompts rquires grad :  <built-in method requires_grad_ of Tensor object at 0x7fa9d1499310>
+layer: relu3_2,relu5_4
+weighs: [0.33, 1.0]
+/home/harsh21122/.conda/envs/part/lib/python3.9/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/home/harsh21122/.conda/envs/part/lib/python3.9/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG19_Weights.IMAGENET1K_V1`. You can also use `weights=VGG19_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Printing parameters and their gradient
+gamma True
+image_encoder.0.weight False
+image_encoder.1.weight False
+image_encoder.1.bias False
+image_encoder.3.weight False
+image_encoder.4.weight False
+image_encoder.4.bias False
+image_encoder.6.weight False
+image_encoder.7.weight False
+image_encoder.7.bias False
+image_encoder.10.0.conv1.weight False
+image_encoder.10.0.bn1.weight False
+image_encoder.10.0.bn1.bias False
+image_encoder.10.0.conv2.weight False
+image_encoder.10.0.bn2.weight False
+image_encoder.10.0.bn2.bias False
+image_encoder.10.0.conv3.weight False
+image_encoder.10.0.bn3.weight False
+image_encoder.10.0.bn3.bias False
+image_encoder.10.0.downsample.0.weight False
+image_encoder.10.0.downsample.1.weight False
+image_encoder.10.0.downsample.1.bias False
+image_encoder.10.1.conv1.weight False
+image_encoder.10.1.bn1.weight False
+image_encoder.10.1.bn1.bias False
+image_encoder.10.1.conv2.weight False
+image_encoder.10.1.bn2.weight False
+image_encoder.10.1.bn2.bias False
+image_encoder.10.1.conv3.weight False
+image_encoder.10.1.bn3.weight False
+image_encoder.10.1.bn3.bias False
+image_encoder.10.2.conv1.weight False
+image_encoder.10.2.bn1.weight False
+image_encoder.10.2.bn1.bias False
+image_encoder.10.2.conv2.weight False
+image_encoder.10.2.bn2.weight False
+image_encoder.10.2.bn2.bias False
+image_encoder.10.2.conv3.weight False
+image_encoder.10.2.bn3.weight False
+image_encoder.10.2.bn3.bias False
+image_encoder.11.0.conv1.weight False
+image_encoder.11.0.bn1.weight False
+image_encoder.11.0.bn1.bias False
+image_encoder.11.0.conv2.weight False
+image_encoder.11.0.bn2.weight False
+image_encoder.11.0.bn2.bias False
+image_encoder.11.0.conv3.weight False
+image_encoder.11.0.bn3.weight False
+image_encoder.11.0.bn3.bias False
+image_encoder.11.0.downsample.0.weight False
+image_encoder.11.0.downsample.1.weight False
+image_encoder.11.0.downsample.1.bias False
+image_encoder.11.1.conv1.weight False
+image_encoder.11.1.bn1.weight False
+image_encoder.11.1.bn1.bias False
+image_encoder.11.1.conv2.weight False
+image_encoder.11.1.bn2.weight False
+image_encoder.11.1.bn2.bias False
+image_encoder.11.1.conv3.weight False
+image_encoder.11.1.bn3.weight False
+image_encoder.11.1.bn3.bias False
+image_encoder.11.2.conv1.weight False
+image_encoder.11.2.bn1.weight False
+image_encoder.11.2.bn1.bias False
+image_encoder.11.2.conv2.weight False
+image_encoder.11.2.bn2.weight False
+image_encoder.11.2.bn2.bias False
+image_encoder.11.2.conv3.weight False
+image_encoder.11.2.bn3.weight False
+image_encoder.11.2.bn3.bias False
+image_encoder.11.3.conv1.weight False
+image_encoder.11.3.bn1.weight False
+image_encoder.11.3.bn1.bias False
+image_encoder.11.3.conv2.weight False
+image_encoder.11.3.bn2.weight False
+image_encoder.11.3.bn2.bias False
+image_encoder.11.3.conv3.weight False
+image_encoder.11.3.bn3.weight False
+image_encoder.11.3.bn3.bias False
+image_encoder.12.0.conv1.weight False
+image_encoder.12.0.bn1.weight False
+image_encoder.12.0.bn1.bias False
+image_encoder.12.0.conv2.weight False
+image_encoder.12.0.bn2.weight False
+image_encoder.12.0.bn2.bias False
+image_encoder.12.0.conv3.weight False
+image_encoder.12.0.bn3.weight False
+image_encoder.12.0.bn3.bias False
+image_encoder.12.0.downsample.0.weight False
+image_encoder.12.0.downsample.1.weight False
+image_encoder.12.0.downsample.1.bias False
+image_encoder.12.1.conv1.weight False
+image_encoder.12.1.bn1.weight False
+image_encoder.12.1.bn1.bias False
+image_encoder.12.1.conv2.weight False
+image_encoder.12.1.bn2.weight False
+image_encoder.12.1.bn2.bias False
+image_encoder.12.1.conv3.weight False
+image_encoder.12.1.bn3.weight False
+image_encoder.12.1.bn3.bias False
+image_encoder.12.2.conv1.weight False
+image_encoder.12.2.bn1.weight False
+image_encoder.12.2.bn1.bias False
+image_encoder.12.2.conv2.weight False
+image_encoder.12.2.bn2.weight False
+image_encoder.12.2.bn2.bias False
+image_encoder.12.2.conv3.weight False
+image_encoder.12.2.bn3.weight False
+image_encoder.12.2.bn3.bias False
+image_encoder.12.3.conv1.weight False
+image_encoder.12.3.bn1.weight False
+image_encoder.12.3.bn1.bias False
+image_encoder.12.3.conv2.weight False
+image_encoder.12.3.bn2.weight False
+image_encoder.12.3.bn2.bias False
+image_encoder.12.3.conv3.weight False
+image_encoder.12.3.bn3.weight False
+image_encoder.12.3.bn3.bias False
+image_encoder.12.4.conv1.weight False
+image_encoder.12.4.bn1.weight False
+image_encoder.12.4.bn1.bias False
+image_encoder.12.4.conv2.weight False
+image_encoder.12.4.bn2.weight False
+image_encoder.12.4.bn2.bias False
+image_encoder.12.4.conv3.weight False
+image_encoder.12.4.bn3.weight False
+image_encoder.12.4.bn3.bias False
+image_encoder.12.5.conv1.weight False
+image_encoder.12.5.bn1.weight False
+image_encoder.12.5.bn1.bias False
+image_encoder.12.5.conv2.weight False
+image_encoder.12.5.bn2.weight False
+image_encoder.12.5.bn2.bias False
+image_encoder.12.5.conv3.weight False
+image_encoder.12.5.bn3.weight False
+image_encoder.12.5.bn3.bias False
+image_encoder.13.0.conv1.weight False
+image_encoder.13.0.bn1.weight False
+image_encoder.13.0.bn1.bias False
+image_encoder.13.0.conv2.weight False
+image_encoder.13.0.bn2.weight False
+image_encoder.13.0.bn2.bias False
+image_encoder.13.0.conv3.weight False
+image_encoder.13.0.bn3.weight False
+image_encoder.13.0.bn3.bias False
+image_encoder.13.0.downsample.0.weight False
+image_encoder.13.0.downsample.1.weight False
+image_encoder.13.0.downsample.1.bias False
+image_encoder.13.1.conv1.weight False
+image_encoder.13.1.bn1.weight False
+image_encoder.13.1.bn1.bias False
+image_encoder.13.1.conv2.weight False
+image_encoder.13.1.bn2.weight False
+image_encoder.13.1.bn2.bias False
+image_encoder.13.1.conv3.weight False
+image_encoder.13.1.bn3.weight False
+image_encoder.13.1.bn3.bias False
+image_encoder.13.2.conv1.weight False
+image_encoder.13.2.bn1.weight False
+image_encoder.13.2.bn1.bias False
+image_encoder.13.2.conv2.weight False
+image_encoder.13.2.bn2.weight False
+image_encoder.13.2.bn2.bias False
+image_encoder.13.2.conv3.weight False
+image_encoder.13.2.bn3.weight False
+image_encoder.13.2.bn3.bias False
+attnpool.positional_embedding True
+attnpool.k_proj.weight True
+attnpool.k_proj.bias True
+attnpool.q_proj.weight True
+attnpool.q_proj.bias True
+attnpool.v_proj.weight True
+attnpool.v_proj.bias True
+attnpool.c_proj.weight True
+attnpool.c_proj.bias True
+align_context.memory_proj.0.weight True
+align_context.memory_proj.0.bias True
+align_context.memory_proj.1.weight True
+align_context.memory_proj.1.bias True
+align_context.memory_proj.2.weight True
+align_context.memory_proj.2.bias True
+align_context.text_proj.0.weight True
+align_context.text_proj.0.bias True
+align_context.text_proj.1.weight True
+align_context.text_proj.1.bias True
+align_context.decoder.0.self_attn.q_proj.weight True
+align_context.decoder.0.self_attn.k_proj.weight True
+align_context.decoder.0.self_attn.v_proj.weight True
+align_context.decoder.0.self_attn.proj.weight True
+align_context.decoder.0.self_attn.proj.bias True
+align_context.decoder.0.cross_attn.q_proj.weight True
+align_context.decoder.0.cross_attn.k_proj.weight True
+align_context.decoder.0.cross_attn.v_proj.weight True
+align_context.decoder.0.cross_attn.proj.weight True
+align_context.decoder.0.cross_attn.proj.bias True
+align_context.decoder.0.norm1.weight True
+align_context.decoder.0.norm1.bias True
+align_context.decoder.0.norm2.weight True
+align_context.decoder.0.norm2.bias True
+align_context.decoder.0.norm3.weight True
+align_context.decoder.0.norm3.bias True
+align_context.decoder.0.mlp.0.weight True
+align_context.decoder.0.mlp.0.bias True
+align_context.decoder.0.mlp.3.weight True
+align_context.decoder.0.mlp.3.bias True
+align_context.decoder.1.self_attn.q_proj.weight True
+align_context.decoder.1.self_attn.k_proj.weight True
+align_context.decoder.1.self_attn.v_proj.weight True
+align_context.decoder.1.self_attn.proj.weight True
+align_context.decoder.1.self_attn.proj.bias True
+align_context.decoder.1.cross_attn.q_proj.weight True
+align_context.decoder.1.cross_attn.k_proj.weight True
+align_context.decoder.1.cross_attn.v_proj.weight True
+align_context.decoder.1.cross_attn.proj.weight True
+align_context.decoder.1.cross_attn.proj.bias True
+align_context.decoder.1.norm1.weight True
+align_context.decoder.1.norm1.bias True
+align_context.decoder.1.norm2.weight True
+align_context.decoder.1.norm2.bias True
+align_context.decoder.1.norm3.weight True
+align_context.decoder.1.norm3.bias True
+align_context.decoder.1.mlp.0.weight True
+align_context.decoder.1.mlp.0.bias True
+align_context.decoder.1.mlp.3.weight True
+align_context.decoder.1.mlp.3.bias True
+align_context.decoder.2.self_attn.q_proj.weight True
+align_context.decoder.2.self_attn.k_proj.weight True
+align_context.decoder.2.self_attn.v_proj.weight True
+align_context.decoder.2.self_attn.proj.weight True
+align_context.decoder.2.self_attn.proj.bias True
+align_context.decoder.2.cross_attn.q_proj.weight True
+align_context.decoder.2.cross_attn.k_proj.weight True
+align_context.decoder.2.cross_attn.v_proj.weight True
+align_context.decoder.2.cross_attn.proj.weight True
+align_context.decoder.2.cross_attn.proj.bias True
+align_context.decoder.2.norm1.weight True
+align_context.decoder.2.norm1.bias True
+align_context.decoder.2.norm2.weight True
+align_context.decoder.2.norm2.bias True
+align_context.decoder.2.norm3.weight True
+align_context.decoder.2.norm3.bias True
+align_context.decoder.2.mlp.0.weight True
+align_context.decoder.2.mlp.0.bias True
+align_context.decoder.2.mlp.3.weight True
+align_context.decoder.2.mlp.3.bias True
+align_context.decoder.3.self_attn.q_proj.weight True
+align_context.decoder.3.self_attn.k_proj.weight True
+align_context.decoder.3.self_attn.v_proj.weight True
+align_context.decoder.3.self_attn.proj.weight True
+align_context.decoder.3.self_attn.proj.bias True
+align_context.decoder.3.cross_attn.q_proj.weight True
+align_context.decoder.3.cross_attn.k_proj.weight True
+align_context.decoder.3.cross_attn.v_proj.weight True
+align_context.decoder.3.cross_attn.proj.weight True
+align_context.decoder.3.cross_attn.proj.bias True
+align_context.decoder.3.norm1.weight True
+align_context.decoder.3.norm1.bias True
+align_context.decoder.3.norm2.weight True
+align_context.decoder.3.norm2.bias True
+align_context.decoder.3.norm3.weight True
+align_context.decoder.3.norm3.bias True
+align_context.decoder.3.mlp.0.weight True
+align_context.decoder.3.mlp.0.bias True
+align_context.decoder.3.mlp.3.weight True
+align_context.decoder.3.mlp.3.bias True
+align_context.decoder.4.self_attn.q_proj.weight True
+align_context.decoder.4.self_attn.k_proj.weight True
+align_context.decoder.4.self_attn.v_proj.weight True
+align_context.decoder.4.self_attn.proj.weight True
+align_context.decoder.4.self_attn.proj.bias True
+align_context.decoder.4.cross_attn.q_proj.weight True
+align_context.decoder.4.cross_attn.k_proj.weight True
+align_context.decoder.4.cross_attn.v_proj.weight True
+align_context.decoder.4.cross_attn.proj.weight True
+align_context.decoder.4.cross_attn.proj.bias True
+align_context.decoder.4.norm1.weight True
+align_context.decoder.4.norm1.bias True
+align_context.decoder.4.norm2.weight True
+align_context.decoder.4.norm2.bias True
+align_context.decoder.4.norm3.weight True
+align_context.decoder.4.norm3.bias True
+align_context.decoder.4.mlp.0.weight True
+align_context.decoder.4.mlp.0.bias True
+align_context.decoder.4.mlp.3.weight True
+align_context.decoder.4.mlp.3.bias True
+align_context.decoder.5.self_attn.q_proj.weight True
+align_context.decoder.5.self_attn.k_proj.weight True
+align_context.decoder.5.self_attn.v_proj.weight True
+align_context.decoder.5.self_attn.proj.weight True
+align_context.decoder.5.self_attn.proj.bias True
+align_context.decoder.5.cross_attn.q_proj.weight True
+align_context.decoder.5.cross_attn.k_proj.weight True
+align_context.decoder.5.cross_attn.v_proj.weight True
+align_context.decoder.5.cross_attn.proj.weight True
+align_context.decoder.5.cross_attn.proj.bias True
+align_context.decoder.5.norm1.weight True
+align_context.decoder.5.norm1.bias True
+align_context.decoder.5.norm2.weight True
+align_context.decoder.5.norm2.bias True
+align_context.decoder.5.norm3.weight True
+align_context.decoder.5.norm3.bias True
+align_context.decoder.5.mlp.0.weight True
+align_context.decoder.5.mlp.0.bias True
+align_context.decoder.5.mlp.3.weight True
+align_context.decoder.5.mlp.3.bias True
+align_context.out_proj.0.weight True
+align_context.out_proj.0.bias True
+align_context.out_proj.1.weight True
+align_context.out_proj.1.bias True
+decoder.conv_layers.0.weight True
+decoder.conv_layers.0.bias True
+decoder.conv_layers.2.weight True
+decoder.conv_layers.2.bias True
+decoder.conv_layers.3.weight True
+decoder.conv_layers.3.bias True
+decoder.conv_layers.5.weight True
+decoder.conv_layers.5.bias True
+EPOCH 1:
+Loss :  2.1906285285949707 4.816289901733398 7.006918430328369
+Loss :  2.0643506050109863 4.880627155303955 6.944977760314941
+Loss :  2.204249143600464 4.809859752655029 7.014108657836914
+Loss :  2.106812000274658 4.9933180809021 7.100130081176758
+Loss :  2.1750259399414062 4.526656627655029 6.7016825675964355
+Loss :  2.1529316902160645 4.618121147155762 6.771052837371826
+Loss :  2.0983619689941406 4.810715198516846 6.909077167510986
+Loss :  2.195282459259033 4.504646301269531 6.6999287605285645
+Loss :  2.15858793258667 4.645349025726318 6.803936958312988
+Loss :  2.1554059982299805 4.571415901184082 6.7268218994140625
+Loss :  2.0939035415649414 4.771012306213379 6.86491584777832
+Loss :  2.1265182495117188 4.857907772064209 6.984426021575928
+Loss :  2.138183355331421 4.865175724029541 7.003358840942383
+Loss :  2.287912130355835 4.702265739440918 6.990178108215332
+Loss :  2.1756370067596436 4.836435794830322 7.012072563171387
+Loss :  2.123807191848755 4.89899206161499 7.022799491882324
+Loss :  2.1687638759613037 4.767271995544434 6.936036109924316
+Loss :  2.1891398429870605 4.859802722930908 7.048942565917969
+Loss :  2.1758806705474854 4.5842390060424805 6.760119438171387
+Loss :  2.233677387237549 4.416816234588623 6.650493621826172
+  batch 20 loss: 2.233677387237549, 4.416816234588623, 6.650493621826172
+  torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  2.3127496242523193 4.71840238571167 7.03115177154541
+Loss :  2.102365493774414 4.563745021820068 6.666110515594482
+Loss :  2.109304904937744 4.650110244750977 6.759415149688721
+Loss :  2.0194180011749268 4.970252513885498 6.989670753479004
+Loss :  2.129640579223633 4.733861446380615 6.863502025604248
+Loss :  2.1595981121063232 4.507874488830566 6.667472839355469
+Loss :  2.1245620250701904 5.056033134460449 7.180595397949219
+Loss :  2.0568594932556152 4.552572727203369 6.609432220458984
+Loss :  2.1220474243164062 4.693301200866699 6.8153486251831055
+Loss :  2.12203049659729 4.635493755340576 6.757524490356445
+Loss :  2.08432936668396 4.5700788497924805 6.6544084548950195
+Loss :  2.0842549800872803 4.759686470031738 6.843941688537598
+Loss :  2.180152177810669 4.892958164215088 7.073110580444336
+Loss :  2.1110055446624756 4.918976306915283 7.02998161315918
+Loss :  2.1412858963012695 4.673715591430664 6.815001487731934
+Loss :  2.164206027984619 4.6295976638793945 6.793803691864014
+Loss :  2.123173236846924 4.803573131561279 6.926746368408203
+Loss :  2.045654773712158 4.949305534362793 6.994960308074951
+Loss :  2.1272830963134766 4.65769624710083 6.784979343414307
+Loss :  2.0842092037200928 5.170496940612793 7.254706382751465
+  batch 40 loss: 2.0842092037200928, 5.170496940612793, 7.254706382751465
+  torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  2.035810708999634 4.847381591796875 6.88319206237793
+Loss :  2.0739595890045166 4.975667476654053 7.049627304077148
+Loss :  2.086150884628296 4.4858832359313965 6.572033882141113
+Loss :  2.1034674644470215 4.785854816436768 6.889322280883789
+Loss :  2.1058785915374756 4.701502323150635 6.807380676269531
+Loss :  2.08984375 4.638123035430908 6.727966785430908
+Loss :  2.049826145172119 5.262231349945068 7.3120574951171875
+Loss :  2.0834875106811523 4.941917419433594 7.025404930114746
+Loss :  2.126713514328003 4.821869373321533 6.948582649230957
+Loss :  2.104405641555786 4.578889846801758 6.683295249938965
+Loss :  2.0989465713500977 4.892350196838379 6.991296768188477
+Loss :  2.030043601989746 4.611968040466309 6.642011642456055
+Loss :  2.0727505683898926 4.781527996063232 6.854278564453125
+Loss :  2.011341094970703 4.385210037231445 6.396551132202148
+Loss :  2.07497501373291 4.720219612121582 6.795194625854492
+Loss :  2.0962088108062744 4.459076404571533 6.555285453796387
+Loss :  2.0417513847351074 4.693305492401123 6.7350568771362305
+Loss :  2.122009515762329 4.358575344085693 6.480585098266602
+Loss :  2.098935842514038 4.65130090713501 6.750236511230469
+Loss :  2.0421881675720215 4.6433610916137695 6.685549259185791
+  batch 60 loss: 2.0421881675720215, 4.6433610916137695, 6.685549259185791
+  torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  2.1143693923950195 4.950388431549072 7.064757823944092
+Loss :  2.0778040885925293 4.525933265686035 6.6037373542785645
+Loss :  2.1433627605438232 4.350671291351318 6.4940338134765625
+Loss :  2.0937979221343994 4.6427531242370605 6.736551284790039
+Loss :  2.1439907550811768 4.068704128265381 6.212695121765137
+Loss :  1.983533501625061 4.4716596603393555 6.455193042755127
+  val done :  0
+torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4], device='cuda:0')
+Loss :  1.9258557558059692 4.394822120666504 6.320677757263184
+Loss :  1.952569603919983 4.337735176086426 6.290304660797119
+Loss :  2.100806474685669 4.275547981262207 6.376354217529297
+Total LOSS train 6.836315785921537 valid 6.360632419586182
+CE LOSS train 2.1190955272087684 valid 0.5252016186714172
+Contrastive LOSS train 4.717220247708834 valid 1.0688869953155518
+Saved best model. Old loss 1000000.0 and new best loss 6.360632419586182
+EPOCH 2:
+Loss :  2.0884408950805664 4.753876686096191 6.842317581176758
+Loss :  2.1507222652435303 4.4769134521484375 6.627635955810547
+Loss :  2.056344509124756 4.516283988952637 6.572628498077393
+Loss :  2.0874481201171875 4.7363691329956055 6.823817253112793
+Loss :  2.0434889793395996 4.604540824890137 6.648029804229736
+Loss :  2.0988259315490723 4.18833065032959 6.287156581878662
+Loss :  2.139660596847534 4.524508953094482 6.6641693115234375
+Loss :  2.1502902507781982 4.343003273010254 6.493293762207031
+Loss :  2.16184139251709 4.5216803550720215 6.683521747589111
+Loss :  2.0923972129821777 4.211994171142578 6.304391384124756
+Loss :  2.1306636333465576 4.434763431549072 6.565426826477051
+Loss :  2.0937016010284424 4.274972915649414 6.368674278259277
+Loss :  2.122270345687866 4.273644924163818 6.3959150314331055
+Loss :  2.133814573287964 4.409251689910889 6.543066024780273
+Loss :  2.16396164894104 4.428517818450928 6.592479705810547
+Loss :  2.063443660736084 4.420170307159424 6.483613967895508
+Loss :  2.089116096496582 4.448179721832275 6.537295818328857
+Loss :  2.1103899478912354 4.1386895179748535 6.249079704284668
+Loss :  2.087103843688965 4.295357704162598 6.3824615478515625
+Loss :  2.115629196166992 4.281582832336426 6.397212028503418
+  batch 20 loss: 2.115629196166992, 4.281582832336426, 6.397212028503418
+  torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  2.092780590057373 4.451231956481934 6.544012546539307
+Loss :  2.1086883544921875 4.630400657653809 6.739089012145996
+Loss :  2.1108970642089844 4.6367645263671875 6.747661590576172
+Loss :  2.021981716156006 4.408010482788086 6.429992198944092
+Loss :  2.1417136192321777 4.506824016571045 6.648537635803223
+Loss :  2.0818183422088623 4.540192604064941 6.622011184692383
+Loss :  2.0237746238708496 4.331675052642822 6.355449676513672
+Loss :  2.029906749725342 4.604837417602539 6.634744167327881
+Loss :  2.0578885078430176 4.6575608253479 6.715449333190918
+Loss :  2.0888521671295166 4.382715225219727 6.471567153930664
+Loss :  2.099512815475464 4.424181938171387 6.52369499206543
+Loss :  2.047008752822876 4.608268737792969 6.655277252197266
+Loss :  2.088691234588623 4.42487907409668 6.513570308685303
+Loss :  2.0930874347686768 4.305734157562256 6.398821830749512
+Loss :  2.1111137866973877 4.2289862632751465 6.340100288391113
+Loss :  2.08736515045166 4.496537208557129 6.583902359008789
+Loss :  2.1099178791046143 4.335227966308594 6.445145606994629
+Loss :  2.1235852241516113 4.347848892211914 6.471434116363525
+Loss :  2.0591280460357666 4.549142360687256 6.608270645141602
+Loss :  2.115356922149658 4.047204494476318 6.162561416625977
+  batch 40 loss: 2.115356922149658, 4.047204494476318, 6.162561416625977
+  torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  2.1518826484680176 4.2238240242004395 6.375706672668457
+Loss :  2.1370208263397217 4.140416145324707 6.277437210083008
+Loss :  2.0958878993988037 4.166423797607422 6.262311935424805
+Loss :  2.150024175643921 4.574827671051025 6.724851608276367
+Loss :  2.0859906673431396 4.0612406730651855 6.147231101989746
+Loss :  2.079658269882202 4.235035419464111 6.314693450927734
+Loss :  2.0186736583709717 4.47162389755249 6.490297317504883
+Loss :  2.1124014854431152 4.458025932312012 6.570427417755127
+Loss :  2.0742175579071045 4.167922496795654 6.24213981628418
+Loss :  2.057790756225586 4.382110595703125 6.439901351928711
+Loss :  2.049520254135132 4.340344429016113 6.389864921569824
+Loss :  2.0236384868621826 4.48759651184082 6.511235237121582
+Loss :  2.0432205200195312 4.3846917152404785 6.42791223526001
+Loss :  1.992378830909729 4.287203311920166 6.2795820236206055
+Loss :  2.1240053176879883 4.158095836639404 6.282101154327393
+Loss :  2.009542942047119 4.270662784576416 6.280205726623535
+Loss :  2.074315309524536 4.231497287750244 6.305812835693359
+Loss :  2.05623722076416 4.437951564788818 6.4941887855529785
+Loss :  2.0332841873168945 4.035314083099365 6.06859827041626
+Loss :  2.160522937774658 3.972592830657959 6.133115768432617
+  batch 60 loss: 2.160522937774658, 3.972592830657959, 6.133115768432617
+  torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  2.019639730453491 4.021578788757324 6.0412187576293945
+Loss :  2.0476746559143066 4.268178939819336 6.315853595733643
+Loss :  2.061427116394043 4.247207164764404 6.308634281158447
+Loss :  2.054784059524536 4.195965766906738 6.250749588012695
+Loss :  2.103182554244995 3.55587100982666 5.659053802490234
+Loss :  1.9871957302093506 4.444966793060303 6.432162284851074
+  val done :  0
+torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  1.903877854347229 4.033896446228027 5.937774181365967
+Loss :  1.9669222831726074 4.209778785705566 6.176701068878174
+Loss :  1.9688918590545654 4.049164772033691 6.018056869506836
+Total LOSS train 6.441024692241962 valid 6.141173601150513
+CE LOSS train 2.0875314730864303 valid 0.49222296476364136
+Contrastive LOSS train 4.3534932136535645 valid 1.0122911930084229
+Saved best model. Old loss 6.360632419586182 and new best loss 6.141173601150513
+EPOCH 3:
+Loss :  2.0546417236328125 4.483201503753662 6.537843227386475
+Loss :  2.0326409339904785 4.56854772567749 6.601188659667969
+Loss :  2.005937337875366 4.266682147979736 6.272619247436523
+Loss :  2.0434823036193848 4.396921157836914 6.440403461456299
+Loss :  2.02412486076355 4.2778778076171875 6.302002906799316
+Loss :  2.0961861610412598 4.411141395568848 6.507327556610107
+Loss :  2.07165789604187 4.546971797943115 6.618629455566406
+Loss :  2.091574192047119 4.484060764312744 6.575634956359863
+Loss :  2.105552911758423 4.744918346405029 6.850471496582031
+Loss :  2.0403647422790527 4.275063991546631 6.315428733825684
+Loss :  2.027911424636841 4.301498889923096 6.329410552978516
+Loss :  2.1200006008148193 4.479098796844482 6.599099159240723
+Loss :  2.0560336112976074 4.395580768585205 6.4516143798828125
+Loss :  2.0387122631073 4.276586532592773 6.315299034118652
+Loss :  2.060046911239624 4.152984142303467 6.213030815124512
+Loss :  2.0373172760009766 4.229722023010254 6.2670392990112305
+Loss :  2.061140775680542 4.302762508392334 6.363903045654297
+Loss :  2.064757823944092 4.331178665161133 6.395936489105225
+Loss :  2.011375904083252 4.003068447113037 6.014444351196289
+Loss :  2.007699489593506 4.396824836730957 6.404524326324463
+  batch 20 loss: 2.007699489593506, 4.396824836730957, 6.404524326324463
+  torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  1.9941812753677368 4.373538017272949 6.3677191734313965
+Loss :  2.051405906677246 4.167727947235107 6.2191338539123535
+Loss :  2.0388669967651367 4.265105724334717 6.3039727210998535
+Loss :  1.9996577501296997 4.347343444824219 6.347001075744629
+Loss :  1.9811567068099976 4.2573137283325195 6.238470554351807
+Loss :  2.0464537143707275 4.342658519744873 6.38911247253418
+Loss :  1.9945365190505981 4.482766628265381 6.4773030281066895
+Loss :  2.069446563720703 4.165460109710693 6.2349066734313965
+Loss :  2.0958244800567627 4.091309547424316 6.1871337890625
+Loss :  2.0578367710113525 4.522492408752441 6.580328941345215
+Loss :  2.063729763031006 4.265015602111816 6.328745365142822
+Loss :  2.0648016929626465 4.39598274230957 6.460784435272217
+Loss :  2.0252299308776855 4.1865739822387695 6.211803913116455
+Loss :  2.0375711917877197 4.336079120635986 6.373650550842285
+Loss :  2.0693140029907227 4.441150188446045 6.510464191436768
+Loss :  2.044748306274414 4.0453314781188965 6.0900797843933105
+Loss :  2.0654218196868896 3.9663681983947754 6.031789779663086
+Loss :  2.0035014152526855 4.080382347106934 6.083883762359619
+Loss :  1.9919862747192383 4.009613513946533 6.0015997886657715
+Loss :  2.053635835647583 4.1403422355651855 6.193978309631348
+  batch 40 loss: 2.053635835647583, 4.1403422355651855, 6.193978309631348
+  torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  2.028432846069336 4.091174125671387 6.119606971740723
+Loss :  2.0791497230529785 4.551275253295898 6.630424976348877
+Loss :  2.0628137588500977 4.037379264831543 6.100193023681641
+Loss :  2.144943952560425 4.246208190917969 6.391152381896973
+Loss :  2.112131118774414 4.259428024291992 6.371559143066406
+Loss :  2.0442004203796387 4.061027526855469 6.105227947235107
+Loss :  2.1073310375213623 4.301667213439941 6.408998489379883
+Loss :  2.0781960487365723 4.085958003997803 6.164154052734375
+Loss :  2.069469451904297 4.080878734588623 6.15034818649292
+Loss :  2.066068410873413 4.234044551849365 6.300112724304199
+Loss :  2.145756721496582 4.290620803833008 6.43637752532959
+Loss :  2.1233973503112793 4.2220540046691895 6.345451354980469
+Loss :  2.090780735015869 4.202697277069092 6.293478012084961
+Loss :  1.9736065864562988 4.179466724395752 6.153073310852051
+Loss :  2.119310140609741 4.073043346405029 6.192353248596191
+Loss :  2.0148561000823975 4.163999557495117 6.178855895996094
+Loss :  2.020458698272705 4.656717300415039 6.677175998687744
+Loss :  2.0403337478637695 4.37652587890625 6.4168596267700195
+Loss :  2.0254604816436768 4.0361247062683105 6.061585426330566
+Loss :  2.0253946781158447 4.2210469245910645 6.246441841125488
+  batch 60 loss: 2.0253946781158447, 4.2210469245910645, 6.246441841125488
+  torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  2.0199244022369385 4.033533096313477 6.053457260131836
+Loss :  2.0404610633850098 4.227625370025635 6.2680864334106445
+Loss :  2.03279709815979 4.078207492828369 6.111004829406738
+Loss :  2.041050434112549 4.054990768432617 6.096041202545166
+Loss :  2.0603389739990234 3.7881405353546143 5.848479270935059
+Loss :  1.9846131801605225 3.9537291526794434 5.938342094421387
+  val done :  0
+torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  1.926192283630371 3.9958443641662598 5.922036647796631
+Loss :  1.9862622022628784 3.711632251739502 5.69789457321167
+Loss :  2.1341042518615723 4.088350772857666 6.222455024719238
+Total LOSS train 6.309664806952843 valid 5.9451820850372314
+CE LOSS train 2.051802000632653 valid 0.5335260629653931
+Contrastive LOSS train 4.25786280632019 valid 1.0220876932144165
+Saved best model. Old loss 6.141173601150513 and new best loss 5.9451820850372314
+EPOCH 4:
+Loss :  2.0298757553100586 4.061307907104492 6.091183662414551
+Loss :  2.052192211151123 4.289237022399902 6.341429233551025
+Loss :  1.9965368509292603 4.137006759643555 6.133543491363525
+Loss :  2.0086328983306885 4.138950824737549 6.147583961486816
+Loss :  2.1102898120880127 4.094752788543701 6.205042839050293
+Loss :  1.9918984174728394 3.9654600620269775 5.957358360290527
+Loss :  2.0676541328430176 4.263716220855713 6.3313703536987305
+Loss :  2.011108875274658 4.3649067878723145 6.376015663146973
+Loss :  2.0640501976013184 3.9868035316467285 6.050853729248047
+Loss :  2.0140039920806885 4.6237664222717285 6.637770652770996
+Loss :  2.0092520713806152 4.09226131439209 6.101513385772705
+Loss :  2.0507497787475586 4.131007194519043 6.181756973266602
+Loss :  2.0504117012023926 4.3024582862854 6.352869987487793
+Loss :  2.007997751235962 4.3983283042907715 6.4063262939453125
+Loss :  2.0424702167510986 4.222891807556152 6.265361785888672
+Loss :  2.0246620178222656 4.0535383224487305 6.078200340270996
+Loss :  2.042147397994995 4.160367012023926 6.2025146484375
+Loss :  2.1135756969451904 4.207470893859863 6.321046829223633
+Loss :  2.0415499210357666 4.262239933013916 6.303790092468262
+Loss :  2.021253824234009 4.168867111206055 6.190120697021484
+  batch 20 loss: 2.021253824234009, 4.168867111206055, 6.190120697021484
+  torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  2.09725022315979 4.154847145080566 6.252097129821777
+Loss :  2.0765459537506104 4.38393497467041 6.460480690002441
+Loss :  2.0872862339019775 4.222501754760742 6.309787750244141
+Loss :  2.034733295440674 4.087535381317139 6.1222686767578125
+Loss :  2.059734344482422 4.2340545654296875 6.293788909912109
+Loss :  2.0942542552948 4.338397026062012 6.432651519775391
+Loss :  2.1370716094970703 4.615916728973389 6.752988338470459
+Loss :  2.0178334712982178 4.523591995239258 6.541425704956055
+Loss :  2.0774402618408203 4.38284158706665 6.460281848907471
+Loss :  2.1037631034851074 4.296936511993408 6.400699615478516
+Loss :  2.1070470809936523 4.236059188842773 6.343106269836426
+Loss :  2.0753796100616455 4.448945999145508 6.524325370788574
+Loss :  2.1225006580352783 4.291319847106934 6.413820266723633
+Loss :  2.112502336502075 4.263346195220947 6.375848770141602
+Loss :  2.091402769088745 4.216775894165039 6.308178901672363
+Loss :  2.0697503089904785 4.407054424285889 6.476804733276367
+Loss :  2.014341354370117 4.260798931121826 6.275140285491943
+Loss :  2.041290760040283 4.098186492919922 6.139477252960205
+Loss :  2.1139979362487793 4.3520588874816895 6.466056823730469
+Loss :  2.049614906311035 4.342193603515625 6.39180850982666
+  batch 40 loss: 2.049614906311035, 4.342193603515625, 6.39180850982666
+  torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  2.085239887237549 4.293241500854492 6.378481388092041
+Loss :  2.045539379119873 4.274603366851807 6.32014274597168
+Loss :  2.0448265075683594 4.282503604888916 6.327330112457275
+Loss :  2.045802593231201 4.479220867156982 6.525023460388184
+Loss :  2.0325825214385986 4.420455455780029 6.453038215637207
+Loss :  2.1231136322021484 4.372735977172852 6.495849609375
+Loss :  2.0858027935028076 4.2786078453063965 6.364410400390625
+Loss :  2.0502707958221436 4.344008922576904 6.394279479980469
+Loss :  2.0085742473602295 4.251431941986084 6.260005950927734
+Loss :  2.054718017578125 4.44379997253418 6.498517990112305
+Loss :  2.076946973800659 4.319073677062988 6.396020889282227
+Loss :  2.027704954147339 4.287196159362793 6.314901351928711
+Loss :  2.072122097015381 4.3190531730651855 6.391175270080566
+Loss :  2.1030540466308594 4.020646095275879 6.123700141906738
+Loss :  2.131021022796631 4.2241339683532715 6.355154991149902
+Loss :  2.071730375289917 4.239171981811523 6.3109025955200195
+Loss :  2.145467758178711 4.337951183319092 6.483418941497803
+Loss :  2.0766665935516357 4.067554950714111 6.144221305847168
+Loss :  2.143782377243042 4.25157356262207 6.395356178283691
+Loss :  2.1253230571746826 4.465749263763428 6.591072082519531
+  batch 60 loss: 2.1253230571746826, 4.465749263763428, 6.591072082519531
+  torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  2.0330326557159424 4.368518352508545 6.401551246643066
+Loss :  2.0916290283203125 4.551665306091309 6.643294334411621
+Loss :  2.0111351013183594 4.816535472869873 6.827670574188232
+Loss :  2.0361480712890625 3.9488518238067627 5.984999656677246
+Loss :  2.030690908432007 4.006319046020508 6.037010192871094
+Loss :  2.3008015155792236 4.200589179992676 6.50139045715332
+  val done :  0
+torch.unique(gt) :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+  pred unique :  tensor([0, 1, 2, 3, 4, 5], device='cuda:0')
+Loss :  2.135152816772461 4.240184307098389 6.37533712387085
+Loss :  2.2045657634735107 3.864165782928467 6.068731307983398
+Loss :  2.3952252864837646 3.9768764972686768 6.372101783752441
+Total LOSS train 6.335911068549523 valid 6.329390168190002
+CE LOSS train 2.0628766059875487 valid 0.5988063216209412

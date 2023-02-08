@@ -1,0 +1,26 @@
+
+Path to store results already exists
+self.partnames :  ['background', 'head', 'neck', 'torso', 'legs', 'tail']
+prompts :  [' the background of the cat.', ' the head of the cat.', ' the neck of the cat.', ' the torso of the cat.', ' the legs of the cat.', ' the tail of the cat.']
+model device :  cuda
+self.prompts : torch.Size([6, 77])
+self.prompts : torch.Size([6, 1024])
+self.prompts rquires grad :  <built-in method requires_grad_ of Tensor object at 0x7fea68f18d10>
+Loading checkpoint '../ContextPromptPart_model/last_model'
+Loaded model is for epoch 1000
+Loaded checkpoint '../ContextPromptPart_model/last_model'
+Length of Train dataset : 646 and Test dataset : 35
+Length of Train loader : 65 and Test loader : 4
+(array([0, 1, 3, 5]), array([ 91230,  87858,  68090, 254582]))
+(array([0, 1, 3, 5]), array([ 77228,  98739,  49823, 275970]))
+(array([0, 1, 3, 5]), array([101292,  73757, 106135, 220576]))
+(array([0, 1, 3, 5]), array([ 40899,  41184,  11038, 157759]))
+Done testing
+average loss :  1.6464356780052185
+(array([0, 1, 3, 5]), array([ 91230,  87858,  68090, 254582]))
+(array([0, 1, 3, 5]), array([ 77228,  98739,  49823, 275970]))
+(array([0, 1, 3, 5]), array([101292,  73757, 106135, 220576]))
+(array([0, 1, 3, 5]), array([ 40899,  41184,  11038, 157759]))
+Done testing
+average loss :  1.6464356780052185
+[34m[1mwandb[39m[22m: [33mWARNING[39m Symlinked 35 files into the W&B run directory, call wandb.save again to sync new files.

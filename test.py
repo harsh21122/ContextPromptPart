@@ -76,14 +76,14 @@ def inference(model, loader, loss_fn):
             pred = torch.argmax(x, dim=1)
             running_loss += loss.item()
             pred = pred.cpu().numpy()
-            print(np.unique(pred, return_counts = True))
+            print(i, np.unique(pred, return_counts = True))
 
     
 
         for idx in range(len(name)):
             cv2.imwrite(os.path.join(args.result_dir, name[idx] + ".png"), convert_mask_to_image(pred[idx]))
-            plt.imshow(pred[idx])
-            plt.show()
+            # plt.imshow(pred[idx])
+            # plt.show()
     avg_loss = running_loss / (i + 1)
     print('Done testing')
     print("average loss : ", avg_loss)
@@ -141,7 +141,7 @@ print("Length of Train dataset : {} and Test dataset : {}".format(len(train_data
 print("Length of Train loader : {} and Test loader : {}".format(len(trainLoader), len(testLoader)))
 loss_fn = nn.CrossEntropyLoss()
 with torch.no_grad():
-    inference(encoder, testLoader, loss_fn)
+    inference(encoder, trainLoader, loss_fn)
     inference(encoder, testLoader, loss_fn)
 
 wandb.save(os.path.join(args.result_dir, '*.png'), policy = 'now')

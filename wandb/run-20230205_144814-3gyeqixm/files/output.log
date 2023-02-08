@@ -1,0 +1,6 @@
+Traceback (most recent call last):
+  File "/ssd-scratch/harsh21122/ContextPromptPart/train.py", line 335, in <module>
+    main(args)
+  File "/ssd-scratch/harsh21122/ContextPromptPart/train.py", line 186, in main
+    scheduler = MultiStepLR(optimizer,
+UnboundLocalError: local variable 'optimizer' referenced before assignment
