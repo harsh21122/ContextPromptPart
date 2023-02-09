@@ -218,7 +218,7 @@ def main(args):
     print("Length of Train loader : {} and Test loader : {}".format(len(trainLoader), len(testLoader)))
     
     from model import Encoder
-    encoder = Encoder(clip_model, clip_visual, unique_part_names)
+    encoder = Encoder(clip_model, clip_visual, unique_part_names, args.score_map_type)
     encoder = encoder.to(device)
 
     # This is taken from unsupervised contrastive paper for vgg feature extraction

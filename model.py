@@ -31,7 +31,7 @@ from FPN_decoder import FPN
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 class Encoder(nn.Module):
-    def __init__(self, clip_model, clip_visual, unique_part_names):
+    def __init__(self, clip_model, clip_visual, unique_part_names, type_):
         super().__init__()
         input_resolution=224
         width=64
@@ -39,6 +39,7 @@ class Encoder(nn.Module):
         new_dim = 1024
         text_dim=1024
         output_dim=1024
+        self.type_ = type_
         self.partnames = unique_part_names
         self.partnames.insert(0, 'background')
         # self.partnames.append('background')
@@ -56,6 +57,8 @@ class Encoder(nn.Module):
         self.prompts = clip_model.encode_text(self.prompts)
         print("self.prompts :", self.prompts.shape)
         print("self.prompts rquires grad : ", self.prompts.requires_grad_)
+
+    
 
 
         # self.image_encoder = clip_model.visual
@@ -77,6 +80,10 @@ class Encoder(nn.Module):
         # self.tokenized_prompts = self.prompt_learner.tokenized_prompts
         self.gamma = nn.Parameter(torch.ones(text_dim) * 1e-3)
         self.dtype = clip_model.dtype
+
+        if self.type_ == 'concat':
+            self.proj_concat = nn.Conv2d(2048 + len(self.partnames), 2048, kernel_size=1, stride = 1, padding = 0)
+
         
         self.decoder = FPN(num_classes= 6)
 
@@ -94,7 +101,7 @@ class Encoder(nn.Module):
     def forward(self, input_batch):
 
         out = self.image_encoder(input_batch.type(self.dtype)) 
-        # print("image_features : ", out[0].shape,  out[1].shape, out[2].shape, out[3].shape, out[4].shape)
+        print("image_features : ", out[0].shape,  out[1].shape, out[2].shape, out[3].shape, out[4].shape)
         # print("image_features : ", np.unique(x4.detach().cpu().numpy()))
 
         # ImageEncoder = self.image_encoder(input_batch.type(self.dtype))
@@ -169,13 +176,30 @@ class Encoder(nn.Module):
         text = F.normalize(text_features, dim=2, p=2)
         score_map = torch.einsum('bchw,bkc->bkhw', x_local, text)
         # print("score_map : ", np.unique(score_map.detach().cpu().numpy()))
-        score_map = F.interpolate(score_map, (256, 256), mode='bilinear')
         print("score_map : ", score_map.shape)
+
+        if self.type_ == 'concat':
+            x_bar = torch.cat([out[4], score_map], dim=1)
+            print("concat x_bar : ", x_bar.shape)
+            x_bar = self.proj_concat(x_bar)
+            print("concat x_bar after 1x1 conv : ", x_bar.shape)
+
+        elif self.type_ == 'attention':
+            x_bar = torch.einsum('bchw,bkhw->bckhw', out[4], score_map)
+            print("attention x_bar : ", x_bar.shape)
+            # sum of attention of all the part-channels
+            x_bar = torch.mean(x_bar, dim = 2)
+            print("attention after mean x_bar : ", x_bar.shape)
+        else:
+            pass
+
+        low_level_features = [out[0], out[1], out[2], out[3], x_bar]
+
         # x_concat = torch.cat([x_local, score_map], dim=1)
         # print("x_concat : ", x_concat.shape) #  torch.Size([2, 1024 + 6, 7, 7])
         
         ## Need to add FPN decoder here to generate final map.
-        final_map = self.decoder(score_map)
+        final_map = self.decoder(low_level_features)
         print("final_map : ", final_map.shape)
         # print("final_map : ", np.unique(final_map.detach().cpu().numpy()))
         
@@ -418,34 +442,4 @@ class Decoder(nn.Module):
         # y3_ = self.three(features[1])
         # print("y3_.shape : ", y3_.shape)
         # y3 = y3 + y3_
-        # print("y3.shape : ", y3.shape)
-
-        y2 = self.conv_layers(y3)
-        # print("y2.shape : ", y2.shape)
-        y2 = self.m(y2)
-        # print("y2.shape : ", y2.shape)
-
-        # y2_ = self.two(features[2])
-        # print("y2_.shape : ", y2_.shape)
-        # y2 = y2 + y2_
-        # print("y2.shape : ", y2.shape)
-
-        y1 = self.conv_layers(y2)
-        # print("y1.shape : ", y1.shape)
-        y1 = self.m(y1)
-        # print("y1.shape : ", y1.shape)
-
-        # y1_ = self.one(features[3])
-        # print("y1_.shape : ", y1_.shape)
-        # y1 = y1 + y1_
-
-        map = F.interpolate(y1, (self.resolution, self.resolution), mode='bilinear')
-        # print("map.shape : ", map.shape)
-
-
-
-        return map
-        
-
-
-
+        # prin

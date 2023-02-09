@@ -49,8 +49,8 @@ class FPN(nn.Module):
         self.bn1 = nn.BatchNorm2d(64)
 
         BatchNorm = nn.BatchNorm2d
-        self.back_bone = CLIPResNet([3, 4, 6, 3], pretrained= "pretrained/RN50.pt")
-        print(self.back_bone)
+        # self.back_bone = CLIPResNet([3, 4, 6, 3], pretrained= "pretrained/RN50.pt")
+        # print(self.back_bone)
 
         # Bottom-up layers
         self.layer1 = self._make_layer(Bottleneck,  64, num_blocks[0], stride=1)
@@ -113,9 +113,9 @@ class FPN(nn.Module):
         return F.interpolate(x, size=(H,W), mode='bilinear', align_corners=True) + y
 
 
-    def forward(self, x):
+    def forward(self, low_level_features):
         # Bottom-up using backbone
-        low_level_features = self.back_bone(x)
+        # low_level_features = self.back_bone(x)
         c1 = low_level_features[0]
         c2 = low_level_features[1]
         c3 = low_level_features[2]
