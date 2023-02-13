@@ -1,0 +1,16 @@
+
+Created path to store results.
+self.partnames :  ['background', 'head', 'neck', 'torso', 'legs', 'tail']
+prompts :  [' the background of the cat.', ' the head of the cat.', ' the neck of the cat.', ' the torso of the cat.', ' the legs of the cat.', ' the tail of the cat.']
+model device :  cuda
+self.prompts : torch.Size([6, 77])
+self.prompts : torch.Size([6, 1024])
+self.prompts rquires grad :  <built-in method requires_grad_ of Tensor object at 0x7faf7a01d270>
+Loading checkpoint '/home/harsh21122/tmp/ContextPromptPart_model/last_model_fpn_attention'
+Traceback (most recent call last):
+  File "/ssd-scratch/harsh21122/simple_run/ContextPromptPart/test.py", line 127, in <module>
+    encoder.load_state_dict(checkpoint['state_dict'])
+  File "/home/harsh21122/.conda/envs/part/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1604, in load_state_dict
+    raise RuntimeError('Error(s) in loading state_dict for {}:\n\t{}'.format(
+RuntimeError: Error(s) in loading state_dict for Encoder:
+	Missing key(s) in state_dict: "proj_concat.weight", "proj_concat.bias".

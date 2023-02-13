@@ -101,7 +101,7 @@ class Encoder(nn.Module):
     def forward(self, input_batch):
 
         out = self.image_encoder(input_batch.type(self.dtype)) 
-        print("image_features : ", out[0].shape,  out[1].shape, out[2].shape, out[3].shape, out[4].shape)
+        # print("image_features : ", out[0].shape,  out[1].shape, out[2].shape, out[3].shape, out[4].shape)
         # print("image_features : ", np.unique(x4.detach().cpu().numpy()))
 
         # ImageEncoder = self.image_encoder(input_batch.type(self.dtype))
@@ -176,7 +176,7 @@ class Encoder(nn.Module):
         text = F.normalize(text_features, dim=2, p=2)
         score_map = torch.einsum('bchw,bkc->bkhw', x_local, text)
         # print("score_map : ", np.unique(score_map.detach().cpu().numpy()))
-        print("score_map : ", score_map.shape)
+        # print("score_map : ", score_map.shape)
 
         if self.type_ == 'concat':
             x_bar = torch.cat([out[4], score_map], dim=1)
@@ -200,7 +200,7 @@ class Encoder(nn.Module):
         
         ## Need to add FPN decoder here to generate final map.
         final_map = self.decoder(low_level_features)
-        print("final_map : ", final_map.shape)
+        # print("final_map : ", final_map.shape)
         # print("final_map : ", np.unique(final_map.detach().cpu().numpy()))
         
         

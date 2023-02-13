@@ -17,16 +17,16 @@ def get_parser():
   
 
     parser.add_argument('--clip-model', default='RN50', help='which clip model to use')
-    parser.add_argument('--score-map-type', default='concat', help='how to concat score map and x4 features')
+    parser.add_argument('--score-map-type', default='attention', help='how to concat score map and x4 features')
 
-    parser.add_argument('--result-dir', default='./Results/', help='path to save resultant images')
+    parser.add_argument('--result-dir', default='./Results/fpn_attention', help='path to save resultant images')
     parser.add_argument('--model-dir', default='/home/harsh21122/tmp/ContextPromptPart_model', help='path to save models')
 
     parser.add_argument('--dataset-dir', default= '/home/harsh21122/tmp/cat_dataset', help='path where dataset is uploaded')
 
 
     parser.add_argument('--resume', default=False, type = bool, help='resume from checkpoint')
-    parser.add_argument('--model-name', default='../ContextPromptPart_model/last_model',  help='if resume from checkpoint is true, name and path of model to load')
+    parser.add_argument('--model-name', default='/home/harsh21122/tmp/ContextPromptPart_model/last_model_fpn_attention',  help='if resume from checkpoint is true, name and path of model to load')
 
 
     parser.add_argument('--calc_accuracy_training', default=False, type = bool, help='if need to calculate accuracy while training each epoch')

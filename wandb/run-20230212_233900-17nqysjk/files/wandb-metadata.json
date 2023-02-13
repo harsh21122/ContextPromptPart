@@ -1,0 +1,24 @@
+{
+    "os": "Linux-3.10.0-693.5.2.el7.x86_64-x86_64-with-glibc2.17",
+    "python": "3.9.13",
+    "heartbeatAt": "2023-02-12T18:09:02.116817",
+    "startedAt": "2023-02-12T18:09:00.515099",
+    "docker": null,
+    "gpu": "GeForce RTX 3090",
+    "gpu_count": 1,
+    "cpu_count": 20,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/ssd-scratch/harsh21122/simple_run/ContextPromptPart/test.py",
+    "codePath": "test.py",
+    "git": {
+        "remote": "git@github.com:harsh21122/ContextPromptPart.git",
+        "commit": "04c40df15ed941204e5bce6f5b67ba1d08b5ef99"
+    },
+    "email": "harsh21122@iiitd.ac.in",
+    "root": "/ssd-scratch/harsh21122/simple_run/ContextPromptPart",
+    "host": "compute-0-3.local",
+    "username": "harsh21122",
+    "executable": "/home/harsh21122/.conda/envs/part/bin/python"
+}

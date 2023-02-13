@@ -1,0 +1,22 @@
+
+Path to store results already exists
+self.partnames :  ['background', 'head', 'neck', 'torso', 'legs', 'tail']
+prompts :  [' the background of the cat.', ' the head of the cat.', ' the neck of the cat.', ' the torso of the cat.', ' the legs of the cat.', ' the tail of the cat.']
+model device :  cuda
+self.prompts : torch.Size([6, 77])
+self.prompts : torch.Size([6, 1024])
+self.prompts rquires grad :  <built-in method requires_grad_ of Tensor object at 0x7fda10fec270>
+Loading checkpoint '/home/harsh21122/tmp/ContextPromptPart_model/last_model_fpn_concat'
+Loaded model is for epoch 300
+Loaded checkpoint '/home/harsh21122/tmp/ContextPromptPart_model/last_model_fpn_concat'
+Length of Train dataset : 646 and Test dataset : 35
+Length of Train loader : 65 and Test loader : 4
+batch :  0
+concat x_bar :  torch.Size([10, 2054, 7, 7])
+concat x_bar after 1x1 conv :  torch.Size([10, 2048, 7, 7])
+Traceback (most recent call last):
+  File "/ssd-scratch/harsh21122/simple_run/ContextPromptPart/test.py", line 149, in <module>
+    inference(encoder, trainLoader, loss_fn)
+  File "/ssd-scratch/harsh21122/simple_run/ContextPromptPart/test.py", line 80, in inference
+    running_loss += loss.item()
+NameError: name 'loss' is not defined

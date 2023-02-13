@@ -292,7 +292,7 @@ def main(args):
             best_vloss = avg_vloss
             if args.wandb:
                 wandb.run.summary["best_val_loss"] = best_vloss
-            model_path = os.path.join(args.model_dir, 'best_model_3e-4_contrast_fpn')
+            model_path = os.path.join(args.model_dir, 'best_model_fpn_attention')
             if args.multi_step_scheduler:
                 torch.save({'state_dict': encoder.state_dict(),
                         'optimizer': optimizer.state_dict(),
@@ -311,7 +311,7 @@ def main(args):
                   "train cross-entropy loss":avg_loss_ce, "val cross-entropy loss":avg_vloss_ce,
                   "train contrastive loss": avg_loss_cont, "val contrastive loss": avg_vloss_cont })
         
-        model_path = os.path.join(args.model_dir, 'last_model_3e-4_contrast_fpn')
+        model_path = os.path.join(args.model_dir, 'last_model_fpn_attention')
         if args.multi_step_scheduler:
             torch.save({'state_dict': encoder.state_dict(),
                        'optimizer': optimizer.state_dict(),

@@ -19,6 +19,7 @@ from torch.optim.lr_scheduler import MultiStepLR
 from model import Encoder
 import cv2
 import wandb
+from backbone import CLIPResNet
 
 
 from dataset import CustomDataset as CustomDataset
@@ -28,8 +29,9 @@ parser = get_parser()
 args = parser.parse_args()
 print("Arguments are : ", args)
 
-wandb.login()
-wandb.init(project="part_segmentation_test_files")
+if args.wandb:
+    wandb.login()
+    wandb.init(project="part_segmentation_test_files")
 
 def color_map_test(N=256, normalized=False):
     def bitget(byteval, idx):
@@ -64,6 +66,7 @@ def inference(model, loader, loss_fn):
     model.eval()
     running_loss = 0.
     for i, batch in enumerate(loader):
+        print("batch : ", i)
         image = batch['image'].to(device)
         gt = batch['gt'].squeeze(1).type(torch.LongTensor).to(device)
         name = batch['name']
@@ -71,22 +74,22 @@ def inference(model, loader, loss_fn):
 
         with torch.no_grad():
             output = encoder(image)
-            loss = loss_fn(output, gt)
+            # loss = loss_fn(output, gt)
             x = torch.nn.functional.softmax(output, dim = 1)
             pred = torch.argmax(x, dim=1)
-            running_loss += loss.item()
+            # running_loss += loss.item()
             pred = pred.cpu().numpy()
-            print(np.unique(pred, return_counts = True))
+            print(i, np.unique(pred, return_counts = True))
 
     
 
         for idx in range(len(name)):
             cv2.imwrite(os.path.join(args.result_dir, name[idx] + ".png"), convert_mask_to_image(pred[idx]))
-            plt.imshow(pred[idx])
-            plt.show()
-    avg_loss = running_loss / (i + 1)
+            # plt.imshow(pred[idx])
+            # plt.show()
+    # avg_loss = running_loss / (i + 1)
     print('Done testing')
-    print("average loss : ", avg_loss)
+    # print("average loss : ", avg_loss)
 
 
 
@@ -112,13 +115,15 @@ test = test.reset_index(drop = True)
 
 
 clip_model, preprocess = clip.load(args.clip_model, device=device)
-encoder = Encoder(clip_model, unique_part_names)
+clip_visual = CLIPResNet([3, 4, 6, 3], pretrained= "pretrained/RN50.pt")
+encoder = Encoder(clip_model, clip_visual, unique_part_names, args.score_map_type)
 encoder = encoder.to(device)
 
 
 if os.path.isfile(args.model_name):
     print("Loading checkpoint '{}'".format(args.model_name))
     checkpoint = torch.load(args.model_name)
+    # print(checkpoint)
     encoder.load_state_dict(checkpoint['state_dict'])
     epoch = checkpoint['epoch']
     print("Loaded model is for epoch {}".format(epoch))
@@ -141,8 +146,9 @@ print("Length of Train dataset : {} and Test dataset : {}".format(len(train_data
 print("Length of Train loader : {} and Test loader : {}".format(len(trainLoader), len(testLoader)))
 loss_fn = nn.CrossEntropyLoss()
 with torch.no_grad():
-    inference(encoder, testLoader, loss_fn)
+    inference(encoder, trainLoader, loss_fn)
     inference(encoder, testLoader, loss_fn)
 
-wandb.save(os.path.join(args.result_dir, '*.png'), policy = 'now')
+if args.wandb:
+    wandb.save(os.path.join(args.result_dir, '*.png'), policy = 'now')
 

@@ -1,0 +1,179 @@
+2023-02-12 23:47:48,625 INFO    StreamThr :48566 [internal.py:wandb_internal():88] W&B internal server running at pid: 48566, started at: 2023-02-12 23:47:48.624584
+2023-02-12 23:47:48,627 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: status
+2023-02-12 23:47:48,630 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: status
+2023-02-12 23:47:48,632 DEBUG   SenderThread:48566 [sender.py:send():301] send: header
+2023-02-12 23:47:48,632 INFO    WriterThread:48566 [datastore.py:open_for_write():75] open: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/run-no0ucpb4.wandb
+2023-02-12 23:47:48,651 DEBUG   SenderThread:48566 [sender.py:send():301] send: run
+2023-02-12 23:47:49,701 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: check_version
+2023-02-12 23:47:49,706 INFO    SenderThread:48566 [dir_watcher.py:__init__():216] watching files in: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files
+2023-02-12 23:47:49,706 INFO    SenderThread:48566 [sender.py:_start_run_threads():912] run started: no0ucpb4 with start time 1676225868.618612
+2023-02-12 23:47:49,706 DEBUG   SenderThread:48566 [sender.py:send():301] send: summary
+2023-02-12 23:47:49,707 INFO    SenderThread:48566 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2023-02-12 23:47:49,708 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: check_version
+2023-02-12 23:47:50,130 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: run_start
+2023-02-12 23:47:50,134 DEBUG   HandlerThread:48566 [meta.py:__init__():34] meta init
+2023-02-12 23:47:50,134 DEBUG   HandlerThread:48566 [meta.py:__init__():49] meta init done
+2023-02-12 23:47:50,134 DEBUG   HandlerThread:48566 [meta.py:probe():215] probe
+2023-02-12 23:47:50,143 DEBUG   HandlerThread:48566 [meta.py:_setup_git():205] setup git
+2023-02-12 23:47:50,163 DEBUG   HandlerThread:48566 [meta.py:_setup_git():212] setup git done
+2023-02-12 23:47:50,163 DEBUG   HandlerThread:48566 [meta.py:_save_pip():53] save pip
+2023-02-12 23:47:50,165 DEBUG   HandlerThread:48566 [meta.py:_save_pip():67] save pip done
+2023-02-12 23:47:50,165 DEBUG   HandlerThread:48566 [meta.py:_save_conda():74] save conda
+2023-02-12 23:47:50,710 INFO    Thread-13 :48566 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/wandb-summary.json
+2023-02-12 23:47:50,710 INFO    Thread-13 :48566 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/conda-environment.yaml
+2023-02-12 23:47:50,710 INFO    Thread-13 :48566 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/requirements.txt
+2023-02-12 23:47:54,714 INFO    Thread-13 :48566 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/conda-environment.yaml
+2023-02-12 23:47:54,853 DEBUG   HandlerThread:48566 [meta.py:_save_conda():84] save conda done
+2023-02-12 23:47:54,853 DEBUG   HandlerThread:48566 [meta.py:probe():253] probe done
+2023-02-12 23:47:54,859 DEBUG   SenderThread:48566 [sender.py:send():301] send: files
+2023-02-12 23:47:54,860 INFO    SenderThread:48566 [sender.py:_save_file():1155] saving file wandb-metadata.json with policy now
+2023-02-12 23:47:54,869 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: stop_status
+2023-02-12 23:47:54,869 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: stop_status
+2023-02-12 23:47:55,357 DEBUG   SenderThread:48566 [sender.py:send():301] send: telemetry
+2023-02-12 23:47:55,715 INFO    Thread-13 :48566 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/wandb-metadata.json
+2023-02-12 23:47:55,715 INFO    Thread-13 :48566 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/output.log
+2023-02-12 23:47:56,136 INFO    Thread-17 :48566 [upload_job.py:push():139] Uploaded file /tmp/tmp9bff_cxjwandb/3l9tx0xk-wandb-metadata.json
+2023-02-12 23:47:57,718 INFO    Thread-13 :48566 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/output.log
+2023-02-12 23:48:05,726 INFO    Thread-13 :48566 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/output.log
+2023-02-12 23:48:07,728 INFO    Thread-13 :48566 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/output.log
+2023-02-12 23:48:08,045 DEBUG   SenderThread:48566 [sender.py:send():301] send: exit
+2023-02-12 23:48:08,045 INFO    SenderThread:48566 [sender.py:send_exit():437] handling exit code: 1
+2023-02-12 23:48:08,045 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:08,045 INFO    SenderThread:48566 [sender.py:send_exit():439] handling runtime: 17
+2023-02-12 23:48:08,047 INFO    SenderThread:48566 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2023-02-12 23:48:08,047 INFO    SenderThread:48566 [sender.py:send_exit():445] send defer
+2023-02-12 23:48:08,047 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:08,048 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: defer
+2023-02-12 23:48:08,048 INFO    HandlerThread:48566 [handler.py:handle_request_defer():161] handle defer: 0
+2023-02-12 23:48:08,049 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: defer
+2023-02-12 23:48:08,049 INFO    SenderThread:48566 [sender.py:send_request_defer():454] handle sender defer: 0
+2023-02-12 23:48:08,049 INFO    SenderThread:48566 [sender.py:transition_state():458] send defer: 1
+2023-02-12 23:48:08,049 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: defer
+2023-02-12 23:48:08,049 INFO    HandlerThread:48566 [handler.py:handle_request_defer():161] handle defer: 1
+2023-02-12 23:48:08,161 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: defer
+2023-02-12 23:48:08,161 INFO    SenderThread:48566 [sender.py:send_request_defer():454] handle sender defer: 1
+2023-02-12 23:48:08,161 INFO    SenderThread:48566 [sender.py:transition_state():458] send defer: 2
+2023-02-12 23:48:08,161 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:08,162 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:08,162 DEBUG   SenderThread:48566 [sender.py:send():301] send: stats
+2023-02-12 23:48:08,162 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: defer
+2023-02-12 23:48:08,163 INFO    HandlerThread:48566 [handler.py:handle_request_defer():161] handle defer: 2
+2023-02-12 23:48:08,164 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: defer
+2023-02-12 23:48:08,164 INFO    SenderThread:48566 [sender.py:send_request_defer():454] handle sender defer: 2
+2023-02-12 23:48:08,164 INFO    SenderThread:48566 [sender.py:transition_state():458] send defer: 3
+2023-02-12 23:48:08,164 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: defer
+2023-02-12 23:48:08,164 INFO    HandlerThread:48566 [handler.py:handle_request_defer():161] handle defer: 3
+2023-02-12 23:48:08,164 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: defer
+2023-02-12 23:48:08,164 INFO    SenderThread:48566 [sender.py:send_request_defer():454] handle sender defer: 3
+2023-02-12 23:48:08,165 INFO    SenderThread:48566 [sender.py:transition_state():458] send defer: 4
+2023-02-12 23:48:08,165 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: defer
+2023-02-12 23:48:08,165 INFO    HandlerThread:48566 [handler.py:handle_request_defer():161] handle defer: 4
+2023-02-12 23:48:08,165 DEBUG   SenderThread:48566 [sender.py:send():301] send: summary
+2023-02-12 23:48:08,166 INFO    SenderThread:48566 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2023-02-12 23:48:08,167 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: defer
+2023-02-12 23:48:08,167 INFO    SenderThread:48566 [sender.py:send_request_defer():454] handle sender defer: 4
+2023-02-12 23:48:08,167 INFO    SenderThread:48566 [sender.py:transition_state():458] send defer: 5
+2023-02-12 23:48:08,167 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: defer
+2023-02-12 23:48:08,167 INFO    HandlerThread:48566 [handler.py:handle_request_defer():161] handle defer: 5
+2023-02-12 23:48:08,167 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: defer
+2023-02-12 23:48:08,168 INFO    SenderThread:48566 [sender.py:send_request_defer():454] handle sender defer: 5
+2023-02-12 23:48:08,265 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:08,729 INFO    Thread-13 :48566 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/wandb-summary.json
+2023-02-12 23:48:08,729 INFO    SenderThread:48566 [sender.py:transition_state():458] send defer: 6
+2023-02-12 23:48:08,730 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:08,730 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: defer
+2023-02-12 23:48:08,731 INFO    HandlerThread:48566 [handler.py:handle_request_defer():161] handle defer: 6
+2023-02-12 23:48:08,731 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: defer
+2023-02-12 23:48:08,731 INFO    SenderThread:48566 [sender.py:send_request_defer():454] handle sender defer: 6
+2023-02-12 23:48:08,832 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:09,730 INFO    Thread-13 :48566 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/config.yaml
+2023-02-12 23:48:10,050 INFO    SenderThread:48566 [sender.py:transition_state():458] send defer: 7
+2023-02-12 23:48:10,050 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:10,051 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: defer
+2023-02-12 23:48:10,051 INFO    HandlerThread:48566 [handler.py:handle_request_defer():161] handle defer: 7
+2023-02-12 23:48:10,051 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: defer
+2023-02-12 23:48:10,052 INFO    SenderThread:48566 [sender.py:send_request_defer():454] handle sender defer: 7
+2023-02-12 23:48:10,052 INFO    SenderThread:48566 [dir_watcher.py:finish():362] shutting down directory watcher
+2023-02-12 23:48:10,153 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:10,732 INFO    SenderThread:48566 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/output.log
+2023-02-12 23:48:10,732 INFO    SenderThread:48566 [dir_watcher.py:finish():392] scan: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files
+2023-02-12 23:48:10,732 INFO    SenderThread:48566 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/requirements.txt requirements.txt
+2023-02-12 23:48:10,732 INFO    SenderThread:48566 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/conda-environment.yaml conda-environment.yaml
+2023-02-12 23:48:10,733 INFO    SenderThread:48566 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/output.log output.log
+2023-02-12 23:48:10,742 INFO    SenderThread:48566 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/wandb-summary.json wandb-summary.json
+2023-02-12 23:48:10,747 INFO    SenderThread:48566 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/wandb-metadata.json wandb-metadata.json
+2023-02-12 23:48:10,747 INFO    SenderThread:48566 [dir_watcher.py:finish():406] scan save: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/config.yaml config.yaml
+2023-02-12 23:48:10,751 INFO    SenderThread:48566 [sender.py:transition_state():458] send defer: 8
+2023-02-12 23:48:10,752 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:10,756 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: defer
+2023-02-12 23:48:10,757 INFO    HandlerThread:48566 [handler.py:handle_request_defer():161] handle defer: 8
+2023-02-12 23:48:10,757 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: defer
+2023-02-12 23:48:10,758 INFO    SenderThread:48566 [sender.py:send_request_defer():454] handle sender defer: 8
+2023-02-12 23:48:10,758 INFO    SenderThread:48566 [file_pusher.py:finish():168] shutting down file pusher
+2023-02-12 23:48:10,859 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:10,860 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:10,961 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:10,962 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:11,063 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:11,064 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:11,165 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:11,166 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:11,268 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:11,268 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:11,370 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:11,370 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:11,472 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:11,473 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:11,574 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:11,575 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:11,677 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:11,677 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:11,779 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:11,779 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:11,881 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:11,881 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:11,956 INFO    Thread-21 :48566 [upload_job.py:push():139] Uploaded file /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/wandb-summary.json
+2023-02-12 23:48:11,965 INFO    Thread-22 :48566 [upload_job.py:push():139] Uploaded file /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/config.yaml
+2023-02-12 23:48:11,978 INFO    Thread-18 :48566 [upload_job.py:push():139] Uploaded file /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/requirements.txt
+2023-02-12 23:48:11,984 INFO    Thread-20 :48566 [upload_job.py:push():139] Uploaded file /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/output.log
+2023-02-12 23:48:11,984 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:11,985 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:12,000 INFO    Thread-19 :48566 [upload_job.py:push():139] Uploaded file /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/files/conda-environment.yaml
+2023-02-12 23:48:12,087 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:12,087 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:12,189 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:12,189 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:12,201 INFO    Thread-12 :48566 [sender.py:transition_state():458] send defer: 9
+2023-02-12 23:48:12,202 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: defer
+2023-02-12 23:48:12,202 INFO    HandlerThread:48566 [handler.py:handle_request_defer():161] handle defer: 9
+2023-02-12 23:48:12,202 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: defer
+2023-02-12 23:48:12,202 INFO    SenderThread:48566 [sender.py:send_request_defer():454] handle sender defer: 9
+2023-02-12 23:48:12,291 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:12,539 INFO    SenderThread:48566 [sender.py:transition_state():458] send defer: 10
+2023-02-12 23:48:12,539 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:12,540 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: defer
+2023-02-12 23:48:12,540 INFO    HandlerThread:48566 [handler.py:handle_request_defer():161] handle defer: 10
+2023-02-12 23:48:12,541 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: defer
+2023-02-12 23:48:12,541 INFO    SenderThread:48566 [sender.py:send_request_defer():454] handle sender defer: 10
+2023-02-12 23:48:12,541 INFO    SenderThread:48566 [sender.py:transition_state():458] send defer: 11
+2023-02-12 23:48:12,542 DEBUG   SenderThread:48566 [sender.py:send():301] send: final
+2023-02-12 23:48:12,542 DEBUG   SenderThread:48566 [sender.py:send():301] send: footer
+2023-02-12 23:48:12,542 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: defer
+2023-02-12 23:48:12,542 INFO    HandlerThread:48566 [handler.py:handle_request_defer():161] handle defer: 11
+2023-02-12 23:48:12,542 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: defer
+2023-02-12 23:48:12,542 INFO    SenderThread:48566 [sender.py:send_request_defer():454] handle sender defer: 11
+2023-02-12 23:48:12,642 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: poll_exit
+2023-02-12 23:48:12,642 DEBUG   SenderThread:48566 [sender.py:send_request():315] send_request: poll_exit
+2023-02-12 23:48:12,642 INFO    SenderThread:48566 [file_pusher.py:join():173] waiting for file pusher
+2023-02-12 23:48:13,563 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: sampled_history
+2023-02-12 23:48:13,564 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: get_summary
+2023-02-12 23:48:13,565 INFO    MainThread:48566 [wandb_run.py:_footer_history_summary_info():3321] rendering history
+2023-02-12 23:48:13,565 INFO    MainThread:48566 [wandb_run.py:_footer_history_summary_info():3353] rendering summary
+2023-02-12 23:48:13,565 INFO    MainThread:48566 [wandb_run.py:_footer_sync_info():3277] logging synced files
+2023-02-12 23:48:13,566 DEBUG   HandlerThread:48566 [handler.py:handle_request():138] handle_request: shutdown
+2023-02-12 23:48:13,566 INFO    HandlerThread:48566 [handler.py:finish():807] shutting down handler
+2023-02-12 23:48:14,462 INFO    SenderThread:48566 [sender.py:finish():1315] shutting down sender
+2023-02-12 23:48:14,462 INFO    SenderThread:48566 [file_pusher.py:finish():168] shutting down file pusher
+2023-02-12 23:48:14,462 INFO    SenderThread:48566 [file_pusher.py:join():173] waiting for file pusher
+2023-02-12 23:48:14,542 INFO    WriterThread:48566 [datastore.py:close():279] close: /ssd-scratch/harsh21122/simple_run/ContextPromptPart/wandb/run-20230212_234748-no0ucpb4/run-no0ucpb4.wandb
+2023-02-12 23:48:14,569 INFO    MainThread:48566 [internal.py:handle_exit():78] Internal process exited

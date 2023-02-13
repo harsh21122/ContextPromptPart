@@ -1,0 +1,19 @@
+
+Path to store results already exists
+self.partnames :  ['background', 'head', 'neck', 'torso', 'legs', 'tail']
+prompts :  [' the background of the cat.', ' the head of the cat.', ' the neck of the cat.', ' the torso of the cat.', ' the legs of the cat.', ' the tail of the cat.']
+model device :  cuda
+self.prompts : torch.Size([6, 77])
+self.prompts : torch.Size([6, 1024])
+self.prompts rquires grad :  <built-in method requires_grad_ of Tensor object at 0x7f985ef71680>
+Checkpoint load failed
+Length of Train dataset : 646 and Test dataset : 35
+Length of Train loader : 65 and Test loader : 4
+concat x_bar :  torch.Size([10, 2054, 7, 7])
+concat x_bar after 1x1 conv :  torch.Size([10, 2048, 7, 7])
+(array([0, 3, 4]), array([ 40912, 460401,    447]))
+concat x_bar :  torch.Size([10, 2054, 7, 7])
+concat x_bar after 1x1 conv :  torch.Size([10, 2048, 7, 7])
+(array([0, 3, 4]), array([ 39021, 462246,    493]))
+concat x_bar :  torch.Size([10, 2054, 7, 7])
+concat x_bar after 1x1 conv :  torch.Size([10, 2048, 7, 7])

@@ -1,0 +1,6 @@
+
+Path to store results already exists
+Traceback (most recent call last):
+  File "/ssd-scratch/harsh21122/simple_run/ContextPromptPart/test.py", line 115, in <module>
+    encoder = Encoder(clip_model, unique_part_names)
+TypeError: __init__() missing 2 required positional arguments: 'unique_part_names' and 'type_'
