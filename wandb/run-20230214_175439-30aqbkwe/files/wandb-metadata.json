@@ -1,0 +1,24 @@
+{
+    "os": "Linux-3.10.0-693.5.2.el7.x86_64-x86_64-with-glibc2.17",
+    "python": "3.9.13",
+    "heartbeatAt": "2023-02-14T12:24:40.860981",
+    "startedAt": "2023-02-14T12:24:39.615872",
+    "docker": null,
+    "gpu": "GeForce RTX 3090",
+    "gpu_count": 1,
+    "cpu_count": 20,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/ssd-scratch/harsh21122/ContextPromptPart/train_ce.py",
+    "codePath": "train_ce.py",
+    "git": {
+        "remote": "git@github.com:harsh21122/ContextPromptPart.git",
+        "commit": "b0e8cc2a0f0efa80a7293178a1a88ea8aa26cc4b"
+    },
+    "email": "harsh21122@iiitd.ac.in",
+    "root": "/ssd-scratch/harsh21122/ContextPromptPart",
+    "host": "compute-0-3.local",
+    "username": "harsh21122",
+    "executable": "/home/harsh21122/.conda/envs/part/bin/python"
+}

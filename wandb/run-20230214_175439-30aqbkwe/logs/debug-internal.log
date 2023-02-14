@@ -1,0 +1,107 @@
+2023-02-14 17:54:39,641 INFO    StreamThr :25174 [internal.py:wandb_internal():88] W&B internal server running at pid: 25174, started at: 2023-02-14 17:54:39.639785
+2023-02-14 17:54:39,642 DEBUG   HandlerThread:25174 [handler.py:handle_request():138] handle_request: status
+2023-02-14 17:54:39,645 DEBUG   SenderThread:25174 [sender.py:send_request():315] send_request: status
+2023-02-14 17:54:39,647 DEBUG   SenderThread:25174 [sender.py:send():301] send: header
+2023-02-14 17:54:39,647 INFO    WriterThread:25174 [datastore.py:open_for_write():75] open: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/run-30aqbkwe.wandb
+2023-02-14 17:54:39,665 DEBUG   SenderThread:25174 [sender.py:send():301] send: run
+2023-02-14 17:54:40,576 DEBUG   HandlerThread:25174 [handler.py:handle_request():138] handle_request: check_version
+2023-02-14 17:54:40,582 INFO    SenderThread:25174 [dir_watcher.py:__init__():216] watching files in: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files
+2023-02-14 17:54:40,582 INFO    SenderThread:25174 [sender.py:_start_run_threads():912] run started: 30aqbkwe with start time 1676377479.634249
+2023-02-14 17:54:40,583 DEBUG   SenderThread:25174 [sender.py:send():301] send: summary
+2023-02-14 17:54:40,583 INFO    SenderThread:25174 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2023-02-14 17:54:40,584 DEBUG   SenderThread:25174 [sender.py:send_request():315] send_request: check_version
+2023-02-14 17:54:40,856 DEBUG   HandlerThread:25174 [handler.py:handle_request():138] handle_request: run_start
+2023-02-14 17:54:40,860 DEBUG   HandlerThread:25174 [meta.py:__init__():34] meta init
+2023-02-14 17:54:40,860 DEBUG   HandlerThread:25174 [meta.py:__init__():49] meta init done
+2023-02-14 17:54:40,860 DEBUG   HandlerThread:25174 [meta.py:probe():215] probe
+2023-02-14 17:54:40,868 DEBUG   HandlerThread:25174 [meta.py:_setup_git():205] setup git
+2023-02-14 17:54:40,890 DEBUG   HandlerThread:25174 [meta.py:_setup_git():212] setup git done
+2023-02-14 17:54:40,890 DEBUG   HandlerThread:25174 [meta.py:_save_pip():53] save pip
+2023-02-14 17:54:40,891 DEBUG   HandlerThread:25174 [meta.py:_save_pip():67] save pip done
+2023-02-14 17:54:40,911 DEBUG   HandlerThread:25174 [meta.py:_save_conda():74] save conda
+2023-02-14 17:54:41,585 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/conda-environment.yaml
+2023-02-14 17:54:41,586 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/requirements.txt
+2023-02-14 17:54:41,586 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/wandb-summary.json
+2023-02-14 17:54:47,866 DEBUG   HandlerThread:25174 [meta.py:_save_conda():84] save conda done
+2023-02-14 17:54:47,866 DEBUG   HandlerThread:25174 [meta.py:probe():253] probe done
+2023-02-14 17:54:47,900 DEBUG   HandlerThread:25174 [handler.py:handle_request():138] handle_request: stop_status
+2023-02-14 17:54:47,901 DEBUG   SenderThread:25174 [sender.py:send_request():315] send_request: stop_status
+2023-02-14 17:54:48,462 DEBUG   SenderThread:25174 [sender.py:send():301] send: telemetry
+2023-02-14 17:54:48,462 DEBUG   SenderThread:25174 [sender.py:send():301] send: files
+2023-02-14 17:54:48,463 INFO    SenderThread:25174 [sender.py:_save_file():1155] saving file wandb-metadata.json with policy now
+2023-02-14 17:54:48,592 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/conda-environment.yaml
+2023-02-14 17:54:48,592 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/wandb-metadata.json
+2023-02-14 17:54:49,840 INFO    Thread-17 :25174 [upload_job.py:push():139] Uploaded file /tmp/tmpmdu15wtzwandb/1z3io09y-wandb-metadata.json
+2023-02-14 17:54:55,598 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_created():275] file/dir created: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:54:55,722 DEBUG   SenderThread:25174 [sender.py:send():301] send: telemetry
+2023-02-14 17:54:56,006 DEBUG   SenderThread:25174 [sender.py:send():301] send: telemetry
+2023-02-14 17:54:57,600 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:54:59,604 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:00,605 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:01,608 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:03,600 DEBUG   HandlerThread:25174 [handler.py:handle_request():138] handle_request: stop_status
+2023-02-14 17:55:03,600 DEBUG   SenderThread:25174 [sender.py:send_request():315] send_request: stop_status
+2023-02-14 17:55:05,611 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:07,614 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:09,341 DEBUG   SenderThread:25174 [sender.py:send():301] send: stats
+2023-02-14 17:55:09,615 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:10,616 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/config.yaml
+2023-02-14 17:55:11,618 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:13,620 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:15,624 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:17,627 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:19,026 DEBUG   HandlerThread:25174 [handler.py:handle_request():138] handle_request: stop_status
+2023-02-14 17:55:19,026 DEBUG   SenderThread:25174 [sender.py:send_request():315] send_request: stop_status
+2023-02-14 17:55:19,629 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:21,631 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:23,632 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:25,634 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:27,636 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:29,638 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:31,640 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:33,642 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:34,480 DEBUG   HandlerThread:25174 [handler.py:handle_request():138] handle_request: stop_status
+2023-02-14 17:55:34,480 DEBUG   SenderThread:25174 [sender.py:send_request():315] send_request: stop_status
+2023-02-14 17:55:35,644 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:37,646 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:39,648 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:39,790 DEBUG   SenderThread:25174 [sender.py:send():301] send: stats
+2023-02-14 17:55:41,650 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:43,655 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:45,657 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:47,659 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:49,661 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:49,932 DEBUG   HandlerThread:25174 [handler.py:handle_request():138] handle_request: stop_status
+2023-02-14 17:55:49,932 DEBUG   SenderThread:25174 [sender.py:send_request():315] send_request: stop_status
+2023-02-14 17:55:51,665 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:53,667 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:55,670 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:57,672 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:55:59,673 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:56:01,675 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:56:03,677 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:56:05,358 DEBUG   HandlerThread:25174 [handler.py:handle_request():138] handle_request: stop_status
+2023-02-14 17:56:05,358 DEBUG   SenderThread:25174 [sender.py:send_request():315] send_request: stop_status
+2023-02-14 17:56:05,679 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:56:07,681 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:56:08,605 DEBUG   SenderThread:25174 [sender.py:send():301] send: summary
+2023-02-14 17:56:08,607 INFO    SenderThread:25174 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2023-02-14 17:56:08,682 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/wandb-summary.json
+2023-02-14 17:56:09,683 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:56:10,251 DEBUG   SenderThread:25174 [sender.py:send():301] send: stats
+2023-02-14 17:56:10,584 DEBUG   HandlerThread:25174 [handler.py:handle_request():138] handle_request: partial_history
+2023-02-14 17:56:10,586 DEBUG   SenderThread:25174 [sender.py:send():301] send: history
+2023-02-14 17:56:10,586 DEBUG   SenderThread:25174 [sender.py:send():301] send: summary
+2023-02-14 17:56:10,588 INFO    SenderThread:25174 [sender.py:_save_file():1155] saving file wandb-summary.json with policy end
+2023-02-14 17:56:10,684 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/wandb-summary.json
+2023-02-14 17:56:13,687 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:56:15,689 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:56:17,691 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:56:19,693 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:56:20,846 DEBUG   HandlerThread:25174 [handler.py:handle_request():138] handle_request: stop_status
+2023-02-14 17:56:20,847 DEBUG   SenderThread:25174 [sender.py:send_request():315] send_request: stop_status
+2023-02-14 17:56:21,697 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:56:23,699 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:56:25,701 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
+2023-02-14 17:56:40,691 DEBUG   SenderThread:25174 [sender.py:send():301] send: stats
+2023-02-14 17:57:11,134 DEBUG   SenderThread:25174 [sender.py:send():301] send: stats

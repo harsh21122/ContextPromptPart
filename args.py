@@ -8,11 +8,12 @@ def get_parser():
     parser.add_argument('-b', '--batch-size', default=10, type=int)
 
     
-    parser.add_argument('--epochs', default=300, type=int, metavar='N', help='number of total epochs to run')
+    parser.add_argument('--epochs', default=200, type=int, metavar='N', help='number of total epochs to run')
     parser.add_argument('--starting-epoch', default=1, type=int, help='epoch number to start with')
 
 
-    parser.add_argument('--base-lr', default=3e-1, type=float, help='the initial learning rate')
+    parser.add_argument('--base-lr', default=3e-3, type=float, help='the initial learning rate')
+    parser.add_argument('--score-map-type', default='attention', help='how to concat score map and x4 features')
   
 
     parser.add_argument('--clip-model', default='RN50', help='which clip model to use')
@@ -29,7 +30,7 @@ def get_parser():
 
     parser.add_argument('--calc_accuracy_training', default=False, type = bool, help='if need to calculate accuracy while training each epoch')
     parser.add_argument('--multi-step-scheduler', default=True, type = bool, help='if need to add MultiStepLR')
-    parser.add_argument('--lr-decay', default=0.1, type=float, help='lr decay rate for MultiStepLR')
+    parser.add_argument('--lr-decay', default=0.5, type=float, help='lr decay rate for MultiStepLR')
     parser.add_argument('--milestones', default=[20, 100, 150, 200, 250, 300], type=list, help='milestones for MultiStepLR')
     parser.add_argument('--wandb', default = True, type = bool, help='if need to log to wandb')
 

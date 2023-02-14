@@ -30,7 +30,7 @@ from timm.models.layers import drop, drop_path, trunc_normal_
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 class Encoder(nn.Module):
-    def __init__(self, clip_model, unique_part_names):
+    def __init__(self, clip_model, unique_part_names, type_):
         super().__init__()
         input_resolution=224
         width=64
@@ -46,7 +46,7 @@ class Encoder(nn.Module):
         print("prompts : ", prompt)
         print("model device : ", device)
         self.image_encoder = nn.Sequential(*nn.ModuleList(clip_model.visual.children())[:-1]).to(device)
-
+        self.type_ = type_
 
         self.prompts = clip.tokenize(prompt).to(device)
         print("self.prompts :", self.prompts.shape)
@@ -75,7 +75,7 @@ class Encoder(nn.Module):
         self.gamma = nn.Parameter(torch.ones(text_dim) * 1e-3)
         self.dtype = clip_model.dtype
         
-        self.decoder = Decoder(in_channels = 6)
+        self.decoder = Decoder(in_channels = 2048)
 
         
 
@@ -164,20 +164,28 @@ class Encoder(nn.Module):
         x_local = F.normalize(x_local, dim=1, p=2)
         text = F.normalize(text_features, dim=2, p=2)
         score_map = torch.einsum('bchw,bkc->bkhw', x_local, text)
+
+        if self.type_ == 'attention':
+            x_bar = torch.einsum('bchw,bkhw->bckhw', x4, score_map)
+            print("attention x_bar : ", x_bar.shape)
+            # sum of attention of all the part-channels
+            x_bar = torch.mean(x_bar, dim = 2)
+            print("attention after mean x_bar : ", x_bar.shape)
+        
         # print("score_map : ", np.unique(score_map.detach().cpu().numpy()))
         # print("score_map : ", score_map.shape)
-        x_concat = torch.cat([x_local, score_map], dim=1)
+        # x_concat = torch.cat([x_local, score_map], dim=1)
         # print("x_concat : ", x_concat.shape) #  torch.Size([2, 1024 + 6, 7, 7])
         
         ## Need to add FPN decoder here to generate final map.
-        final_map = self.decoder(score_map)
+        final_map = self.decoder(x_bar)
         # print("final_map : ", final_map.shape)
         # print("final_map : ", np.unique(final_map.detach().cpu().numpy()))
         
         
         # print("Concatenated features along the channels : ", features.size())
         return final_map
-        return _, text_features
+        
 
 class TextEncoder(nn.Module):
     def __init__(self, clip_model):
@@ -379,15 +387,40 @@ class AttentionPool2d(nn.Module):
 
 
 class Decoder(nn.Module):
-    def __init__(self, in_channels, channels = [2048, 1024, 512, 256], resolution = 224):
+    def __init__(self, in_channels, channels = [512, 256, 128, 6], resolution = 224):
         super().__init__()
-        self.conv_layers = nn.Sequential(
-            nn.Conv2d(in_channels, in_channels, kernel_size=3, stride = 1, padding = 1),
+
+        self.conv_layer1 = nn.Sequential(
+            nn.Conv2d(in_channels, channels[0], kernel_size=3, stride = 1, padding = 1),
             nn.ReLU(inplace=True),
-            nn.BatchNorm2d(in_channels),
-            nn.Conv2d(in_channels, in_channels, kernel_size=3),
+            nn.BatchNorm2d(channels[0]),
+            nn.Conv2d(channels[0], channels[0], kernel_size=3),
             nn.ReLU(inplace=True),
-            nn.BatchNorm2d(in_channels))
+            nn.BatchNorm2d(channels[0]))
+        
+        self.conv_layer2 = nn.Sequential(
+            nn.Conv2d(channels[0], channels[1], kernel_size=3, stride = 1, padding = 1),
+            nn.ReLU(inplace=True),
+            nn.BatchNorm2d(channels[1]),
+            nn.Conv2d(channels[1], channels[1], kernel_size=3),
+            nn.ReLU(inplace=True),
+            nn.BatchNorm2d(channels[1]))
+
+        self.conv_layer3 = nn.Sequential(
+            nn.Conv2d(channels[1], channels[2], kernel_size=3, stride = 1, padding = 1),
+            nn.ReLU(inplace=True),
+            nn.BatchNorm2d(channels[2]),
+            nn.Conv2d(channels[2], channels[2], kernel_size=3),
+            nn.ReLU(inplace=True),
+            nn.BatchNorm2d(channels[2]))
+
+        self.conv_layer4 = nn.Sequential(
+            nn.Conv2d(channels[2], channels[3], kernel_size=3, stride = 1, padding = 1),
+            nn.ReLU(inplace=True),
+            nn.BatchNorm2d(channels[3]),
+            nn.Conv2d(channels[3], channels[3], kernel_size=3),
+            nn.ReLU(inplace=True),
+            nn.BatchNorm2d(channels[3]))
 
         self.resolution = resolution
         self.m = nn.Upsample(scale_factor=2, mode='bilinear', align_corners=True)
@@ -395,7 +428,7 @@ class Decoder(nn.Module):
 
     def forward(self, score):
         y5 = score
-        y4 = self.conv_layers(y5)
+        y4 = self.conv_layer1(y5)
         # print("y4.shape : ", y4.shape)
         y4 = self.m(y4)
         # print("y4.shape : ", y4.shape)
@@ -405,7 +438,7 @@ class Decoder(nn.Module):
         # y4 = y4 + y4_
         # print("y4.shape : ", y4.shape)
 
-        y3 = self.conv_layers(y4)
+        y3 = self.conv_layer2(y4)
         # print("y3.shape : ", y3.shape)
         y3 = self.m(y3)
         # print("y3.shape : ", y3.shape)
@@ -415,7 +448,7 @@ class Decoder(nn.Module):
         # y3 = y3 + y3_
         # print("y3.shape : ", y3.shape)
 
-        y2 = self.conv_layers(y3)
+        y2 = self.conv_layer3(y3)
         # print("y2.shape : ", y2.shape)
         y2 = self.m(y2)
         # print("y2.shape : ", y2.shape)
@@ -425,7 +458,7 @@ class Decoder(nn.Module):
         # y2 = y2 + y2_
         # print("y2.shape : ", y2.shape)
 
-        y1 = self.conv_layers(y2)
+        y1 = self.conv_layer4(y2)
         # print("y1.shape : ", y1.shape)
         y1 = self.m(y1)
         # print("y1.shape : ", y1.shape)
