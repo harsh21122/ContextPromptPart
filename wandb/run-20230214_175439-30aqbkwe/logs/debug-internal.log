@@ -105,3 +105,7 @@
 2023-02-14 17:56:25,701 INFO    Thread-13 :25174 [dir_watcher.py:_on_file_modified():292] file/dir modified: /ssd-scratch/harsh21122/ContextPromptPart/wandb/run-20230214_175439-30aqbkwe/files/output.log
 2023-02-14 17:56:40,691 DEBUG   SenderThread:25174 [sender.py:send():301] send: stats
 2023-02-14 17:57:11,134 DEBUG   SenderThread:25174 [sender.py:send():301] send: stats
+2023-02-14 17:57:41,566 DEBUG   SenderThread:25174 [sender.py:send():301] send: stats
+2023-02-14 17:58:12,001 DEBUG   SenderThread:25174 [sender.py:send():301] send: stats
+2023-02-14 17:58:42,443 DEBUG   SenderThread:25174 [sender.py:send():301] send: stats
+2023-02-14 17:58:45,923 INFO    MainThread:25174 [internal.py:handle_exit():78] Internal process exited
