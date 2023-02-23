@@ -1,0 +1,8 @@
+Length of Train dataset : 646 and Test dataset : 35
+Length of Train loader : 65 and Test loader : 4
+Traceback (most recent call last):
+  File "/Users/saurabh/Documents/Coding/ContextPromptPart/train.py", line 296, in <module>
+    main(args)
+  File "/Users/saurabh/Documents/Coding/ContextPromptPart/train.py", line 180, in main
+    encoder = Encoder(clip_model, unique_part_names)
+TypeError: Encoder.__init__() missing 1 required positional argument: 'type_'

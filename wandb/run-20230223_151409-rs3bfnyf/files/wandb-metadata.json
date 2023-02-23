@@ -1,0 +1,34 @@
+{
+    "os": "macOS-13.1-arm64-arm-64bit",
+    "python": "3.10.4",
+    "heartbeatAt": "2023-02-23T09:44:10.249097",
+    "startedAt": "2023-02-23T09:44:09.191679",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "/Users/saurabh/Documents/Coding/ContextPromptPart/train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "https://github.com/harsh21122/ContextPromptPart.git",
+        "commit": "2fa9c2a3464a3fa5ce86f12da1bfcb92dad30a10"
+    },
+    "email": null,
+    "root": "/Users/saurabh/Documents/Coding/ContextPromptPart",
+    "host": "Xwing.local",
+    "username": "saurabh",
+    "executable": "/Users/saurabh/opt/anaconda3/envs/main/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 8,
+    "disk": {
+        "total": 228.27386474609375,
+        "used": 10.971305847167969
+    },
+    "gpuapple": {
+        "type": "arm",
+        "vendor": "Apple"
+    },
+    "memory": {
+        "total": 16.0
+    }
+}

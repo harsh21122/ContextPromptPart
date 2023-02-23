@@ -1,0 +1,162 @@
+Length of Train dataset : 646 and Test dataset : 35
+Length of Train loader : 65 and Test loader : 4
+self.partnames :  ['background', 'head', 'neck', 'torso', 'tail', 'legs']
+prompts :  [' the background of the cat.', ' the head of the cat.', ' the neck of the cat.', ' the torso of the cat.', ' the tail of the cat.', ' the legs of the cat.']
+model device :  cpu
+self.prompts : torch.Size([6, 77])
+self.prompts : torch.Size([6, 1024])
+self.prompts rquires grad :  <built-in method requires_grad_ of Tensor object at 0x106b31c10>
+layer: relu3_2,relu5_4
+weighs: [0.33, 1.0]
+/Users/saurabh/opt/anaconda3/envs/main/lib/python3.10/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and will be removed in 0.15, please use 'weights' instead.
+  warnings.warn(
+/Users/saurabh/opt/anaconda3/envs/main/lib/python3.10/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and will be removed in 0.15. The current behavior is equivalent to passing `weights=VGG19_Weights.IMAGENET1K_V1`. You can also use `weights=VGG19_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Downloading: "https://download.pytorch.org/models/vgg19-dcbb9e9d.pth" to /Users/saurabh/.cache/torch/hub/checkpoints/vgg19-dcbb9e9d.pth
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 548M/548M [04:14<00:00, 2.26MB/s]
+Traceback (most recent call last):
+  File "/Users/saurabh/Documents/Coding/ContextPromptPart/train.py", line 296, in <module>
+    main(args)
+  File "/Users/saurabh/Documents/Coding/ContextPromptPart/train.py", line 191, in main
+    zoo_feat_net = FeatureExtraction(
+  File "/Users/saurabh/Documents/Coding/ContextPromptPart/vgg_extraction.py", line 212, in __init__
+    self.model_list = [model.cuda(gpu) for model in self.model_list]
+  File "/Users/saurabh/Documents/Coding/ContextPromptPart/vgg_extraction.py", line 212, in <listcomp>
+    self.model_list = [model.cuda(gpu) for model in self.model_list]
+  File "/Users/saurabh/opt/anaconda3/envs/main/lib/python3.10/site-packages/torch/nn/modules/module.py", line 689, in cuda
+    return self._apply(lambda t: t.cuda(device))
+  File "/Users/saurabh/opt/anaconda3/envs/main/lib/python3.10/site-packages/torch/nn/modules/module.py", line 579, in _apply
+    module._apply(fn)
+  File "/Users/saurabh/opt/anaconda3/envs/main/lib/python3.10/site-packages/torch/nn/modules/module.py", line 602, in _apply
+    param_applied = fn(param)
+  File "/Users/saurabh/opt/anaconda3/envs/main/lib/python3.10/site-packages/torch/nn/modules/module.py", line 689, in <lambda>
+    return self._apply(lambda t: t.cuda(device))
+  File "/Users/saurabh/opt/anaconda3/envs/main/lib/python3.10/site-packages/torch/cuda/__init__.py", line 211, in _lazy_init
+    raise AssertionError("Torch not compiled with CUDA enabled")
+AssertionError: Torch not compiled with CUDA enabled

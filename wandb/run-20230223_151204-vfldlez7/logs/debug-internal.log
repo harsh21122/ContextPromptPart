@@ -1,0 +1,204 @@
+2023-02-23 15:12:04,984 INFO    StreamThr :29719 [internal.py:wandb_internal():87] W&B internal server running at pid: 29719, started at: 2023-02-23 15:12:04.984528
+2023-02-23 15:12:04,985 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: status
+2023-02-23 15:12:04,987 INFO    WriterThread:29719 [datastore.py:open_for_write():85] open: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/run-vfldlez7.wandb
+2023-02-23 15:12:04,988 DEBUG   SenderThread:29719 [sender.py:send():336] send: header
+2023-02-23 15:12:05,004 DEBUG   SenderThread:29719 [sender.py:send():336] send: run
+2023-02-23 15:12:06,097 INFO    SenderThread:29719 [dir_watcher.py:__init__():216] watching files in: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files
+2023-02-23 15:12:06,097 INFO    SenderThread:29719 [sender.py:_start_run_threads():1067] run started: vfldlez7 with start time 1677145324.985041
+2023-02-23 15:12:06,097 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: summary_record
+2023-02-23 15:12:06,098 INFO    SenderThread:29719 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2023-02-23 15:12:06,098 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: check_version
+2023-02-23 15:12:06,099 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: check_version
+2023-02-23 15:12:06,444 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: run_start
+2023-02-23 15:12:06,506 DEBUG   HandlerThread:29719 [system_info.py:__init__():31] System info init
+2023-02-23 15:12:06,507 DEBUG   HandlerThread:29719 [system_info.py:__init__():46] System info init done
+2023-02-23 15:12:06,507 INFO    HandlerThread:29719 [system_monitor.py:start():151] Starting system monitor
+2023-02-23 15:12:06,507 INFO    SystemMonitor:29719 [system_monitor.py:_start():116] Starting system asset monitoring threads
+2023-02-23 15:12:06,507 INFO    HandlerThread:29719 [system_monitor.py:probe():172] Collecting system info
+2023-02-23 15:12:06,508 INFO    SystemMonitor:29719 [interfaces.py:start():168] Started cpu
+2023-02-23 15:12:06,508 DEBUG   HandlerThread:29719 [system_info.py:probe():195] Probing system
+2023-02-23 15:12:06,508 INFO    SystemMonitor:29719 [interfaces.py:start():168] Started disk
+2023-02-23 15:12:06,508 INFO    SystemMonitor:29719 [interfaces.py:start():168] Started gpuapple
+2023-02-23 15:12:06,511 INFO    SystemMonitor:29719 [interfaces.py:start():168] Started memory
+2023-02-23 15:12:06,511 INFO    SystemMonitor:29719 [interfaces.py:start():168] Started network
+2023-02-23 15:12:06,516 DEBUG   HandlerThread:29719 [system_info.py:_probe_git():180] Probing git
+2023-02-23 15:12:06,536 DEBUG   HandlerThread:29719 [system_info.py:_probe_git():188] Probing git done
+2023-02-23 15:12:06,536 DEBUG   HandlerThread:29719 [system_info.py:probe():241] Probing system done
+2023-02-23 15:12:06,536 DEBUG   HandlerThread:29719 [system_monitor.py:probe():181] {'os': 'macOS-13.1-arm64-arm-64bit', 'python': '3.10.4', 'heartbeatAt': '2023-02-23T09:42:06.508481', 'startedAt': '2023-02-23T09:42:04.977754', 'docker': None, 'cuda': None, 'args': (), 'state': 'running', 'program': '/Users/saurabh/Documents/Coding/ContextPromptPart/train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/harsh21122/ContextPromptPart.git', 'commit': '2fa9c2a3464a3fa5ce86f12da1bfcb92dad30a10'}, 'email': None, 'root': '/Users/saurabh/Documents/Coding/ContextPromptPart', 'host': 'Xwing.local', 'username': 'saurabh', 'executable': '/Users/saurabh/opt/anaconda3/envs/main/bin/python', 'cpu_count': 8, 'cpu_count_logical': 8, 'disk': {'total': 228.27386474609375, 'used': 10.971305847167969}, 'gpuapple': {'type': 'arm', 'vendor': 'Apple'}, 'memory': {'total': 16.0}}
+2023-02-23 15:12:06,536 INFO    HandlerThread:29719 [system_monitor.py:probe():182] Finished collecting system info
+2023-02-23 15:12:06,536 INFO    HandlerThread:29719 [system_monitor.py:probe():185] Publishing system info
+2023-02-23 15:12:06,536 DEBUG   HandlerThread:29719 [system_info.py:_save_pip():51] Saving list of pip packages installed into the current environment
+2023-02-23 15:12:06,537 DEBUG   HandlerThread:29719 [system_info.py:_save_pip():67] Saving pip packages done
+2023-02-23 15:12:06,537 DEBUG   HandlerThread:29719 [system_info.py:_save_conda():74] Saving list of conda packages installed into the current environment
+2023-02-23 15:12:07,105 INFO    Thread-13 :29719 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/wandb-summary.json
+2023-02-23 15:12:07,105 INFO    Thread-13 :29719 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/conda-environment.yaml
+2023-02-23 15:12:07,106 INFO    Thread-13 :29719 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/requirements.txt
+2023-02-23 15:12:09,432 DEBUG   HandlerThread:29719 [system_info.py:_save_conda():86] Saving conda packages done
+2023-02-23 15:12:09,433 DEBUG   HandlerThread:29719 [system_info.py:_save_code():89] Saving code
+2023-02-23 15:12:09,443 DEBUG   HandlerThread:29719 [system_info.py:_save_code():110] Saving code done
+2023-02-23 15:12:09,443 DEBUG   HandlerThread:29719 [system_info.py:_save_patches():127] Saving git patches
+2023-02-23 15:12:09,511 DEBUG   HandlerThread:29719 [system_info.py:_save_patches():169] Saving git patches done
+2023-02-23 15:12:09,511 INFO    HandlerThread:29719 [system_monitor.py:probe():187] Finished publishing system info
+2023-02-23 15:12:09,513 DEBUG   SenderThread:29719 [sender.py:send():336] send: files
+2023-02-23 15:12:09,513 INFO    SenderThread:29719 [sender.py:_save_file():1321] saving file wandb-metadata.json with policy now
+2023-02-23 15:12:09,513 INFO    SenderThread:29719 [sender.py:_save_file():1321] saving file code/train.py with policy now
+2023-02-23 15:12:09,513 INFO    SenderThread:29719 [sender.py:_save_file():1321] saving file diff.patch with policy now
+2023-02-23 15:12:09,516 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: stop_status
+2023-02-23 15:12:09,517 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: stop_status
+2023-02-23 15:12:10,117 INFO    Thread-13 :29719 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/conda-environment.yaml
+2023-02-23 15:12:10,117 INFO    Thread-13 :29719 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/wandb-metadata.json
+2023-02-23 15:12:10,117 INFO    Thread-13 :29719 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/code/train.py
+2023-02-23 15:12:10,117 INFO    Thread-13 :29719 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/diff.patch
+2023-02-23 15:12:10,117 INFO    Thread-13 :29719 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/code
+2023-02-23 15:12:10,688 INFO    wandb-upload_2:29719 [upload_job.py:push():138] Uploaded file /var/folders/ks/wnyksxwx38xbjzjqbxd1kh5c0000gn/T/tmp2lm69t6wwandb/2l1vx1my-diff.patch
+2023-02-23 15:12:10,848 INFO    wandb-upload_1:29719 [upload_job.py:push():138] Uploaded file /var/folders/ks/wnyksxwx38xbjzjqbxd1kh5c0000gn/T/tmp2lm69t6wwandb/wp1vlx72-code/train.py
+2023-02-23 15:12:10,954 INFO    wandb-upload_0:29719 [upload_job.py:push():138] Uploaded file /var/folders/ks/wnyksxwx38xbjzjqbxd1kh5c0000gn/T/tmp2lm69t6wwandb/nhbau82n-wandb-metadata.json
+2023-02-23 15:12:12,441 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: poll_exit
+2023-02-23 15:12:12,706 DEBUG   SenderThread:29719 [sender.py:send():336] send: telemetry
+2023-02-23 15:12:12,707 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: status_report
+2023-02-23 15:12:12,708 DEBUG   SenderThread:29719 [sender.py:send():336] send: exit
+2023-02-23 15:12:12,708 INFO    SenderThread:29719 [sender.py:send_exit():559] handling exit code: 1
+2023-02-23 15:12:12,708 INFO    SenderThread:29719 [sender.py:send_exit():561] handling runtime: 4
+2023-02-23 15:12:12,709 INFO    SenderThread:29719 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2023-02-23 15:12:12,709 INFO    SenderThread:29719 [sender.py:send_exit():567] send defer
+2023-02-23 15:12:12,709 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: poll_exit
+2023-02-23 15:12:12,709 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: defer
+2023-02-23 15:12:12,709 INFO    HandlerThread:29719 [handler.py:handle_request_defer():170] handle defer: 0
+2023-02-23 15:12:12,710 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: defer
+2023-02-23 15:12:12,710 INFO    SenderThread:29719 [sender.py:send_request_defer():583] handle sender defer: 0
+2023-02-23 15:12:12,710 INFO    SenderThread:29719 [sender.py:transition_state():587] send defer: 1
+2023-02-23 15:12:12,710 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: defer
+2023-02-23 15:12:12,710 INFO    HandlerThread:29719 [handler.py:handle_request_defer():170] handle defer: 1
+2023-02-23 15:12:12,710 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: defer
+2023-02-23 15:12:12,710 INFO    SenderThread:29719 [sender.py:send_request_defer():583] handle sender defer: 1
+2023-02-23 15:12:12,710 INFO    SenderThread:29719 [sender.py:transition_state():587] send defer: 2
+2023-02-23 15:12:12,710 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: defer
+2023-02-23 15:12:12,710 INFO    HandlerThread:29719 [handler.py:handle_request_defer():170] handle defer: 2
+2023-02-23 15:12:12,710 INFO    HandlerThread:29719 [system_monitor.py:finish():161] Stopping system monitor
+2023-02-23 15:12:12,729 DEBUG   SystemMonitor:29719 [system_monitor.py:_start():130] Starting system metrics aggregation loop
+2023-02-23 15:12:12,729 DEBUG   SystemMonitor:29719 [system_monitor.py:_start():137] Finished system metrics aggregation loop
+2023-02-23 15:12:12,729 DEBUG   SystemMonitor:29719 [system_monitor.py:_start():141] Publishing last batch of metrics
+2023-02-23 15:12:12,730 INFO    HandlerThread:29719 [interfaces.py:finish():175] Joined cpu
+2023-02-23 15:12:12,730 INFO    HandlerThread:29719 [interfaces.py:finish():175] Joined disk
+2023-02-23 15:12:13,134 INFO    Thread-13 :29719 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/wandb-summary.json
+2023-02-23 15:12:13,134 INFO    Thread-13 :29719 [dir_watcher.py:_on_file_created():275] file/dir created: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/output.log
+2023-02-23 15:12:13,158 INFO    HandlerThread:29719 [interfaces.py:finish():175] Joined gpuapple
+2023-02-23 15:12:13,158 INFO    HandlerThread:29719 [interfaces.py:finish():175] Joined memory
+2023-02-23 15:12:13,158 INFO    HandlerThread:29719 [interfaces.py:finish():175] Joined network
+2023-02-23 15:12:13,158 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: defer
+2023-02-23 15:12:13,158 INFO    SenderThread:29719 [sender.py:send_request_defer():583] handle sender defer: 2
+2023-02-23 15:12:13,158 INFO    SenderThread:29719 [sender.py:transition_state():587] send defer: 3
+2023-02-23 15:12:13,158 DEBUG   SenderThread:29719 [sender.py:send():336] send: telemetry
+2023-02-23 15:12:13,158 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: defer
+2023-02-23 15:12:13,158 DEBUG   SenderThread:29719 [sender.py:send():336] send: stats
+2023-02-23 15:12:13,158 INFO    HandlerThread:29719 [handler.py:handle_request_defer():170] handle defer: 3
+2023-02-23 15:12:13,158 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: defer
+2023-02-23 15:12:13,158 INFO    SenderThread:29719 [sender.py:send_request_defer():583] handle sender defer: 3
+2023-02-23 15:12:13,158 INFO    SenderThread:29719 [sender.py:transition_state():587] send defer: 4
+2023-02-23 15:12:13,158 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: defer
+2023-02-23 15:12:13,158 INFO    HandlerThread:29719 [handler.py:handle_request_defer():170] handle defer: 4
+2023-02-23 15:12:13,158 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: defer
+2023-02-23 15:12:13,158 INFO    SenderThread:29719 [sender.py:send_request_defer():583] handle sender defer: 4
+2023-02-23 15:12:13,158 INFO    SenderThread:29719 [sender.py:transition_state():587] send defer: 5
+2023-02-23 15:12:13,159 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: defer
+2023-02-23 15:12:13,159 INFO    HandlerThread:29719 [handler.py:handle_request_defer():170] handle defer: 5
+2023-02-23 15:12:13,159 DEBUG   SenderThread:29719 [sender.py:send():336] send: summary
+2023-02-23 15:12:13,159 INFO    SenderThread:29719 [sender.py:_save_file():1321] saving file wandb-summary.json with policy end
+2023-02-23 15:12:13,159 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: defer
+2023-02-23 15:12:13,159 INFO    SenderThread:29719 [sender.py:send_request_defer():583] handle sender defer: 5
+2023-02-23 15:12:13,159 INFO    SenderThread:29719 [sender.py:transition_state():587] send defer: 6
+2023-02-23 15:12:13,159 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: defer
+2023-02-23 15:12:13,159 INFO    HandlerThread:29719 [handler.py:handle_request_defer():170] handle defer: 6
+2023-02-23 15:12:13,159 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: defer
+2023-02-23 15:12:13,159 INFO    SenderThread:29719 [sender.py:send_request_defer():583] handle sender defer: 6
+2023-02-23 15:12:13,160 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: status_report
+2023-02-23 15:12:13,447 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: poll_exit
+2023-02-23 15:12:13,629 INFO    SenderThread:29719 [sender.py:transition_state():587] send defer: 7
+2023-02-23 15:12:13,629 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: poll_exit
+2023-02-23 15:12:13,629 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: defer
+2023-02-23 15:12:13,629 INFO    HandlerThread:29719 [handler.py:handle_request_defer():170] handle defer: 7
+2023-02-23 15:12:13,630 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: defer
+2023-02-23 15:12:13,630 INFO    SenderThread:29719 [sender.py:send_request_defer():583] handle sender defer: 7
+2023-02-23 15:12:14,140 INFO    Thread-13 :29719 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/wandb-summary.json
+2023-02-23 15:12:14,141 INFO    Thread-13 :29719 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/config.yaml
+2023-02-23 15:12:14,452 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: poll_exit
+2023-02-23 15:12:15,146 INFO    Thread-13 :29719 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/output.log
+2023-02-23 15:12:16,723 INFO    SenderThread:29719 [sender.py:transition_state():587] send defer: 8
+2023-02-23 15:12:16,724 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: poll_exit
+2023-02-23 15:12:16,724 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: defer
+2023-02-23 15:12:16,724 INFO    HandlerThread:29719 [handler.py:handle_request_defer():170] handle defer: 8
+2023-02-23 15:12:16,725 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: defer
+2023-02-23 15:12:16,725 INFO    SenderThread:29719 [sender.py:send_request_defer():583] handle sender defer: 8
+2023-02-23 15:12:16,733 INFO    SenderThread:29719 [sender.py:transition_state():587] send defer: 9
+2023-02-23 15:12:16,734 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: defer
+2023-02-23 15:12:16,734 DEBUG   SenderThread:29719 [sender.py:send():336] send: artifact
+2023-02-23 15:12:16,734 INFO    HandlerThread:29719 [handler.py:handle_request_defer():170] handle defer: 9
+2023-02-23 15:12:17,159 INFO    Thread-13 :29719 [dir_watcher.py:_on_file_modified():292] file/dir modified: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/output.log
+2023-02-23 15:12:19,480 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-23 15:12:21,131 INFO    wandb-upload_1:29719 [upload_job.py:push():96] Uploaded file /Users/saurabh/Library/Application Support/wandb/artifacts/staging/tmpback1qg9
+2023-02-23 15:12:21,140 INFO    wandb-upload_0:29719 [upload_job.py:push():96] Uploaded file /Users/saurabh/Library/Application Support/wandb/artifacts/staging/tmpuohkip5g
+2023-02-23 15:12:21,154 INFO    wandb-upload_2:29719 [upload_job.py:push():96] Uploaded file /Users/saurabh/Library/Application Support/wandb/artifacts/staging/tmpfg8kvhar
+2023-02-23 15:12:23,910 INFO    SenderThread:29719 [sender.py:send_artifact():1417] sent artifact job-https___github.com_harsh21122_ContextPromptPart.git_train.py - {'id': 'QXJ0aWZhY3Q6Mzc5MzIxMDgy', 'digest': 'a09f8b66cb90c58474a2a13c46537df9', 'state': 'PENDING', 'aliases': [], 'artifactSequence': {'id': 'QXJ0aWZhY3RDb2xsZWN0aW9uOjU0MzI2MjQ5', 'latestArtifact': None}, 'version': 'latest'}
+2023-02-23 15:12:23,910 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: defer
+2023-02-23 15:12:23,911 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: status_report
+2023-02-23 15:12:23,911 INFO    SenderThread:29719 [sender.py:send_request_defer():583] handle sender defer: 9
+2023-02-23 15:12:23,911 INFO    SenderThread:29719 [dir_watcher.py:finish():362] shutting down directory watcher
+2023-02-23 15:12:24,188 INFO    SenderThread:29719 [dir_watcher.py:finish():392] scan: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files
+2023-02-23 15:12:24,188 INFO    SenderThread:29719 [dir_watcher.py:finish():406] scan save: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/diff.patch diff.patch
+2023-02-23 15:12:24,188 INFO    SenderThread:29719 [dir_watcher.py:finish():406] scan save: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/requirements.txt requirements.txt
+2023-02-23 15:12:24,189 INFO    SenderThread:29719 [dir_watcher.py:finish():406] scan save: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/output.log output.log
+2023-02-23 15:12:24,194 INFO    SenderThread:29719 [dir_watcher.py:finish():406] scan save: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/config.yaml config.yaml
+2023-02-23 15:12:24,197 INFO    SenderThread:29719 [dir_watcher.py:finish():406] scan save: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/wandb-summary.json wandb-summary.json
+2023-02-23 15:12:24,200 INFO    SenderThread:29719 [dir_watcher.py:finish():406] scan save: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/conda-environment.yaml conda-environment.yaml
+2023-02-23 15:12:24,202 INFO    SenderThread:29719 [dir_watcher.py:finish():406] scan save: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/wandb-metadata.json wandb-metadata.json
+2023-02-23 15:12:24,204 INFO    SenderThread:29719 [dir_watcher.py:finish():406] scan save: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/code/train.py code/train.py
+2023-02-23 15:12:24,205 INFO    SenderThread:29719 [sender.py:transition_state():587] send defer: 10
+2023-02-23 15:12:24,205 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: defer
+2023-02-23 15:12:24,205 INFO    HandlerThread:29719 [handler.py:handle_request_defer():170] handle defer: 10
+2023-02-23 15:12:24,205 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: defer
+2023-02-23 15:12:24,205 INFO    SenderThread:29719 [sender.py:send_request_defer():583] handle sender defer: 10
+2023-02-23 15:12:24,205 INFO    SenderThread:29719 [file_pusher.py:finish():162] shutting down file pusher
+2023-02-23 15:12:24,506 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: keepalive
+2023-02-23 15:12:25,288 INFO    wandb-upload_4:29719 [upload_job.py:push():138] Uploaded file /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/conda-environment.yaml
+2023-02-23 15:12:25,298 INFO    wandb-upload_3:29719 [upload_job.py:push():138] Uploaded file /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/wandb-summary.json
+2023-02-23 15:12:25,299 INFO    wandb-upload_0:29719 [upload_job.py:push():138] Uploaded file /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/config.yaml
+2023-02-23 15:12:25,371 INFO    wandb-upload_1:29719 [upload_job.py:push():138] Uploaded file /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/requirements.txt
+2023-02-23 15:12:25,426 INFO    wandb-upload_2:29719 [upload_job.py:push():138] Uploaded file /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/files/output.log
+2023-02-23 15:12:25,628 INFO    Thread-12 (_thread_body):29719 [sender.py:transition_state():587] send defer: 11
+2023-02-23 15:12:25,629 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: defer
+2023-02-23 15:12:25,629 INFO    HandlerThread:29719 [handler.py:handle_request_defer():170] handle defer: 11
+2023-02-23 15:12:25,630 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: defer
+2023-02-23 15:12:25,630 INFO    SenderThread:29719 [sender.py:send_request_defer():583] handle sender defer: 11
+2023-02-23 15:12:25,630 INFO    SenderThread:29719 [file_pusher.py:join():167] waiting for file pusher
+2023-02-23 15:12:25,630 INFO    SenderThread:29719 [sender.py:transition_state():587] send defer: 12
+2023-02-23 15:12:25,630 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: defer
+2023-02-23 15:12:25,630 INFO    HandlerThread:29719 [handler.py:handle_request_defer():170] handle defer: 12
+2023-02-23 15:12:25,631 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: defer
+2023-02-23 15:12:25,631 INFO    SenderThread:29719 [sender.py:send_request_defer():583] handle sender defer: 12
+2023-02-23 15:12:25,959 INFO    SenderThread:29719 [sender.py:transition_state():587] send defer: 13
+2023-02-23 15:12:25,959 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: defer
+2023-02-23 15:12:25,959 INFO    HandlerThread:29719 [handler.py:handle_request_defer():170] handle defer: 13
+2023-02-23 15:12:25,960 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: defer
+2023-02-23 15:12:25,960 INFO    SenderThread:29719 [sender.py:send_request_defer():583] handle sender defer: 13
+2023-02-23 15:12:25,960 INFO    SenderThread:29719 [sender.py:transition_state():587] send defer: 14
+2023-02-23 15:12:25,960 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: defer
+2023-02-23 15:12:25,961 DEBUG   SenderThread:29719 [sender.py:send():336] send: final
+2023-02-23 15:12:25,961 INFO    HandlerThread:29719 [handler.py:handle_request_defer():170] handle defer: 14
+2023-02-23 15:12:25,961 DEBUG   SenderThread:29719 [sender.py:send():336] send: footer
+2023-02-23 15:12:25,961 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: defer
+2023-02-23 15:12:25,961 INFO    SenderThread:29719 [sender.py:send_request_defer():583] handle sender defer: 14
+2023-02-23 15:12:25,962 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: poll_exit
+2023-02-23 15:12:25,962 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: poll_exit
+2023-02-23 15:12:25,962 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: server_info
+2023-02-23 15:12:25,963 DEBUG   SenderThread:29719 [sender.py:send_request():363] send_request: server_info
+2023-02-23 15:12:25,966 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: get_summary
+2023-02-23 15:12:25,966 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: sampled_history
+2023-02-23 15:12:26,339 INFO    MainThread:29719 [wandb_run.py:_footer_history_summary_info():3442] rendering history
+2023-02-23 15:12:26,339 INFO    MainThread:29719 [wandb_run.py:_footer_history_summary_info():3474] rendering summary
+2023-02-23 15:12:26,339 INFO    MainThread:29719 [wandb_run.py:_footer_sync_info():3398] logging synced files
+2023-02-23 15:12:26,340 DEBUG   HandlerThread:29719 [handler.py:handle_request():144] handle_request: shutdown
+2023-02-23 15:12:26,340 INFO    HandlerThread:29719 [handler.py:finish():841] shutting down handler
+2023-02-23 15:12:26,968 INFO    WriterThread:29719 [datastore.py:close():299] close: /Users/saurabh/Documents/Coding/ContextPromptPart/wandb/run-20230223_151204-vfldlez7/run-vfldlez7.wandb
+2023-02-23 15:12:27,341 INFO    SenderThread:29719 [sender.py:finish():1493] shutting down sender
+2023-02-23 15:12:27,342 INFO    SenderThread:29719 [file_pusher.py:finish():162] shutting down file pusher
+2023-02-23 15:12:27,342 INFO    SenderThread:29719 [file_pusher.py:join():167] waiting for file pusher

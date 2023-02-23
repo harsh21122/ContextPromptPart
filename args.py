@@ -21,7 +21,7 @@ def get_parser():
     parser.add_argument('--result-dir', default='./Results/3e-1_sched_only_contrast', help='path to save resultant images')
     parser.add_argument('--model-dir', default='../ContextPromptPart_model', help='path to save models')
 
-    parser.add_argument('--dataset-dir', default= '/home/harsh21122/tmp/cat_dataset', help='path where dataset is uploaded')
+    parser.add_argument('--dataset-dir', default= 'cat_dataset', help='path where dataset is uploaded')
 
 
     parser.add_argument('--resume', default=False, type = bool, help='resume from checkpoint')

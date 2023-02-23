@@ -1,23 +1,9 @@
-import os
-import cv2
 import clip
 import torch
-import math
-import numpy as np
-import pandas as pd
-from PIL import Image
 import torch.nn as nn
 import torch.nn.functional as F
-import matplotlib.pyplot as plt
-import torchvision.transforms as T
-from torch.utils.data import Dataset, DataLoader
-from sklearn.model_selection import train_test_split
 from einops import rearrange
-import torch.cuda.amp as amp
-from datetime import datetime
 from torch.optim.lr_scheduler import MultiStepLR
-from skimage.transform import resize
-from PIL import Image
 import clip
 
 import torch
@@ -30,7 +16,7 @@ from timm.models.layers import drop, drop_path, trunc_normal_
 device = "cuda" if torch.cuda.is_available() else "cpu"
 
 class Encoder(nn.Module):
-    def __init__(self, clip_model, unique_part_names, type_):
+    def __init__(self, clip_model, unique_part_names, type_ = 'attention'):
         super().__init__()
         input_resolution=224
         width=64
@@ -54,15 +40,6 @@ class Encoder(nn.Module):
         print("self.prompts :", self.prompts.shape)
         print("self.prompts rquires grad : ", self.prompts.requires_grad_)
 
-
-        # self.image_encoder = clip_model.visual
-        # self.features = {}
-        # self.image_encoder.layer4.register_forward_hook(self.get_features('layer4'))
-        # self.image_encoder.layer3.register_forward_hook(self.get_features('layer3'))
-        # self.image_encoder.layer2.register_forward_hook(self.get_features('layer2'))
-        # self.image_encoder.layer1.register_forward_hook(self.get_features('layer1'))
-
-
         embed_dim = width * 32  # the ResNet feature dimension
         self.attnpool = AttentionPool2d(input_resolution // 32, embed_dim, 32, output_dim) # dense clip code
 
@@ -77,73 +54,17 @@ class Encoder(nn.Module):
         
         self.decoder = Decoder(in_channels = 2048)
 
-        
 
-
-
-
-    # def get_features(self, name):
-    #     def hook(model, input, output):
-    #         self.features[name] = output.detach()
-    #     return hook
-    
-    
     def forward(self, input_batch):
 
         x4 = self.image_encoder(input_batch.type(self.dtype)) 
-        # print("image_features : ", np.unique(x4.detach().cpu().numpy()))
-
-        # ImageEncoder = self.image_encoder(input_batch.type(self.dtype))
-        # print(" ImageEncoder : ", ImageEncoder.shape)
-        # x4 = self.features['layer4']
-        # x3 = self.features['layer3']
-        # x2 = self.features['layer2']
-        # x1 = self.features['layer1']
-        # print("x4, x3, x2, x1 : ", x4.shape, x3.shape, x2.shape, x1.shape)
         
         x_global, x_local = self.attnpool(x4) # dense clip code
-        # print("x_global : ", np.unique(x_global.detach().cpu().numpy()))
-        # print("x_local : ", np.unique(x_local.detach().cpu().numpy()))
-        # print("x_global : ", x_global.shape)
-        # print("x_local : ", x_local.shape)
+
         B, C, H, W = x_local.shape
 
         visual_context = torch.cat([x_global.reshape(B, C, 1), x_local.reshape(B, C, H*W)], dim=2).permute(0, 2, 1)  # B, N, C
         
-        # print("visual_context :", visual_context.shape, visual_context.dtype, visual_context.is_cuda)
-
-        
-        
-        # B, C, H, W = self.features['layer4'].size()
-        
-        # print("B, C, H, W : ", B, C, H, W)
-        # # print("S : ", S)
-        # x4 = self.features['layer4'].reshape([B, C, H*W]).permute(0, 2, 1)
-        # print("X4 :", x4.shape)
-        # x4 = self.ln_proj_x4(x4)
-        # print("X4 after linear proj:", x4.shape)
-
-      
-        # x4_bar = self.features['attnpool'].unsqueeze(1)
-        # print("x4_bar :", x4_bar.shape)
-
-
-
-
-
-        # prompts = self.prompt_learner()
-        # print("prompts : ", np.unique(prompts.detach().cpu().numpy()))
-        # # print("prompts :", prompts.shape, prompts.dtype)
-        # # print("tokenized_prompts :", self.tokenized_prompts, self.tokenized_prompts.dtype)
-        # text_features = self.text_encoder(prompts, self.tokenized_prompts)
-        # print("text_features : ", torch.unique(text_features))
-        # print("text_features : ", text_features.shape, text_features.dtype)
-        # text_features = F.normalize(text_features, p=2.0, dim = 1)
-        # print("text_features : ", torch.unique(text_features))
-
-        # print("text_features : ", text_features.shape, text_features.dtype)
-
-
         text_features = self.prompts.expand(B, -1, -1)
         # print("text_features : ", text_features.shape, text_features.dtype)
         text_features = text_features.type(torch.cuda.FloatTensor)
@@ -155,7 +76,6 @@ class Encoder(nn.Module):
         # print("text_diff :", text_diff.shape)
         text_features = text_features + self.gamma * text_diff
         # print("text_features : ", text_features.shape)
-        # print("text_features : ", np.unique(text_features.detach().cpu().numpy()))
 
 
 

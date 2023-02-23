@@ -1,0 +1,286 @@
+diff --git a/args.py b/args.py
+index cfdf208..99eb1c8 100644
+--- a/args.py
++++ b/args.py
+@@ -21,7 +21,7 @@ def get_parser():
+     parser.add_argument('--result-dir', default='./Results/3e-1_sched_only_contrast', help='path to save resultant images')
+     parser.add_argument('--model-dir', default='../ContextPromptPart_model', help='path to save models')
+ 
+-    parser.add_argument('--dataset-dir', default= '/home/harsh21122/tmp/cat_dataset', help='path where dataset is uploaded')
++    parser.add_argument('--dataset-dir', default= 'cat_dataset', help='path where dataset is uploaded')
+ 
+ 
+     parser.add_argument('--resume', default=False, type = bool, help='resume from checkpoint')
+diff --git a/model.py b/model.py
+index d3b5aa3..104acda 100644
+--- a/model.py
++++ b/model.py
+@@ -1,23 +1,9 @@
+-import os
+-import cv2
+ import clip
+ import torch
+-import math
+-import numpy as np
+-import pandas as pd
+-from PIL import Image
+ import torch.nn as nn
+ import torch.nn.functional as F
+-import matplotlib.pyplot as plt
+-import torchvision.transforms as T
+-from torch.utils.data import Dataset, DataLoader
+-from sklearn.model_selection import train_test_split
+ from einops import rearrange
+-import torch.cuda.amp as amp
+-from datetime import datetime
+ from torch.optim.lr_scheduler import MultiStepLR
+-from skimage.transform import resize
+-from PIL import Image
+ import clip
+ 
+ import torch
+@@ -54,15 +40,6 @@ class Encoder(nn.Module):
+         print("self.prompts :", self.prompts.shape)
+         print("self.prompts rquires grad : ", self.prompts.requires_grad_)
+ 
+-
+-        # self.image_encoder = clip_model.visual
+-        # self.features = {}
+-        # self.image_encoder.layer4.register_forward_hook(self.get_features('layer4'))
+-        # self.image_encoder.layer3.register_forward_hook(self.get_features('layer3'))
+-        # self.image_encoder.layer2.register_forward_hook(self.get_features('layer2'))
+-        # self.image_encoder.layer1.register_forward_hook(self.get_features('layer1'))
+-
+-
+         embed_dim = width * 32  # the ResNet feature dimension
+         self.attnpool = AttentionPool2d(input_resolution // 32, embed_dim, 32, output_dim) # dense clip code
+ 
+@@ -77,73 +54,17 @@ class Encoder(nn.Module):
+         
+         self.decoder = Decoder(in_channels = 2048)
+ 
+-        
+-
+-
+-
+ 
+-    # def get_features(self, name):
+-    #     def hook(model, input, output):
+-    #         self.features[name] = output.detach()
+-    #     return hook
+-    
+-    
+     def forward(self, input_batch):
+ 
+         x4 = self.image_encoder(input_batch.type(self.dtype)) 
+-        # print("image_features : ", np.unique(x4.detach().cpu().numpy()))
+-
+-        # ImageEncoder = self.image_encoder(input_batch.type(self.dtype))
+-        # print(" ImageEncoder : ", ImageEncoder.shape)
+-        # x4 = self.features['layer4']
+-        # x3 = self.features['layer3']
+-        # x2 = self.features['layer2']
+-        # x1 = self.features['layer1']
+-        # print("x4, x3, x2, x1 : ", x4.shape, x3.shape, x2.shape, x1.shape)
+         
+         x_global, x_local = self.attnpool(x4) # dense clip code
+-        # print("x_global : ", np.unique(x_global.detach().cpu().numpy()))
+-        # print("x_local : ", np.unique(x_local.detach().cpu().numpy()))
+-        # print("x_global : ", x_global.shape)
+-        # print("x_local : ", x_local.shape)
++
+         B, C, H, W = x_local.shape
+ 
+         visual_context = torch.cat([x_global.reshape(B, C, 1), x_local.reshape(B, C, H*W)], dim=2).permute(0, 2, 1)  # B, N, C
+         
+-        # print("visual_context :", visual_context.shape, visual_context.dtype, visual_context.is_cuda)
+-
+-        
+-        
+-        # B, C, H, W = self.features['layer4'].size()
+-        
+-        # print("B, C, H, W : ", B, C, H, W)
+-        # # print("S : ", S)
+-        # x4 = self.features['layer4'].reshape([B, C, H*W]).permute(0, 2, 1)
+-        # print("X4 :", x4.shape)
+-        # x4 = self.ln_proj_x4(x4)
+-        # print("X4 after linear proj:", x4.shape)
+-
+-      
+-        # x4_bar = self.features['attnpool'].unsqueeze(1)
+-        # print("x4_bar :", x4_bar.shape)
+-
+-
+-
+-
+-
+-        # prompts = self.prompt_learner()
+-        # print("prompts : ", np.unique(prompts.detach().cpu().numpy()))
+-        # # print("prompts :", prompts.shape, prompts.dtype)
+-        # # print("tokenized_prompts :", self.tokenized_prompts, self.tokenized_prompts.dtype)
+-        # text_features = self.text_encoder(prompts, self.tokenized_prompts)
+-        # print("text_features : ", torch.unique(text_features))
+-        # print("text_features : ", text_features.shape, text_features.dtype)
+-        # text_features = F.normalize(text_features, p=2.0, dim = 1)
+-        # print("text_features : ", torch.unique(text_features))
+-
+-        # print("text_features : ", text_features.shape, text_features.dtype)
+-
+-
+         text_features = self.prompts.expand(B, -1, -1)
+         # print("text_features : ", text_features.shape, text_features.dtype)
+         text_features = text_features.type(torch.cuda.FloatTensor)
+@@ -155,7 +76,6 @@ class Encoder(nn.Module):
+         # print("text_diff :", text_diff.shape)
+         text_features = text_features + self.gamma * text_diff
+         # print("text_features : ", text_features.shape)
+-        # print("text_features : ", np.unique(text_features.detach().cpu().numpy()))
+ 
+ 
+ 
+diff --git a/tmp.py b/tmp.py
+index 1a5527b..9419d99 100644
+--- a/tmp.py
++++ b/tmp.py
+@@ -6,3 +6,5 @@ This file is to test I/O operations in the model
+ Just a tmp file to see what goes in and out the model.
+ How input is processed through out the layers.
+ """
++
++
+diff --git a/train.py b/train.py
+index 297ae0c..22d91de 100644
+--- a/train.py
++++ b/train.py
+@@ -17,14 +17,13 @@ import torch.cuda.amp as amp
+ from datetime import datetime
+ from torch.optim.lr_scheduler import MultiStepLR
+ from vgg_extraction import FeatureExtraction, contrastive_loss
++from model import Encoder
+ 
+ # from utils import calc_iou
+ 
+ 
+ 
+ from dataset import CustomDataset as CustomDataset
+-# from transformer import TransformerDecoder
+-# from PartCLIP import PartCLIP
+ 
+ device = "cuda" if torch.cuda.is_available() else "cpu"
+ 
+@@ -49,13 +48,8 @@ def train_one_epoch(encoder, zoo_feat_net, trainLoader, optimizer, loss_fn, args
+         images_vgg = batch['image_vgg'].to(device)
+         gt = batch['gt'].squeeze(1).type(torch.LongTensor).to(device)
+         name = batch['name']
+-            # classname = batch['classname']
+-            # partname = batch['partname']
+ 
+-        # print(np.unique(gt.cpu().numpy()))
+-        # print(np.unique(image.cpu().numpy()))
+                     
+-        # print(name, image.shape, gt.shape, np.unique(gt.numpy()))
+         optimizer.zero_grad()
+         output = encoder(image)
+ 
+@@ -68,11 +62,6 @@ def train_one_epoch(encoder, zoo_feat_net, trainLoader, optimizer, loss_fn, args
+         loss_contrastive = contrastive_loss(basis[:, :, -args.layer_len:] if args.layer_len > 0 else basis, args.temperature)
+ 
+ 
+-        # print("torch.unique(gt) : ", torch.unique(gt))
+-        # print("pred = ", output.shape)
+-            # .type(torch.DoubleTensor)
+-        # print("output : ", output.shape, output.dtype, gt.shape, gt.dtype)
+-        # print("output : ", torch.unique(output))
+         loss_ce = loss_fn(output, gt)
+         total_loss = args.lamda_cross * loss_ce + args.lamda_contrastive * loss_contrastive
+ 
+@@ -84,8 +73,6 @@ def train_one_epoch(encoder, zoo_feat_net, trainLoader, optimizer, loss_fn, args
+         x = torch.nn.functional.softmax(output, dim = 1)
+         pred = torch.argmax(x, dim=1)
+         
+-        # print("pred : ", torch.unique(pred))
+-
+         running_loss += total_loss.item()
+         total_running_loss += total_loss.item()
+         total_running_loss_ce += loss_ce.item()
+@@ -97,10 +84,6 @@ def train_one_epoch(encoder, zoo_feat_net, trainLoader, optimizer, loss_fn, args
+             print("  torch.unique(gt) : ", torch.unique(gt))
+             print("  pred unique : ", torch.unique(pred))
+         
+-
+-        
+-            
+-        
+     
+     avg_total_running_loss = total_running_loss/(idx + 1)
+     avg_total_running_loss_ce = total_running_loss_ce/(idx + 1)
+@@ -181,28 +164,6 @@ def main(args):
+     
+     
+ 
+-
+-    
+-    
+-    # scaler = amp.GradScaler()
+-    
+-    # if args.resume:
+-    #     if os.path.isfile(args.model_name):
+-    #             print("loading checkpoint '{}'".format(args.model_name))
+-    #             checkpoint = torch.load(args.model_name)
+-    #             encoder.load_state_dict(checkpoint['state_dict'])
+-    #             optimizer.load_state_dict(checkpoint['optimizer'])
+-    #             if args.multi_step_scheduler:
+-    #                 scheduler.load_state_dict(checkpoint['scheduler'])
+-    #             best_vloss = checkpoint['best_vloss']
+-    #             epoch = checkpoint['epoch']
+-    #             print("Current best loss is {} and it is for epoch {}".format(best_vloss, epoch))
+-    #             print("loaded checkpoint '{}'".format(args.model_name))
+-    #     else:
+-    #         print("NO file to update checkpoint. Starting from fresh")
+-    # else:
+-    #     print("Resume turned off. Starting from fresh")
+-
+     train_dataset = CustomDataset(class_part_csv_file = train, root_dir = args.dataset_dir,
+                                      preprocess = preprocess)
+ 
+@@ -216,13 +177,11 @@ def main(args):
+     print("Length of Train dataset : {} and Test dataset : {}".format(len(train_dataset), len(test_dataset)))
+     print("Length of Train loader : {} and Test loader : {}".format(len(trainLoader), len(testLoader)))
+     
+-    from model import Encoder
+     encoder = Encoder(clip_model, unique_part_names)
+     encoder = encoder.to(device)
+ 
+     # This is taken from unsupervised contrastive paper for vgg feature extraction
+     
+-    
+     if int(args.ref_layer1[-3] + args.ref_layer1[-1]) <= int(args.ref_layer2[-3] + args.ref_layer2[-1]):
+         last_layer = args.ref_layer1 + ',' + args.ref_layer2
+         weights = [args.ref_weight1, args.ref_weight2]
+diff --git a/wandb/debug-internal.log b/wandb/debug-internal.log
+index 144d8bd..cf56fdd 120000
+--- a/wandb/debug-internal.log
++++ b/wandb/debug-internal.log
+@@ -1 +1 @@
+-run-20230214_175439-30aqbkwe/logs/debug-internal.log
+\ No newline at end of file
++run-20230223_151204-vfldlez7/logs/debug-internal.log
+\ No newline at end of file
+diff --git a/wandb/debug.log b/wandb/debug.log
+index 367e517..363f8f9 120000
+--- a/wandb/debug.log
++++ b/wandb/debug.log
+@@ -1 +1 @@
+-run-20230214_175439-30aqbkwe/logs/debug.log
+\ No newline at end of file
++run-20230223_151204-vfldlez7/logs/debug.log
+\ No newline at end of file
+diff --git a/wandb/latest-run b/wandb/latest-run
+index 3772494..6220ae2 120000
+--- a/wandb/latest-run
++++ b/wandb/latest-run
+@@ -1 +1 @@
+-run-20230214_175439-30aqbkwe
+\ No newline at end of file
++run-20230223_151204-vfldlez7
+\ No newline at end of file
