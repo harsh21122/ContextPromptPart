@@ -24,3 +24,7 @@ We have option to make 2 decoders for the same:
 
 - [x] **Implemented FPN decoder**
 - [x] **Implemented RN50 like CLIP and initialize weights for each layer**
+
+
+### Current Isuue:
+- If we remove the decoder and just focus on the score map, we can see it on visualisation that its not learning anything.
