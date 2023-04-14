@@ -60,12 +60,12 @@ def train_one_epoch(encoder, zoo_feat_net, trainLoader, optimizer, loss_fn, args
         output = encoder(image)
 
         # this is contrastive code
-        zoo_feat = get_zoo_feat(images_vgg, zoo_feat_net)
-        # print("zoo_feat : ", zoo_feat.shape)
-        basis = torch.einsum('brhw, bchw -> brc', output, zoo_feat)
-        basis /= einops.reduce(output, 'b r h w -> b r 1', 'sum') + 1e-7
+        # zoo_feat = get_zoo_feat(images_vgg, zoo_feat_net)
+        # # print("zoo_feat : ", zoo_feat.shape)
+        # basis = torch.einsum('brhw, bchw -> brc', output, zoo_feat)
+        # basis /= einops.reduce(output, 'b r h w -> b r 1', 'sum') + 1e-7
    
-        loss_contrastive = contrastive_loss(basis[:, :, -args.layer_len:] if args.layer_len > 0 else basis, args.temperature)
+        # loss_contrastive = contrastive_loss(basis[:, :, -args.layer_len:] if args.layer_len > 0 else basis, args.temperature)
 
 
         # print("torch.unique(gt) : ", torch.unique(gt))
@@ -73,30 +73,32 @@ def train_one_epoch(encoder, zoo_feat_net, trainLoader, optimizer, loss_fn, args
             # .type(torch.DoubleTensor)
         # print("output : ", output.shape, output.dtype, gt.shape, gt.dtype)
         # print("output : ", torch.unique(output))
-        loss_ce = loss_fn(output, gt)
-        total_loss = args.lamda_cross * loss_ce + args.lamda_contrastive * loss_contrastive
+        # loss_ce = loss_fn(output, gt)
+        # total_loss = args.lamda_cross * loss_ce + args.lamda_contrastive * loss_contrastive
 
-        total_loss.backward(retain_graph=True)
-        torch.nn.utils.clip_grad_norm_(encoder.parameters(), 1)
+        # total_loss.backward(retain_graph=True)
+        # torch.nn.utils.clip_grad_norm_(encoder.parameters(), 1)
 
-        optimizer.step()
-        print("Loss : ", loss_ce.item(), loss_contrastive.item(),  total_loss.item())
-        x = torch.nn.functional.softmax(output, dim = 1)
-        pred = torch.argmax(x, dim=1)
+        # optimizer.step()
+        # print("Loss : ", loss_ce.item(), loss_contrastive.item(),  total_loss.item())
+        # x = torch.nn.functional.softmax(output, dim = 1)
+        # pred = torch.argmax(x, dim=1)
         
-        # print("pred : ", torch.unique(pred))
+        # # print("pred : ", torch.unique(pred))
 
-        running_loss += total_loss.item()
-        total_running_loss += total_loss.item()
-        total_running_loss_ce += loss_ce.item()
-        total_running_loss_contrastive += loss_contrastive.item()
-        if (idx + 1) % 20 == 0:
-            last_loss = running_loss / 20 # loss per batch
-            print('  batch {} loss: {}, {}, {}'.format(idx + 1, loss_ce.item(), loss_contrastive.item(), total_loss.item(), last_loss))
-            running_loss = 0.
-            print("  torch.unique(gt) : ", torch.unique(gt))
-            print("  pred unique : ", torch.unique(pred))
+        # running_loss += total_loss.item()
+        # total_running_loss += total_loss.item()
+        # total_running_loss_ce += loss_ce.item()
+        # total_running_loss_contrastive += loss_contrastive.item()
+        # if (idx + 1) % 20 == 0:
+        #     last_loss = running_loss / 20 # loss per batch
+        #     print('  batch {} loss: {}, {}, {}'.format(idx + 1, loss_ce.item(), loss_contrastive.item(), total_loss.item(), last_loss))
+        #     running_loss = 0.
+        #     print("  torch.unique(gt) : ", torch.unique(gt))
+        #     print("  pred unique : ", torch.unique(pred))
+
         
+        break
 
         
             
@@ -167,7 +169,8 @@ def main(args):
     class_part_df = pd.read_csv(os.path.join(args.dataset_dir, "class_part_label.csv"))
     names_df = pd.read_csv(os.path.join(args.dataset_dir, "names.csv"))
     unique_part_names = list(class_part_df.part.unique())
-    unique_part_names = ['head', 'neck', 'torso', 'tail', 'legs'] # hardcoding for now. Each part name index corresponds to gt index
+    # unique_part_names = ['head', 'neck', 'torso', 'tail', 'legs']
+    unique_part_names = ['the head of the cat', 'the neck of the cat', 'the torso of the cat', 'the tail of the cat', 'the legs of the cat'] # hardcoding for now. Each part name index corresponds to gt index
     # print("unique_part_names : ", unique_part_names)
 
 
@@ -210,7 +213,7 @@ def main(args):
     test_dataset = CustomDataset(class_part_csv_file = test, root_dir = args.dataset_dir,
                                      preprocess = preprocess)
 
-    trainLoader = DataLoader(train_dataset, batch_size = args.batch_size, shuffle=False, num_workers=0)
+    trainLoader = DataLoader(train_dataset, batch_size = args.batch_size, shuffle=True, num_workers=0)
     testLoader =  DataLoader(test_dataset, batch_size = args.batch_size, shuffle=False, num_workers=0)
 
 
@@ -220,6 +223,9 @@ def main(args):
     from model import Encoder
     encoder = Encoder(clip_model, clip_visual, unique_part_names, args.score_map_type)
     encoder = encoder.to(device)
+    
+    checkpoint = torch.load('best_model_fpn_attention', map_location=torch.device('cpu'))
+    encoder.load_state_dict(checkpoint['state_dict'])
 
     # This is taken from unsupervised contrastive paper for vgg feature extraction
     
@@ -271,7 +277,7 @@ def main(args):
 
         encoder.train()
         avg_loss, avg_loss_ce, avg_loss_cont = train_one_epoch(encoder, zoo_feat_net, trainLoader, optimizer,loss_fn, args)
-        
+        break
         # We don't need gradients on to do reporting
         
         encoder.eval()

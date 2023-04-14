@@ -88,7 +88,7 @@ def featureL2Norm(feature):
 
 
 class FeatureExtraction(torch.nn.Module):
-    def __init__(self, train_fe=False, feature_extraction_cnn='vgg19', normalization=True, last_layer='', weights=None, use_cuda=True, gpu=0, ref_backbone=None):
+    def __init__(self, train_fe=False, feature_extraction_cnn='vgg19', normalization=True, last_layer='', weights=None, use_cuda=False, gpu=0, ref_backbone=None):
         super(FeatureExtraction, self).__init__()
         self.normalization = normalization
         print(f"layer: {last_layer}")

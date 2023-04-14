@@ -101,7 +101,7 @@ class Encoder(nn.Module):
     def forward(self, input_batch):
 
         out = self.image_encoder(input_batch.type(self.dtype)) 
-        # print("image_features : ", out[0].shape,  out[1].shape, out[2].shape, out[3].shape, out[4].shape)
+        print("image_features : ", out[0].shape,  out[1].shape, out[2].shape, out[3].shape, out[4].shape)
         # print("image_features : ", np.unique(x4.detach().cpu().numpy()))
 
         # ImageEncoder = self.image_encoder(input_batch.type(self.dtype))
@@ -157,7 +157,7 @@ class Encoder(nn.Module):
 
         text_features = self.prompts.expand(B, -1, -1)
         # print("text_features : ", text_features.shape, text_features.dtype)
-        text_features = text_features.type(torch.cuda.FloatTensor)
+        # text_features = text_features.type(torch.cuda.FloatTensor)
         # print("text_features : ", text_features.shape, text_features.dtype)
 
 
@@ -174,9 +174,27 @@ class Encoder(nn.Module):
         B, K, C = text_features.shape
         x_local = F.normalize(x_local, dim=1, p=2)
         text = F.normalize(text_features, dim=2, p=2)
+        print("X_LOCAL, text : ", x_local.shape, text.shape)
         score_map = torch.einsum('bchw,bkc->bkhw', x_local, text)
+        print("score_map : ", score_map.shape)
+        s = score_map[0]
+        s = s.detach().numpy()
+        print(s.shape)
+        plt.imshow(input_batch[0].permute(1,2,0).detach().numpy())
+        plt.show()
+        plt.imshow(cv2.resize(s[0], (224,244)))
+        plt.show()
+        plt.imshow(cv2.resize(s[1], (224,244)))
+        plt.show()
+        plt.imshow(cv2.resize(s[2], (224,244)))
+        plt.show()
+        plt.imshow(cv2.resize(s[3], (224,244)))
+        plt.show()
+        plt.imshow(cv2.resize(s[4], (224,244)))
+        plt.show()
+        plt.imshow(cv2.resize(s[5], (224,244)))
+        plt.show()
         # print("score_map : ", np.unique(score_map.detach().cpu().numpy()))
-        # print("score_map : ", score_map.shape)
 
         if self.type_ == 'concat':
             x_bar = torch.cat([out[4], score_map], dim=1)
@@ -192,6 +210,18 @@ class Encoder(nn.Module):
             print("attention after mean x_bar : ", x_bar.shape)
         else:
             pass
+
+        # s = x_bar[0]
+        # s = s.detach().numpy()
+        # print(s.shape)
+        # plt.imshow((s[0]))
+        # plt.show()
+        # plt.imshow(s[1])
+        # plt.show()
+        # plt.imshow(s[2])
+        # plt.show()
+        # plt.imshow(s[3])
+        # plt.show()
 
         low_level_features = [out[0], out[1], out[2], out[3], x_bar]
 
